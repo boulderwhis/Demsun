@@ -186,25 +186,25 @@ var map, infowindow, globalStringAddress, EndGame, poslat, poslng, Senator1, Sen
       infoWindow.open(map);
     }
 
-//    var tt= function(globalStringAddress){
-//      console.log("eat ass " + "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk");
-//       $(document).ready(function() {
-//               $("#officials").click(function(){
-//                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk";
-//                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address=40790+W+Wade+Dr%2C+Maricopa%2C+AZ+85138%2C+USA&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk"
-//                 $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
-//                 $.getJSON(WebStrg, function(result){
-//                     $.each(result, function(i, field){
-//                           $("#lobby").append(
-//                             JSON.stringify(field),
-//                             window.sessionStorage.setItem('GovtData', field),
-//                             document.getElementById('lobby').innerHTML = field,
-//                           );
-//     });
-//   });
-// });
-// });
-// };
+    var tt= function(globalStringAddress){
+      console.log("eat ass " + "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk");
+       $(document).ready(function() {
+               $("#officials").click(function(){
+                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk";
+                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address=40790+W+Wade+Dr%2C+Maricopa%2C+AZ+85138%2C+USA&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk"
+                 $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
+                 $.getJSON(WebStrg, function(result){
+                     $.each(result, function(i, field){
+                           $("#lobby").append(
+                             JSON.stringify(field),
+                             window.sessionStorage.setItem('GovtData', field),
+                             document.getElementById('lobby').innerHTML = field,
+                           );
+     });
+   });
+ });
+ });
+ };
         // window.sessionStorage.setItem = ('address', globalStringAddress);
         // window.sessionStorage.setItem = ('Senator1', Senator1);
         // window.sessionStorage.setItem = ('Senator2', Senator2);
