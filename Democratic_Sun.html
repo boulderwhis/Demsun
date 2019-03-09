@@ -1,0 +1,2119 @@
+<!DOCTYPE html>
+ <html lang="en">
+
+  <head>
+   <meta charset="utf-8">
+   <meta name= "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="Lobby the Federal Government" content="">
+   <meta name="The Democratic Sun" content="">
+   
+   <title>The Democracit Sun</title>
+    <link rel="icon" type="image/png" href="D:/Ethan/STUFF/index.html/Logo.png">
+   <!-- Bootsrap core Css -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link href="file:///D:/Ethan/STUFF/index.html/Democratic_Sun.css" type="text/css" rel="stylesheet">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+
+  </head>
+
+
+<body>
+  <style>
+    .bg {
+    background-color: #006600;
+    -webkit-text-fill-color: white;
+}
+
+.navbar-brand {
+    text-align: center;
+    -webkit-text-fill-color: #006600;
+    font-weight: bold;
+}
+.navbar-toggler {
+    background-color:#006600;
+}
+.nav-link{
+    -webkit-text-fill-color: #006600;
+}
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #006600;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    z-index: 1;
+}
+h5 {
+    -webkit-text-fill-color: #006600;
+}
+p1 {
+    -webkit-text-fill-color: #006600;
+}
+.container{
+    padding-bottom: 50px;
+    padding-top: 25px;
+}
+#lobby{
+    display: block;
+}
+    </style>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="D:/Ethan/STUFF/index.html/Democratic_Sun.html"> <img id="logo" src="D:/Ethan/STUFF/index.html/Logo.png" width="25" height="20">The Democratic Sun</a>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="D:/Ethan/STUFF/index.html/Democratic_Sun.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="D:/Ethan/STUFF/index.html/Democratic_Sun_About.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="D:/Ethan/STUFF/index.html/Democratic_Sun_Contact.html">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+<div class="bg">
+  <!-- Page Content -->
+    <div id="map"></div>
+  <script>
+
+
+
+
+
+var map, infowindow, globalStringAddress, EndGame, poslat, poslng, Senator1, Senator2, Rep;
+
+    
+
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 38.907, lng: -77.036},
+        zoom: 10
+      });
+      var infowindow = new google.maps.InfoWindow;
+      var geocoder = new google.maps.Geocoder;
+      
+    //   // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          console.log(position.coords.latitude + ", " + position.coords.longitude); 
+          //  console.log(poslat + ", " + poslng);
+           var latlng = {lat: pos.lat, lng: pos.lng};
+           geocoder.geocode({'location': latlng}, function(results, status) {
+        if (status === 'OK') {
+          if (results[0]) {
+            map.setZoom(11);
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map
+            });
+            globalStringAddress = results[0].formatted_address
+            console.log("address is : "+ globalStringAddress);
+            infowindow.setContent(results[0].formatted_address);
+            infowindow.open(map, marker);
+            var globalStringAddress = globalStringAddress.replace(/[\s]/g, '+').replace(/[,]/g, '%2C');        
+            var EndGame ="https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk";
+           console.log(EndGame);
+           console.log(globalStringAddress);
+           tt(globalStringAddress);
+//            var tt= function(globalStringAddress) {
+//             $(document).ready(function() {
+//               $("#officials").click(function(){
+//                 $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
+//                     $.each(result, function(i, field){
+//                           $("#lobby").append(field + " ");
+//     });
+//   });
+// });
+// });
+// };
+
+
+
+          } else {
+            window.alert('No results found');
+          }
+        } else {
+          window.alert('Geocoder failed due to: ' + status);
+        }
+      });
+      
+
+         
+          infowindow.setPosition(pos);
+          infowindow.setContent('Cool House Loser');
+          infowindow.open(map);
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infowindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infowindow, map.getCenter());
+      }
+      console.log("address is : "+ globalStringAddress)
+    }
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+      infoWindow.open(map);
+    }
+
+//    var tt= function(globalStringAddress){
+//      console.log("eat ass " + "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk");
+//       $(document).ready(function() {
+//               $("#officials").click(function(){
+//                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk";
+//                 var WebStrg = "https://www.googleapis.com/civicinfo/v2/representatives?address=40790+W+Wade+Dr%2C+Maricopa%2C+AZ+85138%2C+USA&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk"
+//                 $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
+//                 $.getJSON(WebStrg, function(result){
+//                     $.each(result, function(i, field){
+//                           $("#lobby").append(
+//                             JSON.stringify(field),
+//                             window.sessionStorage.setItem('GovtData', field),
+//                             document.getElementById('lobby').innerHTML = field,
+//                           );
+//     });
+//   });
+// });
+// });
+// };
+        // window.sessionStorage.setItem = ('address', globalStringAddress);
+        // window.sessionStorage.setItem = ('Senator1', Senator1);
+        // window.sessionStorage.setItem = ('Senator2', Senator2);
+        // window.sessionStorage.setItem = ('Rep', Rep);
+        // window.sessionStorage.setItem = ('content', content);
+
+      //From these global variables we can create, ATLEAST, REST constructed API's
+      //that work.. It's funny, I thought that the Google API
+      // was the endGame but that's only the beginning. Civics APi > Congressional ID DB
+      // Propublica API > THE ALGORITHM (FIND A MATHEMATICAL EQUATION THAT DEFINES THE BEHAVIOUR 
+      // BETWEEN MULTIPLE OBJECTS WITH DIFFERENT CONSTANTS)
+
+
+
+
+
+
+//Propublica API Experimentation
+// var k = function() {
+// curl 
+// "https://api.propublica.org/congress/v1/115/senate/Brown.json"; 
+// -H;
+//  "X-API-Key: vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71"
+// }
+// k;
+
+//CARD SWITCH STATEMENT
+
+
+// var dd;
+// dataloop = function(dd){
+//    for (i in dd.officials) {
+//      console.log( dd.officials[i].name);
+//    for (j in dd.name[i].address) {
+//           console.log(dd.name[i].address[j]);
+//    }
+//  }
+// };
+// dataloop;
+console.log(globalStringAddress);
+
+
+
+  var q = '';
+  var zz = function (q) {
+    switch(q) {
+            
+            case 'Campaign Finance Reform':
+            console.log("CF started");
+            var x2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            x2;
+            headerphoto1='Sanders Announces Second Presidential Bid';
+            captionphoto1='Vermont Senator Bernie Sanders has announced his intention to seek 2020 Democratic Presidential Nomination.';
+            linkphoto1='D:/Ethan/STUFF/index.html/Sanders.jpg';
+            headerphoto2='Democratic Legislators seek reforms';
+            captionphoto2='Speaker Pelosi has expressed interest in reforming what has become a very difficult system to navigate.';
+            linkphoto2='D:/Ethan/STUFF/index.html/Pelosi.jpeg';
+            headerphoto3='Democratic Sun Launches New Platform';
+            captionphoto3='Supreme court rulings on campaign finance regulations have caused rampant corruption on the Hill. The Democratic Sun has created a new tool to combat that corruption and give a voice back to the people.';
+            linkphoto3='D:/Ethan/STUFF/index.html/Logo.png';
+            var cstrap = {
+             code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var x1 = cstrap.code;
+            document.getElementById("carousel").innerHTML = x1;
+            var x = {
+              rhetoric: "The influence of the People should not have to compete with the" + 
+            " influence of corporate america. The weight of a checkbook shouldn't" + 
+            " outweigh the common will. Donate now to start evening the playing field."
+           };
+            document.getElementById("content").innerHTML=x.rhetoric;
+            console.log("CF finished");
+            break;
+            
+            case 'Build the Wall':
+            var y2 = function ()  {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            y2;
+            headerphoto1='Build the Wall';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+             code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var y1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=y1;
+            var y ={
+            rhetoric: "The current state of our southern border has created an environment that promotes the illegal" +
+             "immigration of citizens of other nations as well as terrorist entities. The US cannot solve all the worlds "+
+             "problems and we cannot begin to solve ours until blocking ourselves from hostility."
+            };
+             document.getElementById("content").innerHTML=y.rhetoric;
+            break;
+            
+            case 'Medicare for All':
+            var z2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            z2;
+            headerphoto1='Medicare for All';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+              code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var z1= cstrap.code;
+            document.getElementById("carousel").innerHTML=z1;
+            var z ={ 
+            rhetoric: "Rhetoric" 
+          }
+            document.getElementById("content").innerHTML=z.rhetoric;
+            break;
+            
+            case 'Gun Rights':
+            var a2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            a2;
+            headerphoto1='Gun Rights';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+              code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var a1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=a1;
+            var a = {
+              rhetoric: "Rhetoric"
+          };
+            document.getElementById("content").innerHTML=a.rhetoric;
+            break;
+            
+            case 'Free Collegiate Education':
+            var b2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            b2;
+            headerphoto1='Free Collegiate Education';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+              code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var b1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=b1;
+            var b = {
+              rhetoric: "Rhetoric"
+          };
+            document.getElementById("content").innerHTML=b.rhetoric;
+            break;
+            
+            case 'Small Business Tax Reduction':
+            var c2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            c2;
+            headerphoto1='Small Business Tax Reduction';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+              code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var c1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=c1;
+            var c = {
+            rhetoric: "Rhetoric" 
+          };
+            document.getElementById("content").innerHTML=c.rhetoric;
+            break;
+            
+            case 'The Green New Deal':
+            var d2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            d2;
+            headerphoto1='The Green New Deal';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+              code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var d1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=d1;
+            var d = {
+              rhetoric: "Rhetoric"
+            };
+            document.getElementById("content").innerHTML=d.rhetoric;
+            break;
+            
+            case 'Clean Coal Initiatives':
+            var e2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            e2;
+            headerphoto1='Clean Coal Initiatives';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var e1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=e1;
+            var e = {
+              rhetoric: "Rhetoric"
+          };
+            document.getElementById("content").innerHTML=e.rhetoric;
+            break;
+            
+            case 'Corporate Inversion Penalties':
+            var f2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            f2;
+            headerphoto1='Corporate Inversion Penalties';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var f1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=f1;
+            var f = {
+              rhetoric: "Rhetoric"
+          };
+            document.getElementById("content").innerHTML=f.rhetoric;
+            break;
+            
+            case 'Corporate Tax Reductions':
+            var g2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            g2;
+            headerphoto1='Corporate Tax Reductions';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var g1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=g1;
+            var g = {
+              rhetoric: "Rhetoric"
+             };
+            document.getElementById("content").innerHTML=g.rhetoric;
+            break;
+            
+            case 'Abolish the Death Penalty':
+            var h2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence.
+            };
+            h2;
+            headerphoto1='Abolish the Death Penalty';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+             code: '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var h1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=h1;
+            var h ={
+              rhetoric: "rhetoric"};
+            document.getElementById("content").innerHTML=h.rhetoric;
+            break;
+
+            case 'Pro Death Penalty':
+            var i2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            i2;
+            headerphoto1='Pro Death Penalty';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var i1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=i1;
+            var i ={ rhetoric:"Rhetoric"};
+            document.getElementById("content").innerHTML=i.rhetoric;
+            break;
+            
+            case 'Seperate Church and State':
+            var j2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            j2;
+            headerphoto1='Seperate Church and State';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var j1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=j1;
+            var j ={ rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=j.rhetoric;
+            break;
+            
+            case 'Religious Expression': 
+            var l2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            l2;
+            headerphoto1='Religious Expression';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var l1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=l1;
+            var l = {rhetoric:"Rhetoric"};
+            document.getElementById("content").innerHTML=l.rhetoric;
+            break;
+            
+            case 'Same-Sex Marriage':
+            var m2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            m2;
+            headerphoto1='Same-Sex Marriage';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var m1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=m1;
+            var m = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=m.rhetoric;
+            break;
+            
+            case 'The Sanctity of Marriage':
+            var n2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            n2;
+            headerphoto1='The Sanctity of Marriage';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var n1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=n1;
+            var n = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=n.rhetoric;
+            break;
+            
+            case 'Universal Basic Income':
+            var o2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            o2;
+            headerphoto1='Universal Basic Income';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var o1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=o1;
+            var o = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=o.rhetoric;
+            break;
+            
+            case 'The Welfare State': 
+            var p2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            p2;
+            headerphoto1='The Welfare State';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var p1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=p1;
+            var p ={rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=p.rhetoric;
+            break;
+            
+            case 'The War on Terror':
+            var r2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            r2;
+            headerphoto1='';
+            captionphoto1='The War on Terror';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var r1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=r1;
+            var r = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=r.rhetoric;
+            break;
+            
+            case 'America is Under-Attack': 
+            var s2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            s2;
+            headerphoto1='';
+            captionphoto1='America is Under-Attack';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var s1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=s1;
+            var s = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=s.rhetoric;
+            break;
+            
+            case 'End Voter Suppression':
+            var t2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            t2;
+            headerphoto1='';
+            captionphoto1='END VOTER SUPPRESSION';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var t1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=t1;
+            var t = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=t.rhetoric;
+            break;
+            
+            case 'Stop Illegals from Voting': 
+            var u2 = function () {
+              //function for recalling issue specific API data and, after cross-referencing, developing location specific strategy of influence
+            };
+            u2;
+            headerphoto1='';
+            captionphoto1='';
+            linkphoto1='';
+            headerphoto2='';
+            captionphoto2='';
+            linkphoto2='';
+            headerphoto3='';
+            captionphoto3='';
+            linkphoto3='';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var u1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=u1;
+            var u = {rhetoric: "Rhetoric"};
+            document.getElementById("content").innerHTML=u.rhetoric;
+            break; 
+            
+            default:
+            q= "WHAT DID YOU DO";
+            console.log("Card Pathway Failure");
+            headerphoto1='Sweet Fancy Moses';
+            captionphoto1='Local person breaks coolest thing to happen to the internet since people realized you could point cameras at cats. (Also yes good boy dog woof bark yes) ';
+            linkphoto1='https://media.giphy.com/media/Pk20jMIe44bHa/giphy.gif';
+            headerphoto2='Shame brought to local persons family';
+            captionphoto2='Shame today ladies and gents. Pure shame. Bill Murray shame was brought down upon a local family after someone broke the DS all but ensuring the apocalypse';
+            linkphoto2='https://media.giphy.com/media/jEkFtJMJuNTgc/giphy.gif';
+            headerphoto3='Christmas cancelled after reckless actions of local internet consumer';
+            captionphoto3='Santa just called us and said your actions are reprehensable. With Christmas out the window he will now consult with the Easter bunny about a possible withdrawal';
+            linkphoto3='https://heavyeditorial.files.wordpress.com/2018/12/GettyImages-1074396864.jpg?quality=65&strip=all';
+            var cstrap = {
+            code:  '<div class="column">' +
+          '<div class="col-lg-12 text-center">' +
+            '<h1 class="mt-5">'+q+'</h1>'+
+            '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
+                    '<ol class="carousel-indicators">'+
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
+                      '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
+                    '</ol>' +
+                    '<div class="carousel-inner">' +
+                      '<div class="carousel-item active">' +
+                            '<div class="carousel-caption d-none d-md-block">' +
+                                    '<h5>'+headerphoto1+'</h5>' +
+                                    '<p>'+captionphoto1+'</p>' +
+                            '</div>' +
+                        '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
+                      '</div>' +
+                      '<div class="carousel-item">' +
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto2+'</h5>'+
+                                    '<p>'+captionphoto2+'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
+                      '</div>'+
+                      '<div class="carousel-item">'+
+                            '<div class="carousel-caption d-none d-md-block">'+
+                                    '<h5>'+headerphoto3+'</h5>'+
+                                    '<p>'+captionphoto3 +'</p>'+
+                            '</div>'+
+                        '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
+                      '</div>'+
+                    '</div>'+
+                    '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
+                      '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Previous</span>'+
+                    '</a>'+
+                    '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
+                      '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
+                      '<span class="sr-only">Next</span>'+
+                    '</a>'+
+            '</div>'
+            };
+            var u1 = cstrap.code;
+            document.getElementById("carousel").innerHTML=u1;
+            var u = {
+              rhetoric: "Sorry folks. It looks like we've had some trouble accessing" +
+              " your data. Try heading back to the previous page and selecting your issue again" +
+              " or file a report and we'll look into it as soon as possible" +
+              ". Thanks again for visiting and helping us in the fight against big money in politics. ",
+              sarcasm: "Also, we know what the error was now. It was your fault. Nice job. Thanks for playing along."
+
+          };
+            document.getElementById("content").innerHTML=u.rhetoric;
+        }
+      }
+
+
+  </script>
+
+
+  <div class="container">
+    <div class="column">
+      <div class="col-lg-12 text-center"> 
+          <button id="officials" onclick="tt()">Get Started</button>
+
+          <div id="lobby">
+            <div id="carousel">
+            
+        <h1 class="mt-5">Lobby the Federal Government</h1>
+        <p class="lead">Over the past decade the ability of the People to influence public
+          policy has been greatly diminished due to the increased presence and legal abilities
+          of special interest groups. This monetary influence has lead to the over represenation
+          of corporate interests and under represenation of the collective will. This tool aims 
+          to correct that imbalance by providing, for the user, an issue based data-driven solution.
+          When you choose an issue to become an engaged in your small donation will be automatically
+          added to a pool of other donations and diseminated out to influence those individuals in 
+          Congress that have a proven track record of fighting for it; or it may be used in an effort
+          to decrease the volume of those that fight against it by contributing directly to the 
+          campaign chests of those running against them. 
+        </p>
+          </div>
+          <button id = "lobbybutton">Lobby AWAY FAGGOT</button>
+                                      <!--^ function that brings up cards and asks for location -->
+        <div id = "content">
+        <p class="lead>">
+        </p>
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Campaign Finance Reform</h5>
+                  <p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>
+                  <a id="Campaign Finance Reform" class="btn btn-primary" onclick= "zz('Campaign Finance Reform');">Engage Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Build the Wall</h5>
+                  <p1 class="card-text">Our borders are important. Fight the flow of illegal immigration.</p1>
+                  <a id="Build the Wall" class="btn btn-primary" onclick= "zz('Build the Wall');">Engage Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="card bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Medicare for All</h5>
+                    <p1 class="card-text">Otherwise known as Free Healthcare, a healthy life is a human right that we should guarantee.</p1>
+                    <a id="Medicare for All" class="btn btn-primary" onclick = "zz('Medicare for All');" >Engage Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Gun Rights</h5>
+                    <p1 class="card-text">The only thing stopping a bad guy with a gun is a good guy with one.</p1>
+                    <a id="Gun Rights" class="btn btn-primary" onclick = "zz('Gun Rights');">Engage Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Free Collegiate Education</h5>
+                      <p1 class="card-text">A college degree is crucial for sucess in a modern economy and shouldn't require lifelong debt.</p1>
+                      <a id="Free Collegiate Education" class="btn btn-primary" onclick = "zz('Free Collegiate Education');">Engage Now</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Small Business Tax Reduction</h5>
+                      <p1 class="card-text">Our nations small business' are the backbone of our economy and should be taxed accordingly.</p1>
+                      <a id="Small Business Tax Reduction" class="btn btn-primary" onclick = "zz('Small Business Tax Reduction');">Engage Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">The Green New Deal</h5>
+                        <p1 class="card-text">Climate Change is the largest threat ever posed to mankind and should be challenged aggressively.</p1>
+                        <a id="The Green New Deal" class="btn btn-primary" onclick = "zz('The Green New Deal');">Engage Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">Clean Coal Initiatives</h5>
+                        <p1 class="card-text">The only realistic means of powering our economy lie underground. Clean coal tech convinces the libtards.</p1>
+                        <a id="Clean Coal Initiatives" class="btn btn-primary" onclick = "zz('Clean Coal Initiatives');">Engage Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card bg-light mb-3">
+                        <div class="card-body">
+                          <h5 class="card-title">Corporate Inversion Penalties</h5>
+                          <p1 class="card-text">The days of Multinational Coporations paying no taxes by parking their profits overseas must come to an end.</p1>
+                          <a id="Corporate Inversion Penalties" class="btn btn-primary" onclick = "zz('Corporate Inversion Penalties');">Engage Now</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card bg-light mb-3">
+                        <div class="card-body">
+                          <h5 class="card-title">Corporate Tax Reductions</h5>
+                          <p1 class="card-text">Your a retard if you think that reducing taxes on the wealthiest corporations on Earth will help you.</p1>
+                          <a id="Corporate Tax Reductions" class="btn btn-primary" onclick = "zz('Corporate Tax Reductions');">Engage Now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card bg-light mb-3">
+                          <div class="card-body">
+                            <h5 class="card-title">Abolish the Death Penalty</h5>
+                            <p1 class="card-text">Collective execution is barbaric and shouldn't be a part of a modern society.</p1>
+                            <a id="Abolish the Death Penalty" class="btn btn-primary" onclick = "zz('Abolish the Death Penalty');">Engage Now</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card bg-light mb-3">
+                          <div class="card-body">
+                            <h5 class="card-title">Pro Death Penalty</h5>
+                            <p1 class="card-text">Executing a murderer is the appropriate punishment for taking an innocent life. Eye for an Eye.</p1>
+                            <a id="Pro Death Penalty" class="btn btn-primary" onclick = "zz('Pro Death Penalty');">Engage Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card bg-light mb-3">
+                            <div class="card-body">
+                              <h5 class="card-title">Seperate Church and State</h5>
+                              <p1 class="card-text">Religious expressionism has no place in our government, schools, or official documentation.</p1>
+                              <a id="Seperate Church and State" class="btn btn-primary" onclick = "zz('Seperate Church and State');">Engage Now</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card bg-light mb-3">
+                            <div class="card-body">
+                              <h5 class="card-title">Religious Expression</h5>
+                              <p1 class="card-text">The First Amendment doesn't prevent the acknowledgement of God in schools and government buildings.</p1>
+                              <a id="Religious Expression" class="btn btn-primary" onclick = "zz('Religious Expression');">Engage Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-sm-6">
+                            <div class="card bg-light mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title">Same-Sex Marriage</h5>
+                                <p1 class="card-text">All individuals, regardless of their sexual or gender orientation, should be able to marry.</p1>
+                                <a id="Same-Sex Marriage" class="btn btn-primary" onclick = "zz('Same-Sex Marriage');">Engage Now</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card bg-light mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title">The Sanctity of Marriage</h5>
+                                <p1 class="card-text">Marriage is between one man and one woman in accordance with Christian values.</p1>
+                                <a id="The Sanctity of Marriage" class="btn btn-primary" onclick = "zz('The Sanctity of Marriage');">Engage Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                              <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                  <h5 class="card-title">Universal Basic Income</h5>
+                                  <p1 class="card-text">Increased automation in all sectors of our economy are going to result in a jobless economy.</p1>
+                                  <a id="Universal Basic Income" class="btn btn-primary" onclick = "zz('Universal Basic Income');">Engage Now</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                  <h5 class="card-title">The Welfare State</h5>
+                                  <p1 class="card-text">Regardless of economic or physiological factors, each person should make their own cash.</p1>
+                                  <a id="The Welfare State" class="btn btn-primary" onclick = "zz('The Welfare State');">Engage Now</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-6">
+                                <div class="card bg-light mb-3">
+                                  <div class="card-body">
+                                    <h5 class="card-title">The War on Terror</h5>
+                                    <p1 class="card-text">The threat posed by terrorism has been exaggerated by officials for their own political advantage.</p1>
+                                    <a id="The War on Terror" class="btn btn-primary" onclick = "zz('The War on Terror');">Engage Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="card bg-light mb-3">
+                                  <div class="card-body">
+                                    <h5 class="card-title">America is Under-Attack</h5>
+                                    <p1 class="card-text">Militant Islamists around the globe pose a growing threat to Western safety and economic prosperity.</p1>
+                                    <a id="America is Under-Attack" class="btn btn-primary" onclick = "zz('America is Under-Attack');">Engage Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card bg-light mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">End Voter Suppression</h5>
+                                      <p1 class="card-text">Gerrymandering has turned our electoral districts into undiverse pods designed to subvert democracy and consolidate power.</p1>
+                                      <a id= "End Voter Suppression" class="btn btn-primary" onclick = "zz('End Voter Suppression');">Engage Now</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="card bg-light mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Stop Illegals from Voting</h5>
+                                      <p1 class="card-text">Voter ID laws ensure that the interests of the American citizen are accurately available for representatino and combat vote tampering.</p1>
+                                      <a id= "Stop Illegals from Voting" class="btn btn-primary" onclick = "zz('Stop Illegals from Voting');">Engage Now</a>
+                                    </div>
+                                  </div>      <!--                                                                                  onclick='zz("Stop Illegals From Voting")'              -->
+                                </div>
+                              </div>
+</div>
+</div>
+        <p>
+        <!-- <iframe src="https://giphy.com/embed/WNt4Crb1rqWJO" width="480" height="433" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/devin-nunes-fisa-WNt4Crb1rqWJO">via GIPHY</a></p> -->
+        </p>
+         <!-- <img src="https://www.snopes.com/tachyon/2018/08/congress.jpg?resize=865,452&quality=65" alt="Congress"> -->
+        <!-- <img src="https://thumbs-prod.si-cdn.com/GwCf7A2ySxfatFgBp6tLoTqrqj8=/800x600/filters:no_upscale()/https://public-media.si-cdn.com/filer/ee/30/ee3065c3-6b03-4229-9f69-82a6e2aa0b2a/gilbert_du_motier_marquis_de_lafayette_-_high_res.jpg" alt="lafayette"> -->
+        <p>
+
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+<!--Bootstrap JS-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!--Google API's-->
+<script sync defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk&callback=initMap">
+        </script>
+    <script sync defer
+        src="https://apis.google.com/js/client.js?onload=load">
+        </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+<script>
+
+var tt = function(){ 
+$(document).ready(function() {
+  $("#officials").click(function(){
+             $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
+                  $.each(result, function(i, field){
+                          $("#lobby").append(                            
+                            JSON.stringify(field),
+                            window.localStorage.setItem('GovtData', field),
+                            document.getElementById('lobby').innerHTML = field[0],
+                            //document.getElementById('lobby').innerHTML = JSON.stringify(field[3]),
+                            //document.getElementById('lobby').innerHTML = JSON.stringify(field.offices.levels[0]),
+                            dataloop(field),
+                            console.log(globalStringAddress),
+                            dd = field[4],
+                             console.log(dd),
+                          );
+    });
+  });
+});
+});
+};
+document.getElementbyID("Campaign Finance Reform").onclick = q = "Campaign Finance Reform";
+document.getElementById("Campaign Finance Reform").onclick = zz('Campaign Finance Reform');
+document.getElementbyID("Build the Wall").onclick = q = "Build the Wall";
+document.getElementById("Build the Wall").onclick = zz;
+document.getElementbyID("Medicare for All").onclick = q = "Medicare for All";
+document.getElementById("Medicare for All").onclick = zz;
+document.getElementbyID("Gun Rights").onclick = q = "Gun Rights";
+document.getElementById("Gun Rights").onclick = zz;
+document.getElementbyID("Free Collegiate Education").onclick = q = "Free Collegiate Education";
+document.getElementById("Free Collegiate Education").onclick = zz;
+document.getElementbyID("Small Business Tax Reduction").onclick = q = "Small Business Tax Reduction";
+document.getElementById("Small Business Tax Reduction").onclick = zz;
+document.getElementbyID("The Green New Deal").onclick = q = "The Green New Deal";
+document.getElementById("The Green New Deal").onclick = zz;
+document.getElementbyID("Clean Coal Initiatives").onclick = q = "Clean Coal Initiatives";
+document.getElementById("Clean Coal Initiatives").onclick = zz;
+document.getElementbyID("Corporate Inversion Penalties").onclick = q = "Corporate Inversion Penalties";
+document.getElementById("Corporate Inversion Penalties").onclick = zz;
+document.getElementbyID("Corporate Tax Reductions").onclick = q = "Corporate Tax Reductions";
+document.getElementById("Corporate Tax Reductions").onclick = zz;
+document.getElementbyID("Abolish the Death Penalty").onclick = q = "Abolish the Death Penalty";
+document.getElementById("Abolish the Death Penalty").onclick = zz;
+document.getElementbyID("Pro Death Penalty").onclick = q = "Pro Death Penalty";
+document.getElementById("Pro Death Penalty").onclick = zz;
+document.getElementbyID("Seperate Church and State").onclick = q = "Seperate Church and State";
+document.getElementById("Seperate Church and State").onclick = zz;
+document.getElementbyID("Religious Expression").onclick = q = "Religious Expression";
+document.getElementById("Religious Expression").onclick = zz;
+document.getElementbyID("Same-Sex Marriage").onclick = q = "Same-Sex Marriage";
+document.getElementById("Same-Sex Marriage").onclick = zz;
+document.getElementbyID("The Sanctity of Marriage").onclick = q = "The Sanctity of Marriage";
+document.getElementById("The Sanctity of Marriage").onclick = zz;
+document.getElementbyID("Universal Basic Income").onclick = q = "Universal Basic Income";
+document.getElementById("Universal Basic Income").onclick = zz;
+document.getElementbyID("The Welfare State").onclick = q = "The Welfare State";
+document.getElementById("The Welfare State").onclick = zz;
+document.getElementbyID("The War on Terror").onclick = q = "The War on Terror";
+document.getElementById("The War on Terror").onclick = zz;
+//document.getElementbyID("America is Under-Attack").onclick = q = "America is Under-Attack";
+document.getElementById("America is Under-Attack").onclick = zz('America is Under-Attack');
+//document.getElementbyID("End Voter Suppression").onclick = q = "End Voter Suppression";
+document.getElementById("End Voter Suppression").onclick = zz('End Voter');
+// document.getElementbyID("Stop Illegals from Voting").onclick = q = "Stop Illegals from Voting";
+// document.getElementById("Stop Illegals from Voting").onclick = zz;
+document.getElementById("Stop Illegals from Voting").onclick = zz('Stop Illegals from Voting');
+
+
+
+
+
+
+    // // Note: This example requires that you consent to location sharing when
+    // // prompted by your browser. If you see the error "The Geolocation service
+    // // failed.", it means you probably did not give permission for the browser to
+    // // locate you.
+   
+  </script> 
+<!-- Footer -->
+<footer class="page-footer font-small">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+      <a href="https://mdbootstrap.com/education/bootstrap/"> The Democratic Sun Project</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
