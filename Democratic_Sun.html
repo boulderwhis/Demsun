@@ -6,8 +6,8 @@
    <meta name="Lobby the Federal Government" content="">
    <meta name="The Democratic Sun" content="">
    
-   <title>The Democracit Sun</title>
-    <link rel="icon" type="image/png" href="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/128x128/sun.rays.medium.png">
+   <title>The Democratic Sun</title>
+    <link rel="icon" type="image/png" href="">
    <!-- Bootsrap core Css -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <!-- <link href="file:///D:/Eth/Democratic_Sun.css" type="text/css" rel="stylesheet"> -->
@@ -211,7 +211,7 @@ h5 {
     </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" id="NavbarLogo"><img id="logo" src="http://files.softicons.com/download/web-icons/vector-stylish-weather-icons-by-bartosz-kaszubowski/png/128x128/sun.rays.medium.png" width="20" height="20">The Democratic Sun</a>
+  <a class="navbar-brand" id="NavbarLogo"><img id="logo" src="" width="20" height="20">The Democratic Sun</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -579,15 +579,6 @@ var IDs=
       }
 }
 
-//converting a massive dataset into a string of JS objects
-// let output = str.split("\n")
-//                 .map(a => a.match(/(.*), (.*) \(.*\)\s+(.*)/))
-//                 .reduce((r, [, last, first, id]) => {
-//                     r[`${first} ${last}`] = id
-//                     return r;
-//                 },{})
-// console.log(JSON.stringify(output));
-
 
 //Converting for the ID of and Finding Committee & Subcommittee data
 function oo(x) {
@@ -827,7 +818,7 @@ if (housecommittees.hasOwnProperty(x)) {
   window.localStorage.setItem('housecommittee', housecommittees[x]);
   console.log("house committee identified : "+housecommittees[x]);
   $.ajax({
-    url: "https://api.propublica.org/congress/v1/115/house/committees/"+window.localStorage.getItem('housecommittee')+".json" ,
+    url: "https://api.propublica.org/congress/v1/116/house/committees/"+window.localStorage.getItem('housecommittee')+".json" ,
     type: "GET",
     datatype: "json",
     headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'},
@@ -965,16 +956,15 @@ if (senatecommittees.hasOwnProperty(x)) {
 
     };
   })
-    $('#committeeshit').fadeIn(3000).css('display', 'block')
-    $('#D').fadeIn(3000).css('display', 'block')
-    $('#R').fadeIn(3000).css('display', 'block')
+  $('#R').fadeIn(3000).css('display','block'),
+    $('#D').fadeIn(3000).css('display','block'),
     $('#officials').css('display', 'none')
     $('#about').css('display', 'none')
     $('#home').css('display', 'none')
     $('#lobby').css('display', 'none')
     $('#getlobbydata').css('display', 'none')
     $('#carousel').css('display', 'none')
-    $('#caroucontent').css('display', 'none') 
+    $('#caroucontent').css('display', 'none')
     $('#cards').css('display', 'none')
     $('#plan').css('display', 'none')
     $('#sen1').css('display', 'none')
@@ -992,13 +982,51 @@ if (senatecommittees.hasOwnProperty(x)) {
     $('#repcommitteedatabutton').empty()
     $('#repsubcommitteedatabutton').empty()
     $('#repdata').css('display', 'none')
-    $('#inf').empty()
 } else {
   console.log("not a senate committee");
 }
+if (housesub.hasOwnProperty(x)) {
+  console.log("house subcommittee id = "+housesub[x]);
+  var y = housesub[x].substring(0,4);
+  console.log(y);
+  $.ajax({
+    url: "https://api.propublica.org/congress/v1/116/house/committees/"+y+"/subcommittees/"+housesub[x]+".json" ,
+    type: "GET",
+    datatype: "json",
+    headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'},
+  }).done(function (data){
+    console.log(data);
+  })
+  $('#R').fadeIn(3000).css('display','block'),
+    $('#D').fadeIn(3000).css('display','block'),
+    $('#officials').css('display', 'none')
+    $('#about').css('display', 'none')
+    $('#home').css('display', 'none')
+    $('#lobby').css('display', 'none')
+    $('#getlobbydata').css('display', 'none')
+    $('#carousel').css('display', 'none')
+    $('#caroucontent').css('display', 'none')
+    $('#cards').css('display', 'none')
+    $('#plan').css('display', 'none')
+    $('#sen1').css('display', 'none')
+    $('#sen1').empty()
+    $('#sen1data').css('display', 'none')
+    $('#sen1committeedatabutton').empty()
+    $('#sen1subcommitteedatabutton').empty()
+    $('#sen2').css('display', 'none')
+    $('#sen2').empty()
+    $('#sen2data').css('display', 'none')
+    $('#sen2committeedatabutton').empty()
+    $('#sen2subcommitteedatabutton').empty()
+    $('#rep').css('display', 'none')
+    $('#rep').empty()
+    $('#repcommitteedatabutton').empty()
+    $('#repsubcommitteedatabutton').empty()
+    $('#repdata').css('display', 'none')
+};
 };
 
-//ProPublica API button & congressional data gathering YOUR REPS
+//ProPublica API button & congressional data gathering
 $(document).ready(function(){
   $('#getdata').click(function() {
     $('#officials').css('display', 'none'),
@@ -1175,7 +1203,7 @@ $(document).ready(function(){
         '<div class= "col text-center">'+
         '<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('RID')+'.jpg">'+
         `<h6>`+data.results[0].first_name+" "+data.results[0].last_name+`</h6>`+
-        '<button type="button" class="btn btn-light" onclick= "inf(\''+data.results[0].member_id+'\', \''+data.results[0].crp_id+'\')"> <h5>INFLUENCE</h5> </button>'
+        '<button type="button" class="btn btn-light" onclick= "inf(\''+data.results[0].member_id+')"> <h5>INFLUENCE</h5> </button>'
           +'</div>'
 
        );
@@ -1228,10 +1256,36 @@ $('#R').empty()
 $('#inf').fadeIn(3000).css('display', 'block')
 console.log('polished off the empties ;)');
 $('#inf').append(
-  '<div style="position: sticky" class="col-md-4">'+
-  '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
-  '</div>'+
-  '<h6>'+x+'</h6>'
+  '<div class="row justify-content-center>"'+
+      '<div style="position: sticky" class="col-md-4">'+
+        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
+      '</div>'+
+        '<div class="col-md-4">'+
+          '<h6>'+x+'</h6>'+
+        '</div>'+
+    '</div>'
+
+    // <div class="row">
+    //         <div class="col-sm-6">
+    //           <div class="card bg-light mb-3">
+    //             <div class="card-body">
+    //               <h5 class="card-title">Campaign Finance Reform</h5>
+    //               <p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>
+    //               <a id="CampaignFinanceReform" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Campaign Finance Reform')">Engage Now</a>
+    //             </div>
+    //           </div>
+    //         </div>
+    //         <div class="col-sm-6">
+    //           <div class="card bg-light mb-3">
+    //             <div class="card-body">
+    //               <h5 class="card-title">Build the Wall</h5>
+    //               <p1 class="card-text">Our borders are important. Fight the flow of illegal immigration.</p1>
+    //               <a id="BuildtheWall" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Build the Wall')">Engage Now</a>
+    //             </div>
+    //           </div>
+    //         </div>
+    //       </div>
+
 
 )
 
@@ -1243,9 +1297,8 @@ $.ajax({
       dataType: 'json',
       headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
 }).done(function(data){
-  var propublica = data
-  console.log(propublica);
-  localStorage.setItem('crp_id', propublica.results[0].crp_id);
+  localStorage.setItem('crp_id', data.results[0].crp_id);
+  console.log(data);
 });
 
 
