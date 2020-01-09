@@ -1233,7 +1233,6 @@ $(document).ready(function(){
 
 var inf = function(x) {
   //x is member_id
-  //y is crp_id
 console.log("INF STARTED");
 console.log(x);
 $('#sen1').css('display', 'none')
@@ -1255,39 +1254,7 @@ $('#D').empty()
 $('#R').empty()
 $('#inf').fadeIn(3000).css('display', 'block')
 console.log('polished off the empties ;)');
-$('#inf').append(
-  '<div class="row justify-content-center>"'+
-      '<div style="position: sticky" class="col-md-4">'+
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
-      '</div>'+
-        '<div class="col-md-4">'+
-          '<h6>'+x+'</h6>'+
-        '</div>'+
-    '</div>'
 
-    // <div class="row">
-    //         <div class="col-sm-6">
-    //           <div class="card bg-light mb-3">
-    //             <div class="card-body">
-    //               <h5 class="card-title">Campaign Finance Reform</h5>
-    //               <p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>
-    //               <a id="CampaignFinanceReform" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Campaign Finance Reform')">Engage Now</a>
-    //             </div>
-    //           </div>
-    //         </div>
-    //         <div class="col-sm-6">
-    //           <div class="card bg-light mb-3">
-    //             <div class="card-body">
-    //               <h5 class="card-title">Build the Wall</h5>
-    //               <p1 class="card-text">Our borders are important. Fight the flow of illegal immigration.</p1>
-    //               <a id="BuildtheWall" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Build the Wall')">Engage Now</a>
-    //             </div>
-    //           </div>
-    //         </div>
-    //       </div>
-
-
-)
 
 //PROPUBLICA API
 
@@ -1299,6 +1266,27 @@ $.ajax({
 }).done(function(data){
   localStorage.setItem('crp_id', data.results[0].crp_id);
   console.log(data);
+
+  $.get( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77", function ( opensecrets ) {
+
+
+
+
+
+  $('#inf').append(
+  '<div class="row justify-content-center">'+
+      '<div style="position: sticky" class="col-sm-6">'+
+        '<h6>'+data.results[0].first_name+" "+data.results[0].last_name+'</h6>'+
+        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
+      '</div>'+
+        '<div style="padding-top: 25px" class="col-sm-6">'+
+          '<h6>'+opensecrets.response[1].state+'</h6>'+
+        '</div>'+
+    '</div>'
+)
+console.log(opensecrets)
+    alert("Let's lobby this mofo")
+});
 });
 
 
@@ -1306,10 +1294,7 @@ $.ajax({
 
 //OPENSECRETS API
 
-  $.get( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77", function ( opensecrets ) {
-    console.log(opensecrets)
-    alert("Let's lobby this mofo")
-  });
+
 
 
 
