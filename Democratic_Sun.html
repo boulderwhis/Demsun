@@ -1235,6 +1235,16 @@ var inf = function(x) {
   //x is member_id
 console.log("INF STARTED");
 console.log(x);
+
+var divmagic = function (d) {
+  var display = ["#inf", "#sen1"];
+   for (k=0; k<=display.length; k++){
+     $(k).css('display', 'none')
+   }
+   $(d).fadeIn(3000).css('display', 'block');
+   console.log("DIVMAGIC SUCCESS")
+};
+
 $('#sen1').css('display', 'none')
 $('#sen1').empty()
 $('#sen1data').css('display', 'none')
@@ -1284,7 +1294,7 @@ $.ajax({
         '</div>'+
     '</div>'
 )
-console.log(opensecrets)
+    console.log(opensecrets)
     alert("Let's lobby this mofo")
 });
 });
