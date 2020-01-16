@@ -1235,19 +1235,20 @@ var inf = function(x) {
   //x is member_id
 console.log("INF STARTED");
 console.log(x);
-window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
-window.sessionsStorage.setItem('divs1', d);
 	
 var divmagic = function (d) {
   var display = ["#inf", "#sen1", "#officials", "#content", "#about", "#lobby", "#contact", "#carousel", "#caroucontent", 
 		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf"];
   var empty = ["#"]	
+  window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
+  window.sessionsStorage.setItem('divs1', "d");
+
    for (k=0; k<=display.length; k++){
-     $(\'k\').css('display', 'none')
+     $(k).css('display', 'none');
    }
   	//if it's not one of the divs in empty then empty
   // if (window.sessionStorage.getItem('divs2') ===
-   $(\'d\').fadeIn(3000).css('display', 'block');
+   $(d).fadeIn(3000).css('display', 'block');
    console.log("DIVMAGIC SUCCESS")
 };
 
@@ -1283,7 +1284,7 @@ $.ajax({
   localStorage.setItem('crp_id', data.results[0].crp_id);
   console.log(data);
 
-  $.get( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77", function ( opensecrets ) {
+  $.get( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecrets ) {
 
 
 
@@ -1302,8 +1303,10 @@ $.ajax({
 )
     console.log(opensecrets)
     alert("Let's lobby this mofo")
+    
+  });
 });
-});
+
 
 
 
