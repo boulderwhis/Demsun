@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html>
   <head>
    <meta charset="utf-8">
@@ -1241,13 +1241,12 @@ var divmagic = function (d) {
 		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf"];
   var empty = ["#"]	
   window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
-  window.sessionsStorage.setItem('divs1', "d");
+  window.sessionStorage.setItem('divs1', d);
 
    for (k=0; k<=display.length; k++){
      $(k).css('display', 'none');
    }
-  	//if it's not one of the divs in empty then empty
-  // if (window.sessionStorage.getItem('divs2') ===
+
    $(d).fadeIn(3000).css('display', 'block');
    console.log("DIVMAGIC SUCCESS")
 };
@@ -1270,7 +1269,9 @@ $('#repdata').css('display', 'none')
 $('#D').empty()
 $('#R').empty()
 $('#inf').fadeIn(3000).css('display', 'block')
+
 console.log('polished off the empties ;)');
+
 
 
 //PROPUBLICA API
@@ -1297,14 +1298,16 @@ $.ajax({
         '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
       '</div>'+
         '<div style="padding-top: 25px" class="col-sm-6">'+
-          '<h6>'+opensecrets.response.summary["@attributes"].state+'</h6>'+
+        //  '<h6>'+opensecrets.response.summary["@attributes"].state+'</h6>'+
         '</div>'+
     '</div>'
 )
     console.log(opensecrets)
+    
     alert("Let's lobby this mofo")
     
   });
+  divmagic("#getlobbydata");
 });
 
 
