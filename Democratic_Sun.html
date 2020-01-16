@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+     <!DOCTYPE html>
 <html>
   <head>
    <meta charset="utf-8">
@@ -277,6 +277,7 @@ $(document).ready(function(){
 });
 
 // this is where you began the jQuery css display automation function from 
+//Home
 $(document).ready(function(){
   $('#NavbarLogo').click(function(){
     $('#home').fadeIn(2000)
@@ -311,7 +312,7 @@ $(document).ready(function(){
     $('#inf').css('display', 'none')
   })
 });
-
+//About
 $(document).ready(function(){
   $('#About').click(function(){
     $('#about').fadeIn(3000).css('display', 'block')
@@ -346,7 +347,7 @@ $(document).ready(function(){
     $('#inf').css('display', 'none')
   })
 });
-
+//Contact
 $(document).ready(function(){
   $('#Contact').click(function(){
     $('#contact').fadeIn(3000).css('display', 'block')
@@ -1238,8 +1239,9 @@ console.log(x);
 	
 var divmagic = function (d) {
   var display = ["#inf", "#sen1", "#officials", "#content", "#about", "#lobby", "#contact", "#carousel", "#caroucontent", 
-		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf"];
-  var empty = ["#"]	
+		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf", "#repcontent"];
+  var empty = ["#sen1", "#sen1committeedatabutton","#sen1subcommitteedatabutton", "#sen2", "#sen2committeedatabutton",
+      "#sen2subcommitteedatabutton", "#rep", "#repcommitteedatabutton", "#repsubcommitteedatabutton", "#D", "#R" ]	
   window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
   window.sessionStorage.setItem('divs1', d);
 
@@ -1249,6 +1251,14 @@ var divmagic = function (d) {
 
    $(d).fadeIn(3000).css('display', 'block');
    console.log("DIVMAGIC SUCCESS")
+
+
+   if (window.sessionStorage.getItem('divs2') !== "#repcontent"  ) {
+     for (b=0; b<=empty.length; b++){
+        $(b).empty()
+
+    }
+   } 
 };
 
 $('#sen1').css('display', 'none')
