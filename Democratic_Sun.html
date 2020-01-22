@@ -214,6 +214,8 @@ h5 {
     padding-bottom: 25px;
   }
 
+
+
     </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -313,7 +315,9 @@ $(document).ready(function(){
     $('#repdata').css('display', 'none')
     $('#getlobbydata').css('display', 'none')
     $('#D').empty()
+    $('#D').css('display', 'none')
     $('#R').empty()
+    $('#R').css('display', 'none')
     $('#inf').empty()
     $('#inf').css('display', 'none')
     $('#sen1table').empty()
@@ -327,7 +331,7 @@ $(document).ready(function(){
     $('#about').fadeIn(3000).css('display', 'block')
     $('#content').css('display', 'none')
     $('#home').css('display', 'none')
-    $('#officials').css('display', 'none')
+    $('#officials').fadeIn(5000).css('display', 'block')
     $('#lobby').css('display', 'none')
     $('#contact').css('display', 'none')
     $('#carousel').css('display', 'none')
@@ -357,6 +361,8 @@ $(document).ready(function(){
     $('#sen1table').empty()
     $('#sen2table').empty()
     $('#reptable').empty()
+    $('#D').css('display', 'none')
+    $('#R').css('display', 'none')
 
   })
 });
@@ -396,6 +402,11 @@ $(document).ready(function(){
     $('#sen1table').empty()
     $('#sen2table').empty()
     $('#reptable').empty()
+    $('#R').css('display', 'none')
+    $('#D').css('display', 'none')
+
+
+    
   })
 });
 
@@ -851,7 +862,7 @@ if (housecommittees.hasOwnProperty(x)) {
       console.log(data.results[0].current_members[r].name);
       if (data.results[0].current_members[r].party === "R") {
         console.log("Found Republican");
-        
+
         $('#R').append(
       '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
       '<h6>'+data.results[0].current_members[r].name+'</h6>'+
@@ -916,6 +927,7 @@ if (housecommittees.hasOwnProperty(x)) {
     $('#sen1table').empty()
     $('#sen2table').empty()
     $('#reptable').empty()
+    $('#inf').css('display', 'none')
 
 } else {
   console.log("not a house committee");
@@ -1075,6 +1087,7 @@ $(document).ready(function(){
     $('#R').css('display', 'none')
     $('#R').empty()
     $('#inf').empty()
+    $('#inf').css('display', 'none')
     $('#sen1table').empty()
     $('#sen2table').empty()
     $('#reptable').empty()
