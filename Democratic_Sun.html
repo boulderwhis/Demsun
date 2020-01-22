@@ -1,4 +1,4 @@
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
    <meta charset="utf-8">
@@ -67,7 +67,6 @@ p1 {
 }
 h5 {
     -webkit-text-fill-color: #006600;
-    background-color: #f8f9fa;
   }
 .card-text {
     -webkit-text-fill-color: #006600;
@@ -91,6 +90,11 @@ h5 {
     background-color: #881607;
     border-color: #881607;
     -webkit-text-fill-color: whitesmoke; /*set the color you want here*/
+}
+.btn {
+  background-color: #fff;
+  color: #006600;
+  border-color: #fff;
 }
 .btn-primary {
     color: #fff;
@@ -310,6 +314,9 @@ $(document).ready(function(){
     $('#R').empty()
     $('#inf').empty()
     $('#inf').css('display', 'none')
+    $('#sen1table').empty()
+    $('#sen2table').empty()
+    $('#reptable').empty()
   })
 });
 //About
@@ -345,6 +352,10 @@ $(document).ready(function(){
     $('#R').empty()
     $('#inf').empty()
     $('#inf').css('display', 'none')
+    $('#sen1table').empty()
+    $('#sen2table').empty()
+    $('#reptable').empty()
+
   })
 });
 //Contact
@@ -380,6 +391,9 @@ $(document).ready(function(){
     $('#R').empty()
     $('#inf').empty()
     $('#inf').css('display', 'none')
+    $('#sen1table').empty()
+    $('#sen2table').empty()
+    $('#reptable').empty()
   })
 });
 
@@ -835,6 +849,7 @@ if (housecommittees.hasOwnProperty(x)) {
       console.log(data.results[0].current_members[r].name);
       if (data.results[0].current_members[r].party === "R") {
         console.log("Found Republican");
+        
         $('#R').append(
       '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
       '<h6>'+data.results[0].current_members[r].name+'</h6>'+
@@ -896,6 +911,10 @@ if (housecommittees.hasOwnProperty(x)) {
     $('#repcommitteedatabutton').empty()
     $('#repsubcommitteedatabutton').empty()
     $('#repdata').css('display', 'none')
+    $('#sen1table').empty()
+    $('#sen2table').empty()
+    $('#reptable').empty()
+
 } else {
   console.log("not a house committee");
 }
@@ -1049,9 +1068,14 @@ $(document).ready(function(){
     $('#rep').empty()
     $('#repcommitteedatabutton').empty()
     $('#repsubcommitteedatabutton').empty()
+    $('#D').css('display', 'none')
     $('#D').empty()
+    $('#R').css('display', 'none')
     $('#R').empty()
     $('#inf').empty()
+    $('#sen1table').empty()
+    $('#sen2table').empty()
+    $('#reptable').empty()
     ff();
 
     
@@ -1137,7 +1161,7 @@ $(document).ready(function(){
         '<div class= "col text-center">'
         +'<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('S1ID')+'.jpg">'+
         '<h6>'+data.results[0].first_name+" "+data.results[0].last_name+'</h6>'+
-        '<button type="button" class="btn btn-light"  onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
+        '<button type="button" class="btn"  onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
         '</div>'
 
       );
@@ -1156,7 +1180,36 @@ $(document).ready(function(){
           }
       };
       jj();
-       $('#sen1data').delay(2000).fadeIn(2000); 
+       $('#sen1data').delay(2000).fadeIn(2000);
+       $('#sen1table').prepend(
+       ` <table class="table table-sm table-dark">
+  <tbody>
+    <tr>
+      <th scope="row">Date of Birth</th>
+      <th><mark>`+data.results[0].date_of_birth+`</mark></th>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>`
+       );
+       if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
+         $('#sen1table').delay(5000).prepend(
+          '<div class="alert alert-info" role="alert" onclick= "inf(\''+data.results[0].member_id+'\')">'+ "Looks like"
+  +data.results[0].first_name+" "+data.results[0].last_name+" could be in play. click here for more info"+
+'</div>'
+         )
+       }
      })
     }
     $.ajax({
@@ -1171,7 +1224,7 @@ $(document).ready(function(){
       '<div class= "col text-center">'
       +'<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('S2ID')+'.jpg">'+
       `<h6>`+data.results[0].first_name+" "+data.results[0].last_name+`</h6>`+
-      '<button type="button" class="btn btn-light" onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
+      '<button type="button" class="btn" onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
       '</div>'
 
 
@@ -1192,6 +1245,35 @@ $(document).ready(function(){
       };
       jj();
      $('#sen2data').delay(2000).fadeIn(2000);
+     $('#sen2table').prepend(
+       ` <table class="table table-sm table-dark">
+  <tbody>
+    <tr>
+      <th scope="row">Date of Birth</th>
+      <th><mark>`+data.results[0].date_of_birth+`</mark></th>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>`
+       );
+        if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
+         $('#sen2table').delay(5000).prepend(
+          `<div class="alert alert-info" role="alert" onclick= "inf(\''`+data.results[0].member_id+`')"> Looks like `
+  +data.results[0].first_name+" "+data.results[0].last_name+` could be in play. click here for more info
+</div>`
+         )
+       }
     $.ajax({
       url: "https://api.propublica.org/congress/v1/members/"+window.localStorage.getItem('RID')+".json", 
       type: "GET",
@@ -1204,7 +1286,7 @@ $(document).ready(function(){
         '<div class= "col text-center">'+
         '<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('RID')+'.jpg">'+
         `<h6>`+data.results[0].first_name+" "+data.results[0].last_name+`</h6>`+
-        '<button type="button" class="btn btn-light" onclick= "inf(\''+data.results[0].member_id+')"> <h5>INFLUENCE</h5> </button>'
+        '<button type="button" class="btn" onclick= "inf(\''+data.results[0].member_id+')"> <h5>INFLUENCE</h5> </button>'
           +'</div>'
 
        );
@@ -1225,6 +1307,36 @@ $(document).ready(function(){
       };
       jj(data);
        $('#repdata').delay(2000).fadeIn(2000);
+       $('#reptable').prepend(
+       ` <table class="table table-sm table-dark">
+
+  <tbody>
+    <tr>
+      <th scope="row">Date of Birth</th>
+      <th><mark>`+data.results[0].date_of_birth+`</mark></th>
+
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>`
+       );
+       if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
+         $('#reptable').delay(5000).prepend(
+          `<div class="alert alert-info" role="alert" onclick= "inf(\''`+data.results[0].member_id+`')"> Looks like `
+  +data.results[0].first_name+" "+data.results[0].last_name+` could be in play. click here for more info
+</div>`
+         )
+       }
      }) 
    })
   })
@@ -1278,6 +1390,9 @@ $('#repsubcommitteedatabutton').empty()
 $('#repdata').css('display', 'none')
 $('#D').empty()
 $('#R').empty()
+$('#sen1table').empty()
+$('#sen2table').empty()
+$('#reptable').empty()
 $('#inf').fadeIn(3000).css('display', 'block')
 
 console.log('polished off the empties ;)');
@@ -2975,8 +3090,9 @@ $.ajax({
           <div class="row justify-content-center">
             <div class="col-md-4" id="sen1"></div>
             <div class="col-md-4" id="sen1data">
+              <div id="sen1table"></div>
               <div class="dropdown">
-                <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Committees
                 </button>
                 <div id="sen1committeedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -2984,7 +3100,7 @@ $.ajax({
               </div>
 
               <div class="dropdown">
-                <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Subcommittees
                 </button>
                 <div id="sen1subcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -2997,8 +3113,9 @@ $.ajax({
           <div class="row justify-content-center">
             <div class="col-md-4" id="sen2"></div>
             <div class="col-md-4" id="sen2data">
+              <div id="sen2table"></div>
               <div class="dropdown">
-                <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Committees
                 </button>
                 <div id="sen2committeedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -3006,7 +3123,7 @@ $.ajax({
             </div>
 
             <div class="dropdown">
-              <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Subcommittees
               </button>
               <div id="sen2subcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -3018,8 +3135,9 @@ $.ajax({
           <div class="row justify-content-center">
             <div class="col-md-4" id="rep"></div>
             <div class="col-md-4" id="repdata">
+              <div id="reptable"></div>
               <div class="dropdown">
-                <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Committees
                 </button>
                 <div id="repcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -3027,7 +3145,7 @@ $.ajax({
             </div>
 
             <div class="dropdown">
-              <button class="btn btn-lg btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Subcommittees
               </button>
               <div id="repsubcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -3094,9 +3212,7 @@ $.ajax({
 
            <button type="button" class="btn btn-outline-success btn-lg btn-block">See Your Plan</button>
             </div>
-           <div  id="firstcontent">
-            <button id="officials" type="button" class="btn btn-primary btn-lg btn-block">Start Now</button>
-          </div>
+           
           <div id="lobby">  <!--LOBBY CONTENT-->
             
         <h1 class="mt-5">Lobby the Federal Government</h1>
@@ -3353,7 +3469,10 @@ $.ajax({
                                 </div>
                               </div>
 </div>
-</div>
+        </div>
+        <div  id="firstcontent">
+          <button id="officials" type="button" class="btn btn-primary btn-lg btn-block">Start Now</button>
+        </div>
         </div>
       </div>
     </div>
