@@ -1433,7 +1433,7 @@ $.ajax({
   localStorage.setItem('crp_id', data.results[0].crp_id);
   console.log(data);
 
-  $.get( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecrets ) {
+  $.getJSON( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecrets ) {
 
 
 
@@ -1446,7 +1446,7 @@ $.ajax({
         '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
       '</div>'+
         '<div style="padding-top: 25px" class="col-sm-6">'+
-        '<h6>SHOW THAT SHIT HERE</h6>'+
+        // '<h6>'+opensecrets.response.summary.[@attributes]+'</h6>'+
         '</div>'+
     '</div>'
 )
