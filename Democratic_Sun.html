@@ -615,7 +615,7 @@ var IDs=
 
 
 //Converting for the ID of and Finding Committee & Subcommittee data
-function oo(x) {
+function oo(x, g) {
 
 var housecommittees = {
   "Committee on Administration":  "HSHA",
@@ -936,7 +936,6 @@ if (housecommittees.hasOwnProperty(x)) {
     $('#inf').css('display', 'none')
 
 } else {
-  console.log("not a house committee");
 }
 if (senatecommittees.hasOwnProperty(x)) {
   window.localStorage.setItem('senatecommittee', senatecommittees[x]);
@@ -1023,19 +1022,64 @@ if (senatecommittees.hasOwnProperty(x)) {
     $('#repsubcommitteedatabutton').empty()
     $('#repdata').css('display', 'none')
 } else {
-  console.log("not a senate committee");
 }
-if (housesub.hasOwnProperty(x)) {
-  console.log("house subcommittee id = "+housesub[x]);
-  var y = housesub[x].substring(0,4);
+if (senatesub.hasOwnProperty(g)) {
+  console.log("house subcommittee id = "+senatesub[g]);
+  var y = senatesub[g].substring(0,4);
   console.log(y);
   $.ajax({
-    url: "https://api.propublica.org/congress/v1/116/house/committees/"+y+"/subcommittees/"+housesub[x]+".json" ,
+    url: "https://api.propublica.org/congress/v1/116/house/committees/"+y+"/subcommittees/"+senatesub[g]+".json" ,
     type: "GET",
     datatype: "json",
     headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'},
   }).done(function (data){
     console.log(data);
+    $('#R').append(
+      '<h5>'+data.results[0].name+' - (R)'+'</h5>'
+    );
+    $('#D').append(
+      '<h5>'+data.results[0].name+' - (D)'+'</h5'
+    )
+    for (r=0; r<data.results[0].current_members.length; r++){
+      console.log(data.results[0].current_members[r].name);
+      if (data.results[0].current_members[r].party === "R") {
+        console.log("Found Republican");
+        $('#R').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+      
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+
+        )
+      }
+      if (data.results[0].current_members[r].party === "D") {
+        console.log("Found Democrat");
+        $('#D').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+        );
+      }
+      if (data.results[0].current_members[r].party === "I"){
+        console.log("Found Independent");
+        var random_number = Math.random();
+        console.log(random_number);
+        if ( random_number < .49 ) {
+          $('#R').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+          )
+        } else {
+          $('#D').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+          )
+        }
+      }
+
+    };
+
   })
   $('#R').fadeIn(3000).css('display','block'),
     $('#D').fadeIn(3000).css('display','block'),
@@ -1064,7 +1108,95 @@ if (housesub.hasOwnProperty(x)) {
     $('#repsubcommitteedatabutton').empty()
     $('#repdata').css('display', 'none')
 };
+if (housesub.hasOwnProperty(g)) {
+  console.log("house subcommittee id = "+housesub[g]);
+  var y = housesub[g].substring(0,4);
+  console.log(y);
+  $.ajax({
+    url: "https://api.propublica.org/congress/v1/116/house/committees/"+y+"/subcommittees/"+housesub[g]+".json" ,
+    type: "GET",
+    datatype: "json",
+    headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'},
+  }).done(function (data){
+    console.log(data);
+    $('#R').append(
+      '<h5>'+data.results[0].name+' - (R)'+'</h5>'
+    );
+    $('#D').append(
+      '<h5>'+data.results[0].name+' - (D)'+'</h5'
+    )
+    for (r=0; r<data.results[0].current_members.length; r++){
+      console.log(data.results[0].current_members[r].name);
+      if (data.results[0].current_members[r].party === "R") {
+        console.log("Found Republican");
+        $('#R').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+      
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+
+        )
+      }
+      if (data.results[0].current_members[r].party === "D") {
+        console.log("Found Democrat");
+        $('#D').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+        );
+      }
+      if (data.results[0].current_members[r].party === "I"){
+        console.log("Found Independent");
+        var random_number = Math.random();
+        console.log(random_number);
+        if ( random_number < .49 ) {
+          $('#R').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+          )
+        } else {
+          $('#D').append(
+      '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
+      '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+      '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
+          )
+        }
+      }
+
+    };
+
+  })
+  $('#R').fadeIn(3000).css('display','block'),
+    $('#D').fadeIn(3000).css('display','block'),
+    $('#officials').css('display', 'none')
+    $('#about').css('display', 'none')
+    $('#home').css('display', 'none')
+    $('#lobby').css('display', 'none')
+    $('#getlobbydata').css('display', 'none')
+    $('#carousel').css('display', 'none')
+    $('#caroucontent').css('display', 'none')
+    $('#cards').css('display', 'none')
+    $('#plan').css('display', 'none')
+    $('#sen1').css('display', 'none')
+    $('#sen1').empty()
+    $('#sen1data').css('display', 'none')
+    $('#sen1committeedatabutton').empty()
+    $('#sen1subcommitteedatabutton').empty()
+    $('#sen2').css('display', 'none')
+    $('#sen2').empty()
+    $('#sen2data').css('display', 'none')
+    $('#sen2committeedatabutton').empty()
+    $('#sen2subcommitteedatabutton').empty()
+    $('#rep').css('display', 'none')
+    $('#rep').empty()
+    $('#repcommitteedatabutton').empty()
+    $('#repsubcommitteedatabutton').empty()
+    $('#repdata').css('display', 'none')
 };
+
+};
+
+
 
 //ProPublica API button & congressional data gathering
 $(document).ready(function(){
@@ -1196,7 +1328,7 @@ $(document).ready(function(){
           for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
             console.log(data.results[0].roles[0].subcommittees[j].name);
             $('#sen1subcommitteedatabutton').append(
-              '<a class="dropdown-item" onclick="oo('+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
+              '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
             )
           }
       };
@@ -1227,7 +1359,7 @@ $(document).ready(function(){
        if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
          $('#sen1table').delay(10000).prepend(
           '<div class="alert alert-info" role="alert" onclick= "inf(\''+data.results[0].member_id+'\')">'+ "Looks like "
-  +data.results[0].first_name+" "+data.results[0].last_name+" could be in play. click here for more info"+
+  +data.results[0].first_name+" "+data.results[0].last_name+" is open to negotiation. Click this alert for more info"+
 '</div>'
          )
        }
@@ -1260,7 +1392,7 @@ $(document).ready(function(){
           for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
             console.log(data.results[0].roles[0].subcommittees[j].name);
             $('#sen2subcommitteedatabutton').append(
-              '<a class="dropdown-item" onclick="oo('+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
+              '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
             )
           }
       };
@@ -1322,7 +1454,7 @@ $(document).ready(function(){
           for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
             console.log(data.results[0].roles[0].subcommittees[j].name);
             $('#repsubcommitteedatabutton').append(
-              '<a class="dropdown-item" onclick="oo('+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
+              '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
             )
           }
       };
@@ -1446,7 +1578,7 @@ $.ajax({
         '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
       '</div>'+
         '<div style="padding-top: 25px" class="col-sm-6">'+
-        // '<h6>'+opensecrets.response.summary.[@attributes]+'</h6>'+
+   //     '<h6>'+opensecrets.response.summary.@attributes+'</h6>'+
         '</div>'+
     '</div>'
 )
