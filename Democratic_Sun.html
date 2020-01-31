@@ -27,9 +27,13 @@
       75%  {background-color:green; left:0px; top:200px;}
       100% {background-color:red; left:0px; top:0px;}
     } */
+
     .bg {
     background-color: #006600;
     -webkit-text-fill-color: white;
+    border: 5px;
+      border-color: #fff;
+
 }
 body{
   background-color: #006600;
@@ -74,6 +78,7 @@ h5 {
 }
 .container{
     padding-bottom: 50px;
+    outline: 5px #fff;
 }
 /* .btn-primary { 
   background-color: #006600;
@@ -1198,7 +1203,7 @@ if (housesub.hasOwnProperty(g)) {
 
 
 
-//ProPublica API button & congressional data gathering
+//ProPublica API for Rep and Senator DaTaBeGiN
 $(document).ready(function(){
   $('#getdata').click(function() {
     $('#officials').css('display', 'none'),
@@ -1307,7 +1312,7 @@ $(document).ready(function(){
       dataType: 'json',
       headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
     }).done(function(data){
-
+      window.localStorage.setItem('sen1party', data.results[0].current_party)
       console.log(data);
       $('#sen1').delay(2000).fadeIn(2000),                                                          
       $('#sen1').append(
@@ -1335,11 +1340,11 @@ $(document).ready(function(){
       jj();
        $('#sen1data').delay(2000).fadeIn(2000);
        $('#sen1table').prepend(
-       ` <table class="table table-sm table-dark">
+       ` <table class="table table-sm table-light">
   <tbody>
     <tr>
-      <th scope="row">Date of Birth</th>
-      <th><mark>`+data.results[0].date_of_birth+`</mark></th>
+      <th scope="row" colspan="2"">Date of Birth</th>
+      <th colspan="2">`+data.results[0].date_of_birth+`</th>
 
     </tr>
     <tr>
@@ -1350,7 +1355,32 @@ $(document).ready(function(){
     </tr>
     <tr>
       <th scope="row">3</th>
+      <td colspan="2">Seth</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
       <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td colspan="2">Jack</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td colspan="2">Jack</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td colspan="2">Ethan rocks</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td colspan="2">Bluemagedonization</td>
       <td>@twitter</td>
     </tr>
   </tbody>
@@ -1371,6 +1401,7 @@ $(document).ready(function(){
       dataType: 'json',
       headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
    }).done(function(data){
+      window.localStorage.setItem('sen2party', data.results[0].current_party);
      console.log(data);
      $('#sen2').delay(2000).fadeIn(2000),
      $('#sen2').append(
@@ -1433,6 +1464,7 @@ $(document).ready(function(){
       dataType: 'json',
       headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
      }).done(function(data){
+      window.localStorage.setItem('repParty', data.results[0].current_party)
        console.log(data);
        $('#rep').delay(2000).fadeIn(2000),
        $('#rep').append(
@@ -1483,7 +1515,7 @@ $(document).ready(function(){
   </tbody>
 </table>`
        );
-       if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
+       if (data.results[0].roles[0].votes_against_party_pct > 15.00 && window.localStorage.getItem('Path') ==! window.localStorage.getItem('repParty') ) {
          $('#reptable').delay(5000).prepend(
           '<div class="alert alert-info" role="alert" onclick= "inf(\''+data.results[0].member_id+'\')">'+ "Looks like "
   +data.results[0].first_name+" "+data.results[0].last_name+" could be in play. click here for more info"+
@@ -1578,6 +1610,8 @@ $.ajax({
         '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
       '</div>'+
         '<div style="padding-top: 25px" class="col-sm-6">'+
+          '<h1>Summary Profile</h1>'+
+            '<p>major donors to the right. explore opensecrets api to create more diverse endpoints</p>'+
    //     '<h6>'+opensecrets.response.summary.@attributes+'</h6>'+
         '</div>'+
     '</div>'
@@ -3233,8 +3267,6 @@ $.ajax({
           <div id="carousel"></div>
           <div id="caroucontent"></div>
           <div id="inf">
-            <h1>Summary Profile</h1>
-            <p>major donors to the right. explore opensecrets api to create more diverse endpoints</p>
 </div>
 
           <div id="repcontent">
