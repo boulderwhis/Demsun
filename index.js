@@ -1,7 +1,5 @@
-<script>
 
 // LINK TOILOTS 
-
 // remember bro this one got repurposed. this isn't one of the banner links anymore
 $(document).ready(function(){
   $('#getlobbydata').click(function(){
@@ -2992,4 +2990,61 @@ $.ajax({
             document.getElementById("content").innerHTML=u.rhetoric;
         }
       }
-  </script>
+
+//  SWITCH STATEMENT EVENT LISTENERS
+
+document.getElementbyID("Campaign Finance Reform").onclick = q = "Campaign Finance Reform";
+document.getElementById("Campaign Finance Reform").onclick = zz('Campaign Finance Reform');
+document.getElementbyID("Build the Wall").onclick = q = "Build the Wall";
+document.getElementById("Build the Wall").onclick = zz;
+document.getElementbyID("Medicare for All").onclick = q = "Medicare for All";
+document.getElementById("Medicare for All").onclick = zz;
+document.getElementbyID("Gun Rights").onclick = q = "Gun Rights";
+document.getElementById("Gun Rights").onclick = zz;
+document.getElementbyID("Free Collegiate Education").onclick = q = "Free Collegiate Education";
+document.getElementById("Free Collegiate Education").onclick = zz;
+document.getElementbyID("Small Business Tax Reduction").onclick = q = "Small Business Tax Reduction";
+document.getElementById("Small Business Tax Reduction").onclick = zz;
+document.getElementbyID("The Green New Deal").onclick = q = "The Green New Deal";
+document.getElementById("The Green New Deal").onclick = zz;
+document.getElementbyID("Clean Coal Initiatives").onclick = q = "Clean Coal Initiatives";
+document.getElementById("Clean Coal Initiatives").onclick = zz;
+document.getElementbyID("Corporate Inversion Penalties").onclick = q = "Corporate Inversion Penalties";
+document.getElementById("Corporate Inversion Penalties").onclick = zz;
+document.getElementbyID("Corporate Tax Reductions").onclick = q = "Corporate Tax Reductions";
+document.getElementById("Corporate Tax Reductions").onclick = zz;
+document.getElementbyID("Abolish the Death Penalty").onclick = q = "Abolish the Death Penalty";
+document.getElementById("Abolish the Death Penalty").onclick = zz;
+document.getElementbyID("Pro Death Penalty").onclick = q = "Pro Death Penalty";
+document.getElementById("Pro Death Penalty").onclick = zz;
+document.getElementbyID("Seperate Church and State").onclick = q = "Seperate Church and State";
+document.getElementById("Seperate Church and State").onclick = zz;
+document.getElementbyID("Religious Expression").onclick = q = "Religious Expression";
+document.getElementById("Religious Expression").onclick = zz;
+document.getElementbyID("Same-Sex Marriage").onclick = q = "Same-Sex Marriage";
+document.getElementById("Same-Sex Marriage").onclick = zz;
+document.getElementbyID("The Sanctity of Marriage").onclick = q = "The Sanctity of Marriage";
+document.getElementById("The Sanctity of Marriage").onclick = zz;
+document.getElementbyID("Universal Basic Income").onclick = q = "Universal Basic Income";
+document.getElementById("Universal Basic Income").onclick = zz;
+document.getElementbyID("The Welfare State").onclick = q = "The Welfare State";
+document.getElementById("The Welfare State").onclick = zz;
+//document.getElementbyID("The War on Terror").onclick = q = "The War on Terror";
+document.getElementById("The War on Terror").onclick = zz('The War on Terror');
+//document.getElementbyID("America is Under-Attack").onclick = q = "America is Under-Attack";
+document.getElementById("America is Under-Attack").onclick = zz('America is Under-Attack');
+//document.getElementbyID("End Voter Suppression").onclick = q = "End Voter Suppression";
+document.getElementById("End Voter Suppression").onclick = zz('End Voter');
+// document.getElementbyID("Stop Illegals from Voting").onclick = q = "Stop Illegals from Voting";
+// document.getElementById("Stop Illegals from Voting").onclick = zz;
+document.getElementById("Stop Illegals from Voting").onclick = zz('Stop Illegals from Voting');
+
+
+
+
+
+
+    // // Note: This example requires that you consent to location sharing when
+    // // prompted by your browser. If you see the error "The Geolocation service
+    // // failed.", it means you probably did not give permission for the browser to
+    // // locate you.
