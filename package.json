@@ -1,7 +1,7 @@
 {
   "name": "The Democratic Sun",
   "version": "3",
-  "description": "Lobby the Federal Government with Microdonations",
+  "description": "Issue based lobbying through microdonations",
   "engines": {
     "node": "13.x"
   },
@@ -20,12 +20,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/The-Democratic-Sun"
+    "url": "https://github.com/boulderwhis/The-Democratic-Sun"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+    "Altruism",
+    "The Democratic Sun",
+    "Lobby"
   ],
   "license": "MIT"
 }
