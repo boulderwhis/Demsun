@@ -1,9 +1,9 @@
 {
-  "name": "node-js-getting-started",
+  "name": "The Democratic Sun",
   "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "description": "Federal Lobbying Automation",
   "engines": {
-    "node": "12.x"
+    "node": "13.x"
   },
   "main": "index.js",
   "scripts": {
@@ -20,12 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/boulderwhis/The-Democratic-Sun"
   },
   "keywords": [
     "node",
-    "heroku",
-    "express"
+    "lobby",
+    "influence",
+    "government",
   ],
   "license": "MIT"
 }
