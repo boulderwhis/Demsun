@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "description": "Federal Lobbying Automation",
   "engines": {
-    "node": "13.x"
+    "node": "12.x"
   },
   "main": "index.js",
   "scripts": {
