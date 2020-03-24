@@ -4,4 +4,5 @@
   "repository": "https://github.com/heroku/The-Democratic-Sun",
   "logo": "",
   "keywords": ["webapp", "lobby", "federal government", "],
+   "img-src": "heroku/nodejs";
 }
