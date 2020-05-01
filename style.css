@@ -1,0 +1,218 @@
+
+    .grid-container {
+        display: block;
+        grid-template-columns: 0.8fr 1.2fr 1.3fr 0.7fr;
+        grid-template-rows: 1fr 0.8fr 1.2fr;
+        gap: 1px 1px;
+        padding-top: 10px;
+  }
+      .bg {
+      background-color: #006600;
+      -webkit-text-fill-color: white;
+      border: 5px;
+        border-color: #fff;
+  
+  }
+  body{
+    background-color: #006600;
+  }
+  .navbar-brand {
+      text-align: center;
+      -webkit-text-fill-color: #006600;
+      font-weight: bold;
+      cursor: pointer;
+  
+  }
+  .navbar-toggler {
+      background-color:#006600;
+  }
+  .nav-link{
+      -webkit-text-fill-color: #006600;
+      cursor: pointer;
+  }
+  #navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+      cursor: pointer;
+  }
+  footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #006600;
+      -webkit-text-fill-color: white;
+      text-align: center;
+      z-index: 1;
+  }
+  p1 {
+    -webkit-text-fill-color: #006600;
+    background-color: #f8f9fa;
+  }
+  h5 {
+      -webkit-text-fill-color: #006600;
+    }
+  .card-text {
+      -webkit-text-fill-color: #006600;
+      padding-bottom: 2px;
+  }
+  .container{
+      padding-bottom: 50px;
+      outline: 5px #fff;
+      cursor: pointer;
+  }
+  /* .btn-primary { 
+    background-color: #006600;
+    border-color: #006600;
+  } */
+  #officials{
+    background-color: white;
+    -webkit-text-fill-color: #006600;
+    border-color:#006600;
+    font-weight: bold;
+  }
+  #officials:hover, #officials:focus, #officials:active, #officials.active, .open>.dropdown-toggle#officials {
+      color: #fff;
+      background-color: #881607;
+      border-color: #881607;
+      -webkit-text-fill-color: whitesmoke; /*set the color you want here*/
+  }
+  .btn {
+    background-color: #fff;
+    color: #006600;
+    border-color: #fff;
+  }
+  .btn-primary {
+      color: #fff;
+      background-color: #006600;
+      border-color: #006600; /*set the color you want here*/
+    }
+  #getlobbydata {
+    background-color: white;
+    -webkit-text-fill-color: #006600;
+    border-color:#006600;
+    font-weight: bold;
+    display: none;
+    }
+  #getlobbydata:hover, #getlobbydata:focus, #getlobbydata:active, .btn-primary.active, .open>.dropdown-toggle#getlobbydata {
+    color: #fff;
+      background-color: #881607;
+      border-color: #881607;
+      -webkit-text-fill-color: whitesmoke;
+    }
+    #lobby{
+      display: none;
+    }
+    #firstcontent{
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    h1 {
+      text-align: center;
+    }
+    #home {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #about {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #contact {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    h4 {
+      -webkit-text-fill-color: #006600;
+      text-align: center;
+      font-weight: bold;
+  
+    }
+    #content {
+      display: none;
+    }
+    #cards {
+      display: block;
+    }
+    #plan{
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #sen1{
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #sen2{
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #rep{
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+    }
+    #content{
+      padding-bottom: 50px;
+    }
+    #sen1data {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+      -webkit-text-fill-color: #006600;
+  
+    }
+    #sen2data {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+      -webkit-text-fill-color: #006600;
+    }
+    #repdata {
+      padding-top: 50px;
+      text-align: left;
+      display: none;
+      -webkit-text-fill-color: #006600;
+    }
+    h6{
+      font-weight: bold;
+      font-size: x-large;
+    }
+    h7 {
+      font-weight: bold;
+      font-size: xx-large;
+      -webkit-text-fill-color: #006600;
+    }
+    #committeeshit {
+      display: none;
+      padding-top: 25px;
+    }
+    #D {
+      display: none;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      background-color: #fff;
+      -webkit-text-fill-color: #006600;
+  
+    }
+    #R {
+      display: none;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      background-color: #fff;
+      -webkit-text-fill-color: #006600;
+    }
+  
+    #inf{
+      display: none;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  
