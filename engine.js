@@ -24,6 +24,7 @@ $(document).ready(function(){
     $('#NavbarLogo').click(function(){
       $('#home').fadeIn(2000)
       $('#officials').fadeIn(2000)
+      $('#firstcontent').fadeIn(2000)
       $('#content').css('display', 'none')
       $('#about').css('display', 'none')
       $('#lobby').css('display', 'none')
@@ -76,17 +77,23 @@ $(document).ready(function(){
       $('#sen1').css('display', 'none')
       $('#sen1').empty()
       $('#sen1data').css('display', 'none')
+      $('#sen1committeedatabutton').css('display', 'none')
       $('#sen1committeedatabutton').empty()
       $('#sen1subcommitteedatabutton').empty()
+      $('#sen1subcommitteedatabutton').css('display', 'none')
       $('#sen2').css('display', 'none')
       $('#sen2').empty()
       $('#sen2data').css('display', 'none')
+      $('#sen2committeedatabutton').css('display', 'none')
       $('#sen2committeedatabutton').empty()
       $('#sen2subcommitteedatabutton').empty()
+      $('#sen2subcommitteedatabutton').css('display', 'none')
       $('#rep').css('display', 'none')
+      $('#repcommitteedatabutton').css('display', 'none')
       $('#rep').empty()
       $('#repcommitteedatabutton').empty()
       $('#repsubcommitteedatabutton').empty()
+      $('#repsubcommitteedatabutton').css('display', 'none')
       $('#repdata').css('display', 'none')
       $('#getlobbydata').css('display', 'none')
       $('#D').empty()
@@ -388,7 +395,7 @@ $(document).ready(function(){
     "Committee on Small Business and Entrepreneurship": "SSSB",
     "Committee on the Budget":  "SSBU",
     "Committee on the Judiciary": "SSJU",
-    "Committee on Veterans' Affairs": "SSVA",
+    "Committee on Veterans Affairs": "SSVA",
     "Select Committee on Ethics": "SLET",
     "Select Committee on Intelligence": "SLIN",
     "Special Committee on Aging": "SPAG",
@@ -561,11 +568,11 @@ $(document).ready(function(){
     "Social Security, Pensions, and Family Policy": "SSFI02",
     "Taxation and IRS Oversight": "SSFI11",
     "International Development and Foreign Assistance, Economic Affairs, International Environmental Protection, and Peace Corps": "SSFR12",
-    "International Operations and Organizations, Human Rights, Democracy, and Global Women's Issues": "SSFR13",
+    "International Operations and Organizations, Human Rights, Democracy, and Global Womens Issues": "SSFR13",
     "Africa and Global Health Policy: SSFR09 Europe and Regional Security Cooperation": "SSFR01",
     "East Asia, the Pacific, and International Cybersecurity Policy": "SSFR02",
     "Near East, South Asia, Central Asia, and Counterterrorism": "SSFR07",
-    "Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues": "SSFR06",
+    "Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Womens Issues": "SSFR06",
     "State Department and USAID Management, International Operations, and Bilateral International Development": "SSFR14",
     "Multilateral International Development, Multilateral Institutions, and International Economic, Energy, and Environmental Policy": "SSFR15",
     "Children and Families: SSHR09 Employment and Workplace Safety": "SSHR11",
@@ -960,7 +967,7 @@ $(document).ready(function(){
       $('#reptable').empty()
       ff();
   
-      
+        //IF ERROR
       if (window.localStorage.getItem('S1ID')==='fail') {
                     $("#lobby").css(
                       'display', 'none'
@@ -1050,14 +1057,32 @@ $(document).ready(function(){
         function jj(x){
             for (i=0; i<data.results[0].roles[0].committees.length; i++){
               console.log(data.results[0].roles[0].committees[i].name);
-              $('#sen1committeedatabutton').append(
-                '<a class="dropdown-item"  onclick="oo('+"'"+data.results[0].roles[0].committees[i].name+"'"+')">'+data.results[0].roles[0].committees[i].name+'</a>',
-              ) 
+              var committee = data.results[0].roles[0].committees[i].name;
+              if (committee.indexOf("'")>-1){
+                  var cleaned = committee.replace("'", "")
+                  $('#sen1committeedatabutton').append(
+                    `<a class="dropdown-item"  onclick="oo(`+"'"+cleaned+"'"+`)">`+committee+'</a>',
+                  ) 
+                }
+              else{
+                $('#sen1committeedatabutton').append(
+                    `<a class="dropdown-item"  onclick="oo(`+"'"+committee+"'"+`)">`+committee+'</a>',
+                  ) 
+              }
+
             };
             for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
               console.log(data.results[0].roles[0].subcommittees[j].name);
+              var subcommittee = data.results[0].roles[0].subcommittees[j].name
+              if (subcommittee.indexOf("'">-1)){
+                var cleaned = subcommittee.replace("'", "")
+                $('#sen1subcommitteedatabutton').append(
+                    '<a class="dropdown-item" onclick="oo('+"null, "+"'"+cleaned+"'"+')">'+subcommittee+'</a>',
+
+                )
+              }
               $('#sen1subcommitteedatabutton').append(
-                '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
+                '<a class="dropdown-item" onclick="oo('+"null, "+"'"+subcommittee+"'"+')">'+subcommittee+'</a>',
               )
             }
         };
@@ -1138,19 +1163,29 @@ $(document).ready(function(){
   
        );
        function jj(x){
-            for (i=0; i<data.results[0].roles[0].committees.length; i++){
-              console.log(data.results[0].roles[0].committees[i].name);
+        for (i=0; i<data.results[0].roles[0].committees.length; i++){
+          console.log(data.results[0].roles[0].committees[i].name);
+          var committee = data.results[0].roles[0].committees[i].name;
+          if (committee.indexOf("'")>-1){
+              var cleaned = committee.replace("'", "")
               $('#sen2committeedatabutton').append(
-                '<a class="dropdown-item" onclick="oo('+"'"+data.results[0].roles[0].committees[i].name+"'"+')">'+data.results[0].roles[0].committees[i].name+'</a>',
+                `<a class="dropdown-item"  onclick="oo(`+"'"+cleaned+"'"+`)">`+committee+'</a>',
               ) 
-            };
-            for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
-              console.log(data.results[0].roles[0].subcommittees[j].name);
-              $('#sen2subcommitteedatabutton').append(
-                '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
-              )
             }
+          else{
+            $('#sen2committeedatabutton').append(
+                `<a class="dropdown-item"  onclick="oo(`+"'"+committee+"'"+`)">`+committee+'</a>',
+              ) 
+          }
+
         };
+        for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
+          console.log(data.results[0].roles[0].subcommittees[j].name);
+          $('#sen2subcommitteedatabutton').append(
+            '<a class="dropdown-item" onclick="oo('+"null, "+"'"+data.results[0].roles[0].subcommittees[j].name+"'"+')">'+data.results[0].roles[0].subcommittees[j].name+'</a>',
+          )
+        }
+    };
         jj();
        $('#sen2data').delay(2000).fadeIn(2000);
        $('#sen2table').prepend(
@@ -1202,10 +1237,19 @@ $(document).ready(function(){
          function jj(x){
             for (i=0; i<data.results[0].roles[0].committees.length; i++){
               console.log(data.results[0].roles[0].committees[i].name);
-              $('#repcommitteedatabutton').append(
-                // '<a class="dropdown-item">'+data.results[0].roles[0].committees[i].name+'</li>',
-                  '<a class="dropdown-item" onclick="oo('+"'"+data.results[0].roles[0].committees[i].name+"'"+')"">'+data.results[0].roles[0].committees[i].name+'</a>',
-              )
+              var committee = data.results[0].roles[0].committees[i].name;
+              if (committee.indexOf("'")>-1){
+                  var cleaned = committee.replace("'", "")
+                  $('#repcommitteedatabutton').append(
+                    `<a class="dropdown-item"  onclick="oo(`+"'"+cleaned+"'"+`)">`+cleaned+'</a>',
+                  ) 
+                }
+              else{
+                $('#repcommitteedatabutton').append(
+                    `<a class="dropdown-item"  onclick="oo(`+"'"+committee+"'"+`)">`+data.results[0].roles[0].committees[i].name+'</a>',
+                  ) 
+              }
+
             };
             for (j=0; j<data.results[0].roles[0].subcommittees.length; j++) {
               console.log(data.results[0].roles[0].subcommittees[j].name);
@@ -1306,8 +1350,8 @@ $(document).ready(function(){
   $('#reptable').empty()
   $('#firstcontent').css('display', 'none')
   $('#inf').fadeIn(3000).css('display', 'block')
-  $('#getlobbydata').fadeIn(10000).css('display', 'block')
-  
+  $('#getlobbydata').fadeIn(20000).css('display', 'block')
+
   console.log('polished off the empties ;)');
   
   
