@@ -10,7 +10,7 @@
       background-color: #006600;
       -webkit-text-fill-color: white;
       border: 5px;
-        border-color: #fff;
+      border-color: #fff;
   
   }
   body{
@@ -37,16 +37,7 @@
       z-index: 1;
       cursor: pointer;
   }
-  footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: #006600;
-      -webkit-text-fill-color: white;
-      text-align: center;
-      z-index: 1;
-  }
+
   p1 {
     -webkit-text-fill-color: #006600;
     background-color: #f8f9fa;
@@ -62,6 +53,7 @@
       padding-bottom: 50px;
       outline: 5px #fff;
       cursor: pointer;
+      border-color: white;
   }
   /* .btn-primary { 
     background-color: #006600;
@@ -113,17 +105,17 @@
       text-align: center;
     }
     #home {
-      padding-top: 50px;
+      padding-top: 2%;
       text-align: left;
       display: none;
     }
     #about {
-      padding-top: 50px;
+      padding-top: 2%;
       text-align: left;
       display: none;
     }
     #contact {
-      padding-top: 50px;
+      padding-top: 2%;
       text-align: left;
       display: none;
     }
@@ -140,43 +132,44 @@
       display: block;
     }
     #plan{
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
     }
     #sen1{
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
+      border-color: white ;
     }
     #sen2{
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
     }
     #rep{
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
     }
     #content{
-      padding-bottom: 50px;
+      padding-bottom: 5%;
     }
     #sen1data {
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
       -webkit-text-fill-color: #006600;
   
     }
     #sen2data {
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
       -webkit-text-fill-color: #006600;
     }
     #repdata {
-      padding-top: 50px;
+      padding-top: 5%;
       text-align: left;
       display: none;
       -webkit-text-fill-color: #006600;
@@ -215,4 +208,32 @@
       padding-top: 25px;
       padding-bottom: 25px;
     }
-  
+    h8 {
+      -webkit-text-fill-color: white;
+      font-weight: bold;
+      font-size: x-large;
+    }
+
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #006600;
+      -webkit-text-fill-color: white;
+      text-align: center;
+      z-index: 1;
+      max-height: 10%;
+  }
+  #footer2 {
+    padding-bottom: 5px;
+  }
+  #repcontent {
+    padding-top: 2%;
+    display: none;
+  }
+
+  #load{
+    display: none;
+    margin-left: 40%;
+  }

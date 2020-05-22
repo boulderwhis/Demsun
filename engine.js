@@ -1,4 +1,3726 @@
 
+//  function cards(a, b, c, d, e, f) {
+//   var type = {
+//   card: 
+  
+//     '<div class='+a+'>'+
+//   '<div class="card bg-light mb-3">'+
+//     '<div class="card-body">'+
+//       '<h5 class="card-title">Campaign Finance Reform</h5>'+
+//       '<p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>'+
+//       `<a id="CampaignFinanceReform" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Campaign Finance Reform')">Engage Now</a>`+
+//     '</div>'+
+//   '</div>'+
+// '</div>'
+//  };
+{/* <div class="col-sm-6">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Campaign Finance Reform</h5>
+                  <p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>
+                  <a id="CampaignFinanceReform" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Campaign Finance Reform')">Engage Now</a>
+                </div>
+              </div>
+            </div> */}
+// }
+var industrycodes = 
+[ 
+  {
+    "Catcode": "A11",
+    "Catname": "A0000",
+    "Catorder": "Agriculture",
+    "Industry": "Misc Agriculture",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1000",
+    "Catorder": "Crop production & basic processing",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1100",
+    "Catorder": "Cotton",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1200",
+    "Catorder": "Sugar cane & sugar beets",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A02",
+    "Catname": "A1300",
+    "Catorder": "Tobacco & Tobacco products",
+    "Industry": "Tobacco",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1400",
+    "Catorder": "Vegetables, fruits and tree nut",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1500",
+    "Catorder": "Wheat, corn, soybeans and cash grain",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A01",
+    "Catname": "A1600",
+    "Catorder": "Other commodities (incl rice, peanuts, honey)",
+    "Industry": "Crop Production & Basic Processing",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A04",
+    "Catname": "A2000",
+    "Catorder": "Milk & dairy producers",
+    "Industry": "Dairy",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A05",
+    "Catname": "A2300",
+    "Catorder": "Poultry & eggs",
+    "Industry": "Poultry & Eggs",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A06",
+    "Catname": "A3000",
+    "Catorder": "Livestock",
+    "Industry": "Livestock",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A3100",
+    "Catorder": "Animal feed & health products",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A06",
+    "Catname": "A3200",
+    "Catorder": "Sheep and Wool Producers",
+    "Industry": "Livestock",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A06",
+    "Catname": "A3300",
+    "Catorder": "Feedlots & related livestock services",
+    "Industry": "Livestock",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A06",
+    "Catname": "A3500",
+    "Catorder": "Horse breeders",
+    "Industry": "Livestock",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A4000",
+    "Catorder": "Agricultural services & related industries",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A4100",
+    "Catorder": "Agricultural chemicals (fertilizers & pesticides)",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A4200",
+    "Catorder": "Farm machinery & equipment",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A4300",
+    "Catorder": "Grain traders & terminals",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A4500",
+    "Catorder": "Veterinarians",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A10",
+    "Catname": "A5000",
+    "Catorder": "Forestry & Forest Products",
+    "Industry": "Forestry & Forest Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A10",
+    "Catname": "A5200",
+    "Catorder": "Paper & pulp mills and paper manufacturing",
+    "Industry": "Forestry & Forest Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A6000",
+    "Catorder": "Farm organizations & cooperatives",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A6500",
+    "Catorder": "Farm bureaus",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A07",
+    "Catname": "A8000",
+    "Catorder": "Florists & Nursery Services",
+    "Industry": "Agricultural Services/Products",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "C01",
+    "Catname": "B0000",
+    "Catorder": "Construction & Public Works",
+    "Industry": "General Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C01",
+    "Catname": "B0500",
+    "Catorder": "Builders associations",
+    "Industry": "General Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C01",
+    "Catname": "B1000",
+    "Catorder": "Public works, industrial & commercial construction",
+    "Industry": "General Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C01",
+    "Catname": "B1200",
+    "Catorder": "Dredging Contractors",
+    "Industry": "General Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C01",
+    "Catname": "B1500",
+    "Catorder": "Construction, unclassified",
+    "Industry": "General Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C02",
+    "Catname": "B2000",
+    "Catorder": "Residential construction",
+    "Industry": "Home Builders",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C02",
+    "Catname": "B2400",
+    "Catorder": "Mobile home construction",
+    "Industry": "Home Builders",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C03",
+    "Catname": "B3000",
+    "Catorder": "Special trade contractors",
+    "Industry": "Special Trade Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C03",
+    "Catname": "B3200",
+    "Catorder": "Electrical contractors",
+    "Industry": "Special Trade Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C03",
+    "Catname": "B3400",
+    "Catorder": "Plumbing, heating & air conditioning",
+    "Industry": "Special Trade Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C03",
+    "Catname": "B3600",
+    "Catorder": "Landscaping & Excavation Svcs",
+    "Industry": "Special Trade Contractors",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C04",
+    "Catname": "B4000",
+    "Catorder": "Engineering, architecture & construction mgmt svcs",
+    "Industry": "Construction Services",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C04",
+    "Catname": "B4200",
+    "Catorder": "Architectural services",
+    "Industry": "Construction Services",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C04",
+    "Catname": "B4300",
+    "Catorder": "Surveying",
+    "Industry": "Construction Services",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C04",
+    "Catname": "B4400",
+    "Catorder": "Engineers - type unknown",
+    "Industry": "Construction Services",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5000",
+    "Catorder": "Building materials",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5100",
+    "Catorder": "Stone, clay, glass & concrete products",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5200",
+    "Catorder": "Lumber and wood products",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5300",
+    "Catorder": "Plumbing & pipe products",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5400",
+    "Catorder": "Other construction-related products",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B5500",
+    "Catorder": "Electrical Supply",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "C05",
+    "Catname": "B6000",
+    "Catorder": "Construction equipment",
+    "Industry": "Building Materials & Equipment",
+    "Sector": "Construction",
+    "Sector Long": "Construction"
+  },
+  {
+    "Catcode": "B00",
+    "Catname": "C0000",
+    "Catorder": "Communications & Electronics",
+    "Industry": "Misc Communications/Electronics",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B01",
+    "Catname": "C1000",
+    "Catorder": "Printing and publishing (printed & online)",
+    "Industry": "Printing & Publishing",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B01",
+    "Catname": "C1100",
+    "Catorder": "Book, newspaper & periodical publishing",
+    "Industry": "Printing & Publishing",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B01",
+    "Catname": "C1300",
+    "Catorder": "Commercial printing & typesetting",
+    "Industry": "Printing & Publishing",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B01",
+    "Catname": "C1400",
+    "Catorder": "Greeting card publishing",
+    "Industry": "Printing & Publishing",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2000",
+    "Catorder": "Entertainment Industry/Broadcast & Motion Pictures",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2100",
+    "Catorder": "Commercial TV & radio stations",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2200",
+    "Catorder": "Cable & satellite TV production",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2300",
+    "Catorder": "TV production",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2400",
+    "Catorder": "Motion Picture production & distribution",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2600",
+    "Catorder": "Recorded Music & music production",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2700",
+    "Catorder": "Movie Theaters",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2800",
+    "Catorder": "Bands, orchestras & other live music production",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B02",
+    "Catname": "C2900",
+    "Catorder": "Live theater & other entertainment productions",
+    "Industry": "TV/Movies/Music",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B09",
+    "Catname": "C4000",
+    "Catorder": "Telecommunications",
+    "Industry": "Telecom Services",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B08",
+    "Catname": "C4100",
+    "Catorder": "Telephone utilities",
+    "Industry": "Telephone Utilities",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B08",
+    "Catname": "C4200",
+    "Catorder": "Long-distance telephone & telegraph service",
+    "Industry": "Telephone Utilities",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B09",
+    "Catname": "C4300",
+    "Catorder": "Cell/wireless service providers",
+    "Industry": "Telecom Services",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B09",
+    "Catname": "C4400",
+    "Catorder": "Satellite communications",
+    "Industry": "Telecom Services",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B09",
+    "Catname": "C4500",
+    "Catorder": "Cable distributors & service providers",
+    "Industry": "Telecom Services",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B09",
+    "Catname": "C4600",
+    "Catorder": "Other Communications Services",
+    "Industry": "Telecom Services",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5000",
+    "Catorder": "Electronics manufacturing & services",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5100",
+    "Catorder": "Computer manufacture & services",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5110",
+    "Catorder": "Computer components & accessories",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5120",
+    "Catorder": "Computer software",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5130",
+    "Catorder": "Data processing & computer services",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5200",
+    "Catorder": "Telecommunications Devices",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5300",
+    "Catorder": "Other Communication Electronics",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B12",
+    "Catname": "C5400",
+    "Catorder": "Industrial Electronics",
+    "Industry": "Electronics Mfg & Equip",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6000",
+    "Catorder": "Internet & Online Services",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6100",
+    "Catorder": "Online Entertainment",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6200",
+    "Catorder": "Social Media",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6300",
+    "Catorder": "Search Engine/Email Services",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6400",
+    "Catorder": "Vendors",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "B13",
+    "Catname": "C6500",
+    "Catorder": "Hosting/Cloud Services",
+    "Industry": "Internet",
+    "Sector": "Communic/Electronics",
+    "Sector Long": "Communications/Electronics"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D0000",
+    "Catorder": "Defense",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D01",
+    "Catname": "D2000",
+    "Catorder": "Defense aerospace contractors",
+    "Industry": "Defense Aerospace",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D02",
+    "Catname": "D3000",
+    "Catorder": "Defense electronic contractors",
+    "Industry": "Defense Electronics",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D4000",
+    "Catorder": "Defense Research & Development",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D5000",
+    "Catorder": "Defense shipbuilders",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D6000",
+    "Catorder": "Homeland Security contractors",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D8000",
+    "Catorder": "Ground-based & other weapons systems",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "D03",
+    "Catname": "D9000",
+    "Catorder": "Defense-related services",
+    "Industry": "Misc Defense",
+    "Sector": "Defense",
+    "Sector Long": "Defense"
+  },
+  {
+    "Catcode": "E07",
+    "Catname": "E0000",
+    "Catorder": "Energy, Natural Resources and Environment",
+    "Industry": "Misc Energy",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E07",
+    "Catname": "E1000",
+    "Catorder": "Energy production & distribution",
+    "Industry": "Misc Energy",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1100",
+    "Catorder": "Oil & Gas",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1110",
+    "Catorder": "Major (multinational) oil & gas producers",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1120",
+    "Catorder": "Independent oil & gas producers",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1140",
+    "Catorder": "Natural Gas transmission & distribution",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1150",
+    "Catorder": "Oilfield service, equipment & exploration",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1160",
+    "Catorder": "Petroleum refining & marketing",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1170",
+    "Catorder": "Gasoline service stations",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1180",
+    "Catorder": "Fuel oil dealers",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E01",
+    "Catname": "E1190",
+    "Catorder": "LPG/Liquid Propane dealers & producers",
+    "Industry": "Oil & Gas",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E04",
+    "Catname": "E1200",
+    "Catorder": "Mining",
+    "Industry": "Mining",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E04",
+    "Catname": "E1210",
+    "Catorder": "Coal mining",
+    "Industry": "Mining",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E04",
+    "Catname": "E1220",
+    "Catorder": "Metal mining & processing",
+    "Industry": "Mining",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E04",
+    "Catname": "E1230",
+    "Catorder": "Non-metallic mining",
+    "Industry": "Mining",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E04",
+    "Catname": "E1240",
+    "Catorder": "Mining services & equipment",
+    "Industry": "Mining",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1300",
+    "Catorder": "Nuclear energy",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1320",
+    "Catorder": "Nuclear plant construction, equipment & svcs",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E07",
+    "Catname": "E1500",
+    "Catorder": "Alternate energy production & services",
+    "Industry": "Misc Energy",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1600",
+    "Catorder": "Electric Power utilities",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1610",
+    "Catorder": "Rural electric cooperatives",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1620",
+    "Catorder": "Gas & Electric Utilities",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E08",
+    "Catname": "E1630",
+    "Catorder": "Independent power generation & cogeneration",
+    "Industry": "Electric Utilities",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E07",
+    "Catname": "E1700",
+    "Catorder": "Power plant construction & equipment",
+    "Industry": "Misc Energy",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E09",
+    "Catname": "E2000",
+    "Catorder": "Environmental services, equipment & consulting",
+    "Industry": "Environmental Svcs/Equipment",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E10",
+    "Catname": "E3000",
+    "Catorder": "Waste management",
+    "Industry": "Waste Management",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E11",
+    "Catname": "E4000",
+    "Catorder": "Fisheries & wildlife",
+    "Industry": "Fisheries & Wildlife",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E11",
+    "Catname": "E4100",
+    "Catorder": "Fishing",
+    "Industry": "Fisheries & Wildlife",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E11",
+    "Catname": "E4200",
+    "Catorder": "Hunting & wildlife",
+    "Industry": "Fisheries & Wildlife",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "E07",
+    "Catname": "E5000",
+    "Catorder": "Water Utilities",
+    "Industry": "Misc Energy",
+    "Sector": "Energy/Nat Resource",
+    "Sector Long": "Energy & Natural Resources"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F0000",
+    "Catorder": "Finance, Insurance & Real Estate",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F03",
+    "Catname": "F1000",
+    "Catorder": "Banks & lending institutions",
+    "Industry": "Commercial Banks",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F03",
+    "Catname": "F1100",
+    "Catorder": "Commercial banks & bank holding companies",
+    "Industry": "Commercial Banks",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F04",
+    "Catname": "F1200",
+    "Catorder": "Savings banks & Savings and Loans",
+    "Industry": "Savings & Loans",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F05",
+    "Catname": "F1300",
+    "Catorder": "Credit unions",
+    "Industry": "Credit Unions",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F06",
+    "Catname": "F1400",
+    "Catorder": "Credit agencies & finance companies",
+    "Industry": "Finance/Credit Companies",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F06",
+    "Catname": "F1410",
+    "Catorder": "Student loan companies",
+    "Industry": "Finance/Credit Companies",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F06",
+    "Catname": "F1420",
+    "Catorder": "Payday lenders",
+    "Industry": "Finance/Credit Companies",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2000",
+    "Catorder": "Securities, commodities & investment",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2100",
+    "Catorder": "Security brokers & investment companies",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2110",
+    "Catorder": "Discount & Online Brokers",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2200",
+    "Catorder": "Commodity brokers/dealers",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2300",
+    "Catorder": "Investment banking",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2400",
+    "Catorder": "Stock exchanges",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2500",
+    "Catorder": "Venture capital",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2600",
+    "Catorder": "Private Equity & Investment Firms",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F07",
+    "Catname": "F2700",
+    "Catorder": "Hedge Funds",
+    "Industry": "Securities & Investment",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F09",
+    "Catname": "F3000",
+    "Catorder": "Insurance",
+    "Industry": "Insurance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F09",
+    "Catname": "F3100",
+    "Catorder": "Insurance companies, brokers & agents",
+    "Industry": "Insurance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F09",
+    "Catname": "F3200",
+    "Catorder": "Accident & health insurance",
+    "Industry": "Insurance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F09",
+    "Catname": "F3300",
+    "Catorder": "Life insurance",
+    "Industry": "Insurance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F09",
+    "Catname": "F3400",
+    "Catorder": "Property & casualty insurance",
+    "Industry": "Insurance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4000",
+    "Catorder": "Real estate",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4100",
+    "Catorder": "Real Estate developers & subdividers",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4200",
+    "Catorder": "Real estate agents",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4300",
+    "Catorder": "Title insurance & title abstract offices",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4400",
+    "Catorder": "Mobile home dealers & parks",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4500",
+    "Catorder": "Building operators and managers",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4600",
+    "Catorder": "Mortgage bankers and brokers",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F10",
+    "Catname": "F4700",
+    "Catorder": "Other real estate services",
+    "Industry": "Real Estate",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F5000",
+    "Catorder": "Financial services & consulting",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F11",
+    "Catname": "F5100",
+    "Catorder": "Accountants",
+    "Industry": "Accountants",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F5200",
+    "Catorder": "Credit reporting services & collection agencies",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F5300",
+    "Catorder": "Tax return services",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F5500",
+    "Catorder": "Other financial services",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "F13",
+    "Catname": "F7000",
+    "Catorder": "Investors",
+    "Industry": "Misc Finance",
+    "Sector": "Finance/Insur/RealEst",
+    "Sector Long": "Finance, Insurance & Real Estate"
+  },
+  {
+    "Catcode": "N12",
+    "Catname": "G0000",
+    "Catorder": "General commerce",
+    "Industry": "Misc Business",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1000",
+    "Catorder": "General business associations",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1100",
+    "Catorder": "Chambers of commerce",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1200",
+    "Catorder": "Small business associations",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1300",
+    "Catorder": "Pro-business associations",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1310",
+    "Catorder": "Business tax coalitions",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N00",
+    "Catname": "G1400",
+    "Catorder": "International trade associations",
+    "Industry": "Business Associations",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "A09",
+    "Catname": "G2000",
+    "Catorder": "Food & Beverage Products and Services",
+    "Industry": "Food Processing & Sales",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A09",
+    "Catname": "G2100",
+    "Catorder": "Food and kindred products manufacturing",
+    "Industry": "Food Processing & Sales",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2110",
+    "Catorder": "Artificial sweeteners and food additives",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2200",
+    "Catorder": "Confectionery processors & manufacturers",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "A09",
+    "Catname": "G2300",
+    "Catorder": "Meat processing & products",
+    "Industry": "Food Processing & Sales",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2350",
+    "Catorder": "Fish Processing",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "A09",
+    "Catname": "G2400",
+    "Catorder": "Food stores",
+    "Industry": "Food Processing & Sales",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "A09",
+    "Catname": "G2500",
+    "Catorder": "Food wholesalers",
+    "Industry": "Food Processing & Sales",
+    "Sector": "Agribusiness",
+    "Sector Long": "Agribusiness"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2600",
+    "Catorder": "Beverages (non-alcoholic)",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2700",
+    "Catorder": "Beverage bottling & distribution",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N02",
+    "Catname": "G2800",
+    "Catorder": "Alcohol",
+    "Industry": "Beer, Wine & Liquor",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N02",
+    "Catname": "G2810",
+    "Catorder": "Beer",
+    "Industry": "Beer, Wine & Liquor",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N02",
+    "Catname": "G2820",
+    "Catorder": "Wine & distilled spirits manufacturing",
+    "Industry": "Beer, Wine & Liquor",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N02",
+    "Catname": "G2840",
+    "Catorder": "Liquor stores",
+    "Industry": "Beer, Wine & Liquor",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N02",
+    "Catname": "G2850",
+    "Catorder": "Liquor wholesalers",
+    "Industry": "Beer, Wine & Liquor",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N09",
+    "Catname": "G2860",
+    "Catorder": "Marijuana Production, Sales & Paraphernalia",
+    "Industry": "Marijuana",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2900",
+    "Catorder": "Restaurants & drinking establishments",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N01",
+    "Catname": "G2910",
+    "Catorder": "Food catering & food services",
+    "Industry": "Food & Beverage",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N12",
+    "Catname": "G3000",
+    "Catorder": "Wholesale trade",
+    "Industry": "Misc Business",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N12",
+    "Catname": "G3500",
+    "Catorder": "Import/Export services",
+    "Industry": "Misc Business",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4000",
+    "Catorder": "Retail trade",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4100",
+    "Catorder": "Apparel & accessory stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4200",
+    "Catorder": "Consumer electronics & computer stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4300",
+    "Catorder": "Department, variety & convenience stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4400",
+    "Catorder": "Furniture & appliance stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4500",
+    "Catorder": "Hardware & building materials stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4600",
+    "Catorder": "Miscellaneous retail stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4700",
+    "Catorder": "Catalog & mail order houses",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4800",
+    "Catorder": "Direct sales",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4850",
+    "Catorder": "Vending Machine Sales & Services",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N03",
+    "Catname": "G4900",
+    "Catorder": "Drug stores",
+    "Industry": "Retail Sales",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5000",
+    "Catorder": "Services",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5100",
+    "Catorder": "Beauty & barber shops",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5200",
+    "Catorder": "Business services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5210",
+    "Catorder": "Advertising & public relations services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5220",
+    "Catorder": "Direct mail advertising services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5230",
+    "Catorder": "Outdoor advertising services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5240",
+    "Catorder": "Commercial photography, art & graphic design",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5250",
+    "Catorder": "Employment agencies",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5260",
+    "Catorder": "Political consultants/advisers",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5270",
+    "Catorder": "Management consultants & services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5280",
+    "Catorder": "Marketing research services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N05",
+    "Catname": "G5290",
+    "Catorder": "Security services",
+    "Industry": "Business Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5300",
+    "Catorder": "Equipment rental & leasing",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5400",
+    "Catorder": "Funeral services",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5500",
+    "Catorder": "Laundries & dry cleaners",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5600",
+    "Catorder": "Miscellaneous repair services",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5700",
+    "Catorder": "Pest control",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G5800",
+    "Catorder": "Physical fitness centers",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N06",
+    "Catname": "G6000",
+    "Catorder": "Recreation/Entertainment",
+    "Industry": "Recreation/Live Entertainment",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N06",
+    "Catname": "G6100",
+    "Catorder": "Amusement/recreation centers",
+    "Industry": "Recreation/Live Entertainment",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N06",
+    "Catname": "G6400",
+    "Catorder": "Professional sports, arenas & related equip & svcs",
+    "Industry": "Recreation/Live Entertainment",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N07",
+    "Catname": "G6500",
+    "Catorder": "Casinos, racetracks & gambling",
+    "Industry": "Casinos/Gambling",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N07",
+    "Catname": "G6550",
+    "Catorder": "Indian Gaming",
+    "Industry": "Casinos/Gambling",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N06",
+    "Catname": "G6700",
+    "Catorder": "Amusement parks",
+    "Industry": "Recreation/Live Entertainment",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N04",
+    "Catname": "G6800",
+    "Catorder": "Video rental",
+    "Industry": "Misc Services",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N12",
+    "Catname": "G7000",
+    "Catorder": "Correctional facilities constr & mgmt/for-profit",
+    "Industry": "Misc Business",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "H05",
+    "Catname": "H0000",
+    "Catorder": "Health, Education & Human Resources",
+    "Industry": "Misc Health",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1000",
+    "Catorder": "Health professionals",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1100",
+    "Catorder": "Physicians",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1110",
+    "Catorder": "Psychiatrists & psychologists",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1120",
+    "Catorder": "Optometrists & Ophthalmologists",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1130",
+    "Catorder": "Other physician specialists",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1400",
+    "Catorder": "Dentists",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1500",
+    "Catorder": "Chiropractors",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1700",
+    "Catorder": "Other non-physician health practitioners",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1710",
+    "Catorder": "Nurses",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H01",
+    "Catname": "H1750",
+    "Catorder": "Pharmacists",
+    "Industry": "Health Professionals",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H02",
+    "Catname": "H2000",
+    "Catorder": "Health care institutions",
+    "Industry": "Hospitals/Nursing Homes",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H02",
+    "Catname": "H2100",
+    "Catorder": "Hospitals",
+    "Industry": "Hospitals/Nursing Homes",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H02",
+    "Catname": "H2200",
+    "Catorder": "Nursing homes",
+    "Industry": "Hospitals/Nursing Homes",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H02",
+    "Catname": "H2300",
+    "Catorder": "Drug & alcohol treatment hospitals",
+    "Industry": "Hospitals/Nursing Homes",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3000",
+    "Catorder": "Health care services",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3100",
+    "Catorder": "Home care services",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3200",
+    "Catorder": "Outpatient health services (incl drug & alcohol)",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3300",
+    "Catorder": "Optical services (glasses & contact lenses)",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3400",
+    "Catorder": "Medical laboratories",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3500",
+    "Catorder": "AIDS treatment & testing",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3700",
+    "Catorder": "HMOs",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3800",
+    "Catorder": "Mental Health Services",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H03",
+    "Catname": "H3900",
+    "Catorder": "Health care Consultants",
+    "Industry": "Health Services/HMOs",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4000",
+    "Catorder": "Health care products",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4100",
+    "Catorder": "Medical Devices & Supplies",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4200",
+    "Catorder": "Personal health care products",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4300",
+    "Catorder": "Pharmaceutical manufacturing",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4400",
+    "Catorder": "Pharmaceutical wholesale",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4500",
+    "Catorder": "Biotech products & research",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4600",
+    "Catorder": "Nutritional & dietary supplements",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "H04",
+    "Catname": "H4700",
+    "Catorder": "Pharmaceutical cannabis",
+    "Industry": "Pharmaceuticals/Health Products",
+    "Sector": "Health",
+    "Sector Long": "Health"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5000",
+    "Catorder": "Education",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5100",
+    "Catorder": "Schools & colleges",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5150",
+    "Catorder": "Medical schools",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5170",
+    "Catorder": "Law schools",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5200",
+    "Catorder": "Technical, business and vocational schools & svcs",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "H5300",
+    "Catorder": "For-profit Education",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W07",
+    "Catname": "H6000",
+    "Catorder": "Welfare & Social Work",
+    "Industry": "Other",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J0000",
+    "Catorder": "Ideological & Single Issue PACs",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J1000",
+    "Catorder": "General Ideological",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q01",
+    "Catname": "J1100",
+    "Catorder": "Republican/Conservative",
+    "Industry": "Republican/Conservative",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q01",
+    "Catname": "J1110",
+    "Catorder": "Christian Conservative",
+    "Industry": "Republican/Conservative",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q02",
+    "Catname": "J1200",
+    "Catorder": "Democratic/Liberal",
+    "Industry": "Democratic/Liberal",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J1300",
+    "Catorder": "Third-party committees",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2000",
+    "Catorder": "Leadership committees",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2100",
+    "Catorder": "Democratic leadership PAC",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2200",
+    "Catorder": "Republican leadership PAC",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2300",
+    "Catorder": "Democratic officials, candidates & former members",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2400",
+    "Catorder": "Republican officials, candidates & former members",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q03",
+    "Catname": "J2500",
+    "Catorder": "Non-Federal candidate committees",
+    "Industry": "Leadership PACs",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J3000",
+    "Catorder": "Consumer groups",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J4000",
+    "Catorder": "Fiscal & tax policy",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "J5000",
+    "Catorder": "Foreign policy",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q05",
+    "Catname": "J5100",
+    "Catorder": "Pro-Israel",
+    "Industry": "Pro-Israel",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "J5200",
+    "Catorder": "Anti-Castro",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "J5300",
+    "Catorder": "Puerto Rico statehood policy",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "J5400",
+    "Catorder": "Pro-Arab",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q12",
+    "Catname": "J6100",
+    "Catorder": "Anti-Guns",
+    "Industry": "Gun Control",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q13",
+    "Catname": "J6200",
+    "Catorder": "Pro-Guns",
+    "Industry": "Gun Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J6500",
+    "Catorder": "Militias & Anti-Government Groups",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "J7000",
+    "Catorder": "Human Rights",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q14",
+    "Catname": "J7120",
+    "Catorder": "Abortion policy/Anti-Abortion",
+    "Industry": "Abortion Policy/Anti-Abortion",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q15",
+    "Catname": "J7150",
+    "Catorder": "Abortion policy/Pro-Abortion Rights",
+    "Industry": "Abortion Policy/Pro-Abortion Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J7200",
+    "Catorder": "Elderly issues/Social Security",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J7210",
+    "Catorder": "Legalization of Doctor-Assisted Suicide",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "J7300",
+    "Catorder": "Gay & lesbian rights & issues",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q08",
+    "Catname": "J7400",
+    "Catorder": "Women's issues",
+    "Industry": "Women's Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "J7500",
+    "Catorder": "Minority/Ethnic Groups",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "J7510",
+    "Catorder": "Native American Tribes",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J7600",
+    "Catorder": "Animal Rights",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "J7700",
+    "Catorder": "Children's rights",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J8000",
+    "Catorder": "Labor, anti-union",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J9000",
+    "Catorder": "Other single-issue or ideological groups",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "J9100",
+    "Catorder": "Term limits",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "JD100",
+    "Catorder": "Defense policy, hawks",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q04",
+    "Catname": "JD200",
+    "Catorder": "Defense policy, doves",
+    "Industry": "Foreign & Defense Policy",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q11",
+    "Catname": "JE300",
+    "Catorder": "Environmental policy",
+    "Industry": "Environment",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q09",
+    "Catname": "JH100",
+    "Catorder": "Health & welfare policy",
+    "Industry": "Human Rights",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q10",
+    "Catname": "JW100",
+    "Catorder": "Pro-resource development groups",
+    "Industry": "Misc Issues",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "K01",
+    "Catname": "K0000",
+    "Catorder": "Legal Services",
+    "Industry": "Lawyers/Law Firms",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "K01",
+    "Catname": "K1000",
+    "Catorder": "Attorneys & law firms",
+    "Industry": "Lawyers/Law Firms",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "K01",
+    "Catname": "K1100",
+    "Catorder": "Trial lawyers & law firms",
+    "Industry": "Lawyers/Law Firms",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "K01",
+    "Catname": "K1200",
+    "Catorder": "Corporate lawyers & law firms",
+    "Industry": "Lawyers/Law Firms",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "K02",
+    "Catname": "K2000",
+    "Catorder": "Lobbyists & Public Relations",
+    "Industry": "Lobbyists",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "K02",
+    "Catname": "K2100",
+    "Catorder": "Registered Foreign Agents",
+    "Industry": "Lobbyists",
+    "Sector": "Lawyers & Lobbyists",
+    "Sector Long": "Lawyers & Lobbyists"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "L0000",
+    "Catorder": "Labor Unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1000",
+    "Catorder": "Civil service & government unions",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1100",
+    "Catorder": "Federal employees unions",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1200",
+    "Catorder": "State & local govt employee unions",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1300",
+    "Catorder": "Teachers unions",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1400",
+    "Catorder": "Police & firefighters unions & associations",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P04",
+    "Catname": "L1500",
+    "Catorder": "US Postal Service unions & associations",
+    "Industry": "Public Sector Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "L5000",
+    "Catorder": "Other unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LA100",
+    "Catorder": "Agricultural labor unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P01",
+    "Catname": "LB100",
+    "Catorder": "Building trades unions",
+    "Industry": "Building Trade Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LC100",
+    "Catorder": "Communications & hi-tech unions",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LC150",
+    "Catorder": "IBEW (Intl Brotherhood of Electrical Workers)",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LD100",
+    "Catorder": "Defense-related unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LE100",
+    "Catorder": "Mining unions",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LE200",
+    "Catorder": "Energy-related unions (non-mining)",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG000",
+    "Catorder": "General commercial unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG100",
+    "Catorder": "Food service & related unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG200",
+    "Catorder": "Retail trade unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG300",
+    "Catorder": "Commercial service unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG400",
+    "Catorder": "Entertainment unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LG500",
+    "Catorder": "Other commercial unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P05",
+    "Catname": "LH100",
+    "Catorder": "Health worker unions",
+    "Industry": "Misc Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LM100",
+    "Catorder": "Manufacturing unions",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P02",
+    "Catname": "LM150",
+    "Catorder": "Automotive Manufacturing union",
+    "Industry": "Industrial Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT000",
+    "Catorder": "Transportation unions",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT100",
+    "Catorder": "Air transport unions",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT300",
+    "Catorder": "Teamsters union",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT400",
+    "Catorder": "Railroad unions",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT500",
+    "Catorder": "Merchant marine & longshoremen unions",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "P03",
+    "Catname": "LT600",
+    "Catorder": "Other transportation unions",
+    "Industry": "Transportation Unions",
+    "Sector": "Labor",
+    "Sector Long": "Labor"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M0000",
+    "Catorder": "Manufacturing",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1000",
+    "Catorder": "Chemicals",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1100",
+    "Catorder": "Explosives",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1300",
+    "Catorder": "Household cleansers & chemicals",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M1400",
+    "Catorder": "Manmade fibers",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1500",
+    "Catorder": "Plastics & Rubber processing & products",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1600",
+    "Catorder": "Paints, Solvents & Coatings",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N13",
+    "Catname": "M1700",
+    "Catorder": "Adhesives & Sealants",
+    "Industry": "Chemical & Related Manufacturing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M2000",
+    "Catorder": "Heavy industrial manufacturing",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N14",
+    "Catname": "M2100",
+    "Catorder": "Steel",
+    "Industry": "Steel Production",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M2200",
+    "Catorder": "Smelting & non-petroleum refining",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M2250",
+    "Catorder": "Aluminum mining/processing",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M2300",
+    "Catorder": "Industrial/commercial equipment & materials",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M2400",
+    "Catorder": "Recycling of metal, paper, plastics, etc.",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3000",
+    "Catorder": "Personal products manufacturing",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3100",
+    "Catorder": "Clothing & accessories",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3200",
+    "Catorder": "Shoes & leather products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3300",
+    "Catorder": "Toiletries & cosmetics",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3400",
+    "Catorder": "Jewelry",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3500",
+    "Catorder": "Toys",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M3600",
+    "Catorder": "Sporting goods sales & manufacturing",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M4000",
+    "Catorder": "Household & office products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M4100",
+    "Catorder": "Furniture & wood products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M4200",
+    "Catorder": "Office machines",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M4300",
+    "Catorder": "Household appliances",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M5000",
+    "Catorder": "Fabricated metal products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M5100",
+    "Catorder": "Hardware & tools",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M5200",
+    "Catorder": "Electroplating, polishing & related services",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M5300",
+    "Catorder": "Small arms & ammunition",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M6000",
+    "Catorder": "Electrical lighting products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M7000",
+    "Catorder": "Paper, glass & packaging materials",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M7100",
+    "Catorder": "Paper packaging materials",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M7200",
+    "Catorder": "Glass products",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M7300",
+    "Catorder": "Metal cans & containers",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N16",
+    "Catname": "M8000",
+    "Catorder": "Textiles & fabrics",
+    "Industry": "Textiles",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M9000",
+    "Catorder": "Precision instruments",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M9100",
+    "Catorder": "Optical instruments & lenses",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M9200",
+    "Catorder": "Photographic equipment & supplies",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N15",
+    "Catname": "M9300",
+    "Catorder": "Clocks & watches",
+    "Industry": "Misc Manufacturing & Distributing",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T0000",
+    "Catorder": "Transportation",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1000",
+    "Catorder": "Air transport",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1100",
+    "Catorder": "Airlines",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1200",
+    "Catorder": "Aircraft manufacturers",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1300",
+    "Catorder": "Aircraft parts & equipment",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1400",
+    "Catorder": "General aviation (private pilots)",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1500",
+    "Catorder": "Air freight",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1600",
+    "Catorder": "Aviation services & airports",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T1700",
+    "Catorder": "Space vehicles & components",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2000",
+    "Catorder": "Automotive, Misc",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2100",
+    "Catorder": "Auto manufacturers",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2200",
+    "Catorder": "Truck/Automotive parts & accessories",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2300",
+    "Catorder": "Auto dealers, new & used",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2310",
+    "Catorder": "Auto dealers, foreign imports",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2400",
+    "Catorder": "Auto repair",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M02",
+    "Catname": "T2500",
+    "Catorder": "Car rental agencies",
+    "Industry": "Automotive",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M03",
+    "Catname": "T3000",
+    "Catorder": "Trucking",
+    "Industry": "Trucking",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M03",
+    "Catname": "T3100",
+    "Catorder": "Trucking companies & services",
+    "Industry": "Trucking",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M03",
+    "Catname": "T3200",
+    "Catorder": "Truck & trailer manufacturers",
+    "Industry": "Trucking",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T4000",
+    "Catorder": "Buses & Taxis",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T4100",
+    "Catorder": "Bus services",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T4200",
+    "Catorder": "Taxicabs",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M04",
+    "Catname": "T5000",
+    "Catorder": "Railroad transportation",
+    "Industry": "Railroads",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M04",
+    "Catname": "T5100",
+    "Catorder": "Railroads",
+    "Industry": "Railroads",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M04",
+    "Catname": "T5200",
+    "Catorder": "Manufacturers of railroad equipment",
+    "Industry": "Railroads",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M04",
+    "Catname": "T5300",
+    "Catorder": "Railroad services",
+    "Industry": "Railroads",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M05",
+    "Catname": "T6000",
+    "Catorder": "Sea transport",
+    "Industry": "Sea Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M05",
+    "Catname": "T6100",
+    "Catorder": "Ship building & repair",
+    "Industry": "Sea Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M05",
+    "Catname": "T6200",
+    "Catorder": "Sea freight & passenger services",
+    "Industry": "Sea Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M05",
+    "Catname": "T6250",
+    "Catorder": "Cruise ships & lines",
+    "Industry": "Sea Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T7000",
+    "Catorder": "Freight & delivery services",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M01",
+    "Catname": "T7100",
+    "Catorder": "Express delivery services",
+    "Industry": "Air Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "N12",
+    "Catname": "T7200",
+    "Catorder": "Warehousing",
+    "Industry": "Misc Business",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T8000",
+    "Catorder": "Recreational transport",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T8100",
+    "Catorder": "Motorcycles, snowmobiles & other motorized vehicle",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T8200",
+    "Catorder": "Motor homes & camper trailers",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T8300",
+    "Catorder": "Pleasure boats",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "M06",
+    "Catname": "T8400",
+    "Catorder": "Bicycles & other non-motorized recreational transp",
+    "Industry": "Misc Transport",
+    "Sector": "Transportation",
+    "Sector Long": "Transportation"
+  },
+  {
+    "Catcode": "N08",
+    "Catname": "T9000",
+    "Catorder": "Lodging & tourism",
+    "Industry": "Lodging/Tourism",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N08",
+    "Catname": "T9100",
+    "Catorder": "Hotels & motels",
+    "Industry": "Lodging/Tourism",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N08",
+    "Catname": "T9300",
+    "Catorder": "Resorts",
+    "Industry": "Lodging/Tourism",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "N08",
+    "Catname": "T9400",
+    "Catorder": "Travel agents",
+    "Industry": "Lodging/Tourism",
+    "Sector": "Misc Business",
+    "Sector Long": "Misc Business"
+  },
+  {
+    "Catcode": "W07",
+    "Catname": "X0000",
+    "Catorder": "Other",
+    "Industry": "Other",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W06",
+    "Catname": "X1200",
+    "Catorder": "Retired",
+    "Industry": "Retired",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W03",
+    "Catname": "X3000",
+    "Catorder": "Civil servant/public employee",
+    "Industry": "Civil Servants/Public Officials",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W03",
+    "Catname": "X3100",
+    "Catorder": "Public official (elected or appointed)",
+    "Industry": "Civil Servants/Public Officials",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W03",
+    "Catname": "X3200",
+    "Catorder": "Courts & Justice System",
+    "Industry": "Civil Servants/Public Officials",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W03",
+    "Catname": "X3300",
+    "Catorder": "Municipal & county government organizations",
+    "Industry": "Civil Servants/Public Officials",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W04",
+    "Catname": "X3500",
+    "Catorder": "Public school teachers, administrators & officials",
+    "Industry": "Education",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W03",
+    "Catname": "X3700",
+    "Catorder": "US Postal Service",
+    "Industry": "Civil Servants/Public Officials",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W02",
+    "Catname": "X4000",
+    "Catorder": "Non-Profits",
+    "Industry": "Non-Profit Institutions",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W02",
+    "Catname": "X4100",
+    "Catorder": "Non-profit foundations",
+    "Industry": "Non-Profit Institutions",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W02",
+    "Catname": "X4110",
+    "Catorder": "Philanthropists",
+    "Industry": "Non-Profit Institutions",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W02",
+    "Catname": "X4200",
+    "Catorder": "Museums, art galleries, libraries, etc.",
+    "Industry": "Non-Profit Institutions",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W07",
+    "Catname": "X5000",
+    "Catorder": "Military",
+    "Industry": "Other",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W05",
+    "Catname": "X7000",
+    "Catorder": "Churches, clergy & religious organizations",
+    "Industry": "Clergy & Religious Organizations",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W07",
+    "Catname": "X8000",
+    "Catorder": "International Organizations",
+    "Industry": "Other",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "W07",
+    "Catname": "X9000",
+    "Catorder": "Foreign Governments",
+    "Industry": "Other",
+    "Sector": "Other",
+    "Sector Long": "Other"
+  },
+  {
+    "Catcode": "Y00",
+    "Catname": "Y0000",
+    "Catorder": "Unknown",
+    "Industry": "Unknown",
+    "Sector": "Unknown",
+    "Sector Long": "Unknown"
+  },
+  {
+    "Catcode": "Y01",
+    "Catname": "Y1000",
+    "Catorder": "Homemakers, students & other non-income earners",
+    "Industry": "Homemakers/Non-income earners",
+    "Sector": "Unknown",
+    "Sector Long": "Unknown"
+  },
+  {
+    "Catcode": "Y02",
+    "Catname": "Y2000",
+    "Catorder": "No employer listed or discovered",
+    "Industry": "No Employer Listed or Found",
+    "Sector": "Unknown",
+    "Sector Long": "Unknown"
+  },
+  {
+    "Catcode": "Y03",
+    "Catname": "Y3000",
+    "Catorder": "Generic occupation - impossible to assign category",
+    "Industry": "Generic Occupation/Category Unknown",
+    "Sector": "Unknown",
+    "Sector Long": "Unknown"
+  },
+  {
+    "Catcode": "Y04",
+    "Catname": "Y4000",
+    "Catorder": "Employer listed but category unknown",
+    "Industry": "Employer Listed/Category Unknown",
+    "Sector": "Unknown",
+    "Sector Long": "Unknown"
+  },
+  {
+    "Catcode": "Q16",
+    "Catname": "Z1000",
+    "Catorder": "Candidate Committees",
+    "Industry": "Candidate Committees",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q16",
+    "Catname": "Z1100",
+    "Catorder": "Republican Candidate Committees",
+    "Industry": "Candidate Committees",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q16",
+    "Catname": "Z1200",
+    "Catorder": "Democratic Candidate Committees",
+    "Industry": "Candidate Committees",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q16",
+    "Catname": "Z1300",
+    "Catorder": "Third-Party Candidate Committees",
+    "Industry": "Candidate Committees",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Q16",
+    "Catname": "Z1400",
+    "Catorder": "Unknown-Party Candidate Committees",
+    "Industry": "Candidate Committees",
+    "Sector": "Ideology/Single-Issue",
+    "Sector Long": "Ideological/Single-Issue"
+  },
+  {
+    "Catcode": "Z04",
+    "Catname": "Z4100",
+    "Catorder": "Republican Joint Candidate Committee",
+    "Industry": "Joint Candidate Cmte",
+    "Sector": "Joint Candidate Cmtes",
+    "Sector Long": "Joint Candidate Cmtes"
+  },
+  {
+    "Catcode": "Z04",
+    "Catname": "Z4200",
+    "Catorder": "Democratic Joint Candidate Committee",
+    "Industry": "Joint Candidate Cmte",
+    "Sector": "Joint Candidate Cmtes",
+    "Sector Long": "Joint Candidate Cmtes"
+  },
+  {
+    "Catcode": "Z04",
+    "Catname": "Z4300",
+    "Catorder": "Third-Party Joint Candidate Committee",
+    "Industry": "Joint Candidate Cmte",
+    "Sector": "Joint Candidate Cmtes",
+    "Sector Long": "Joint Candidate Cmtes"
+  },
+  {
+    "Catcode": "Z04",
+    "Catname": "Z4400",
+    "Catorder": "Liberal Non-party Joint Fundraising Committee",
+    "Industry": "Joint Candidate Cmte",
+    "Sector": "Joint Candidate Cmtes",
+    "Sector Long": "Joint Candidate Cmtes"
+  },
+  {
+    "Catcode": "Z04",
+    "Catname": "Z4500",
+    "Catorder": "Conservative Non-party Joint Fundraising Committee",
+    "Industry": "Joint Candidate Cmte",
+    "Sector": "Joint Candidate Cmtes",
+    "Sector Long": "Joint Candidate Cmtes"
+  },
+  {
+    "Catcode": "Z02",
+    "Catname": "Z5000",
+    "Catorder": "Party Committees",
+    "Industry": "Party Committees",
+    "Sector": "Party Cmte",
+    "Sector Long": "Party Cmtes"
+  },
+  {
+    "Catcode": "Z02",
+    "Catname": "Z5100",
+    "Catorder": "Republican Party Committees",
+    "Industry": "Party Committees",
+    "Sector": "Party Cmte",
+    "Sector Long": "Party Cmtes"
+  },
+  {
+    "Catcode": "Z02",
+    "Catname": "Z5200",
+    "Catorder": "Democratic Party Committees",
+    "Industry": "Party Committees",
+    "Sector": "Party Cmte",
+    "Sector Long": "Party Cmtes"
+  },
+  {
+    "Catcode": "Z02",
+    "Catname": "Z5300",
+    "Catorder": "Third-Party Party Committees",
+    "Industry": "Party Committees",
+    "Sector": "Party Cmte",
+    "Sector Long": "Party Cmtes"
+  },
+  {
+    "Catcode": "Z07",
+    "Catname": "Z9000",
+    "Catorder": "Candidate contribution to his/her own campaign",
+    "Industry": "Candidate Self-finance",
+    "Sector": "Candidate",
+    "Sector Long": "Candidate"
+  },
+  {
+    "Catcode": "Z08",
+    "Catname": "Z9100",
+    "Catorder": "Transfer between national party committees",
+    "Industry": "Party Committee Transfer",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  },
+  {
+    "Catcode": "Z09",
+    "Catname": "Z9500",
+    "Catorder": "Transfer from intermediary (type 24I or 24T)",
+    "Industry": "Non-contribution",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  },
+  {
+    "Catcode": "Z09",
+    "Catname": "Z9600",
+    "Catorder": "Non-Contribution, Miscellaneous",
+    "Industry": "Non-contribution",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  },
+  {
+    "Catcode": "Z09",
+    "Catname": "Z9700",
+    "Catorder": "Unitemized (small) contributions",
+    "Industry": "Non-contribution",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  },
+  {
+    "Catcode": "Z09",
+    "Catname": "Z9800",
+    "Catorder": "Public Funding",
+    "Industry": "Non-contribution",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  },
+  {
+    "Catcode": "Z09",
+    "Catname": "Z9999",
+    "Catorder": "Internal Transfer and other non-contributions",
+    "Industry": "Non-contribution",
+    "Sector": "Non-contribution",
+    "Sector Long": "Non-contribution"
+  }
+  ];
+ function  divmagic(d) {
+    var display = ["#inf", "#sen1", "#officials", "#content", "#about", "#lobby", "#contact", "#carousel", "#caroucontent", 
+  		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf", "#repcontent"];
+    var empty = ["#sen1", "#sen1committeedatabutton","#sen1subcommitteedatabutton", "#sen2", "#sen2committeedatabutton",
+        "#sen2subcommitteedatabutton", "#rep", "#repcommitteedatabutton", "#repsubcommitteedatabutton", "#D", "#R" ]	
+    window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
+    window.sessionStorage.setItem('divs1', d);
+  
+     for (k=0; k<=display.length; k++){
+       $(k).css('display', 'none');         //for loop isn't working
+     }
+  
+     $(d).fadeIn(3000).css('display', 'block');
+     console.log("DIVMAGIC SUCCESS")
+  
+  
+     if (window.sessionStorage.getItem('divs2') !== "#repcontent"  ) {
+       for (b=0; b<=empty.length; b++){
+          $(b).empty()
+  
+      }
+     } 
+  };
 
 // LINK TOILETS 
 
@@ -23,7 +3745,7 @@ $(document).ready(function(){
   $(document).ready(function(){
     $('#NavbarLogo').click(function(){
       $('#home').fadeIn(2000)
-      $('#officials').fadeIn(2000)
+      $('#officials').fadeIn(2000).css('display', 'block')
       $('#firstcontent').fadeIn(2000)
       $('#content').css('display', 'none')
       $('#about').css('display', 'none')
@@ -58,14 +3780,15 @@ $(document).ready(function(){
       $('#sen1table').empty()
       $('#sen2table').empty()
       $('#reptable').empty()
+      $('#repcontent').css('display', 'none')
+      $('#load').css('display', 'none')
     })
   });
   //About
   $(document).ready(function(){
     $('#About').click(function(){
-      $('#officials').css('display', 'none')
       $('#about').fadeIn(3000).css('display', 'block')
-      $('#officials').delay( 50000 ).fadeIn( 4000 )
+      $('#officials').fadeIn(3000).css('display', 'block')
       $('#content').css('display', 'none')
       $('#home').css('display', 'none')
       $('#lobby').css('display', 'none')
@@ -105,7 +3828,7 @@ $(document).ready(function(){
       $('#reptable').empty()
       $('#D').css('display', 'none')
       $('#R').css('display', 'none')
-  
+      $('#repcontent').css('display', 'none')
     })
   });
   //Contact
@@ -146,9 +3869,8 @@ $(document).ready(function(){
       $('#reptable').empty()
       $('#R').css('display', 'none')
       $('#D').css('display', 'none')
+      $('#repcontent').css('display', 'none')
   
-  
-      
     })
   });
   
@@ -603,36 +4325,41 @@ $(document).ready(function(){
       for (r=0; r<data.results[0].current_members.length; r++){
         console.log(data.results[0].current_members[r].name);
         if (data.results[0].current_members[r].party === "R") {
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           console.log("Found Republican");
   
           $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+            '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
           )
         }
         if (data.results[0].current_members[r].party === "D") {
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           console.log("Found Democrat");
           $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+            '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
           )
         }
         if (data.results[0].current_members[r].party === "I"){
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           console.log("Found Independent");
           var random_number = Math.random();
           console.log(random_number);
           if ( random_number < .49 ) {
             $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           } else {
             $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           }
@@ -694,36 +4421,41 @@ $(document).ready(function(){
       for (r=0; r<data.results[0].current_members.length; r++){
         console.log(data.results[0].current_members[r].name);
         if (data.results[0].current_members[r].party === "R") {
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           console.log("Found Republican");
           $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+      
+            '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+      
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
   
           )
         }
         if (data.results[0].current_members[r].party === "D") {
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           console.log("Found Democrat");
           $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+            '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
           );
         }
         if (data.results[0].current_members[r].party === "I"){
           console.log("Found Independent");
+          var name = data.results[0].current_members[r].name;
+          var name4link = name.split(' ').slice(-1).join(' ');
+          console.log(name4link);
           var random_number = Math.random();
           console.log(random_number);
           if ( random_number < .49 ) {
             $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           } else {
             $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           }
@@ -779,19 +4511,23 @@ $(document).ready(function(){
       for (r=0; r<data.results[0].current_members.length; r++){
         console.log(data.results[0].current_members[r].name);
         if (data.results[0].current_members[r].party === "R") {
+        var name = data.results[0].current_members[r].name;
+        var name4link = name.split(' ').slice(-1).join(' ');
+        console.log(name4link);
           console.log("Found Republican");
           $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+      
+            '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+      
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
   
           )
         }
         if (data.results[0].current_members[r].party === "D") {
+        var name = data.results[0].current_members[r].name;
+        var name4link = name.split(' ').slice(-1).join(' ');
+        console.log(name4link);
           console.log("Found Democrat");
           $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+            '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
           );
         }
@@ -801,14 +4537,12 @@ $(document).ready(function(){
           console.log(random_number);
           if ( random_number < .49 ) {
             $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           } else {
             $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           }
@@ -862,38 +4596,43 @@ $(document).ready(function(){
         '<h5>'+data.results[0].name+' - (D)'+'</h5'
       )
       for (r=0; r<data.results[0].current_members.length; r++){
+        var name = data.results[0].current_members[r].name;
+        var name4link = name.split(' ').slice(-1).join(' ');
+        console.log(name4link);
         console.log(data.results[0].current_members[r].name);
         if (data.results[0].current_members[r].party === "R") {
           console.log("Found Republican");
           $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+      
+            '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+      
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
   
           )
         }
         if (data.results[0].current_members[r].party === "D") {
+          var name = data.results[0].current_members[r].name;
+        var name4link = name.split(' ').slice(-1).join(' ');
+        console.log(name4link);
           console.log("Found Democrat");
           $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+            '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
           );
         }
         if (data.results[0].current_members[r].party === "I"){
+          var name = data.results[0].current_members[r].name;
+        var name4link = name.split(' ').slice(-1).join(' ');
+        console.log(name4link);
           console.log("Found Independent");
           var random_number = Math.random();
           console.log(random_number);
           if ( random_number < .49 ) {
             $('#R').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           } else {
             $('#D').append(
-        '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+data.results[0].current_members[r].id+'.jpg">'+
-        '<h6>'+data.results[0].current_members[r].name+'</h6>'+
+              '<a href="https://www.'+name4link+'.house.gov" target="blank">'+'<img src="/congress_pics/'+data.results[0].current_members[r].id+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+'<h6>'+data.results[0].current_members[r].name+'</h6>'+
         '<button style= "background-color:  #006600" type="button" class="btn btn-light" onclick = "inf(\''+data.results[0].current_members[r].id+'\')"> <h5 style="-webkit-text-fill-color: #ffff">INFLUENCE</h5> </button>'
             )
           }
@@ -902,8 +4641,9 @@ $(document).ready(function(){
       };
   
     })
-    $('#R').fadeIn(3000).css('display','block'),
-      $('#D').fadeIn(3000).css('display','block'),
+    $('#R').fadeIn(3000).css('display','block')
+      $('#D').fadeIn(3000).css('display','block')
+      $('#repcontent').css('display', 'none')
       $('#officials').css('display', 'none')
       $('#about').css('display', 'none')
       $('#home').css('display', 'none')
@@ -928,14 +4668,17 @@ $(document).ready(function(){
       $('#repcommitteedatabutton').empty()
       $('#repsubcommitteedatabutton').empty()
       $('#repdata').css('display', 'none')
+
   };
-  
+  $('#repcontent').css('display', 'none')
   };
   
   
   
   //ProPublica API for Rep and Senator DaTaBeGiN
-  $(document).ready(function(){
+  $(document).ready(function(
+    
+  ){
     $('#getdata').click(function() {
       $('#officials').css('display', 'none'),
       $('#about').css('display', 'none')  
@@ -960,11 +4703,13 @@ $(document).ready(function(){
       $('#D').empty()
       $('#R').css('display', 'none')
       $('#R').empty()
-      $('#inf').empty()
       $('#inf').css('display', 'none')
       $('#sen1table').empty()
       $('#sen2table').empty()
       $('#reptable').empty()
+      $('#inf').empty()
+      $('#repcontent').css('display', 'block')
+      $('#load').css('display', 'block')
       ff();
   
         //IF ERROR
@@ -1047,9 +4792,9 @@ $(document).ready(function(){
         console.log(data);
         $('#sen1').delay(2000).fadeIn(2000),                                                          
         $('#sen1').append(
-          '<div class= "col text-center">'
-          +'<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('S1ID')+'.jpg">'+
-          '<h6>'+data.results[0].first_name+" "+data.results[0].last_name+'</h6>'+
+          
+          '<a href="https://www.'+data.results[0].last_name+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+window.localStorage.getItem('S1ID')+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+
+          '<div class= "col text-center">'+'<h6>'+data.results[0].first_name+" "+data.results[0].last_name+'</h6>'+
           '<button type="button" class="btn"  onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
           '</div>'
   
@@ -1089,56 +4834,11 @@ $(document).ready(function(){
         jj();
          $('#sen1data').delay(2000).fadeIn(2000);
          $('#sen1table').prepend(
-         ` <table class="table table-sm table-light">
-    <tbody>
-      <tr>
-        <th scope="row" colspan="2"">Date of Birth</th>
-        <th colspan="2">`+data.results[0].date_of_birth+`</th>
-  
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Seth</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td colspan="2">Jack</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">6</th>
-        <td colspan="2">Jack</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">7</th>
-        <td colspan="2">Ethan rocks</td>
-        <td>@twitter</td>
-      </tr>
-      <tr>
-        <th scope="row">8</th>
-        <td colspan="2">Bluemagedonization</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>`
          );
          if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
            $('#sen1table').delay(10000).prepend(
-            '<div class="alert alert-info" role="alert" onclick= "inf(\''+data.results[0].member_id+'\')">'+ "Looks like "
-    +data.results[0].first_name+" "+data.results[0].last_name+" is open to negotiation. Click this alert for more info"+
+            '<div class="alert alert-info" role="alert" onclick= "inf(\''+data.results[0].member_id+'\')">'+ "NERD ALERT"
+    +data.results[0].first_name+" "+data.results[0].last_name+
   '</div>'
            )
          }
@@ -1155,7 +4855,7 @@ $(document).ready(function(){
        $('#sen2').delay(2000).fadeIn(2000),
        $('#sen2').append(
         '<div class= "col text-center">'
-        +'<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('S2ID')+'.jpg">'+
+        +'<a href="https://www.'+data.results[0].last_name+'.senate.gov" target="blank">'+'<img src="/congress_pics/'+window.localStorage.getItem('S2ID')+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+
         `<h6>`+data.results[0].first_name+" "+data.results[0].last_name+`</h6>`+
         '<button type="button" class="btn" onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'+
         '</div>'
@@ -1187,28 +4887,9 @@ $(document).ready(function(){
         }
     };
         jj();
+
        $('#sen2data').delay(2000).fadeIn(2000);
        $('#sen2table').prepend(
-         ` <table class="table table-sm table-dark">
-    <tbody>
-      <tr>
-        <th scope="row">Date of Birth</th>
-        <th><mark>`+data.results[0].date_of_birth+`</mark></th>
-  
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>`
          );
          if (data.results[0].roles[0].votes_against_party_pct > 15.00) {
            $('#sen2table').delay(5000).prepend(
@@ -1228,7 +4909,7 @@ $(document).ready(function(){
          $('#rep').delay(2000).fadeIn(2000),
          $('#rep').append(
           '<div class= "col text-center">'+
-          '<img style="border-radius: 50%" src="https://theunitedstates.io/images/congress/225x275/'+window.localStorage.getItem('RID')+'.jpg">'+
+          '<a href="https://www.'+data.results[0].last_name+'.house.gov" target="blank">'+'<img src="/congress_pics/'+window.localStorage.getItem('RID')+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+
           `<h6>`+data.results[0].first_name+" "+data.results[0].last_name+`</h6>`+
           '<button type="button" class="btn" onclick= "inf(\''+data.results[0].member_id+'\')"> <h5>INFLUENCE</h5> </button>'
             +'</div>'
@@ -1259,29 +4940,9 @@ $(document).ready(function(){
             }
         };
         jj(data);
+        $('#load').css('display', 'none')
          $('#repdata').delay(2000).fadeIn(2000);
          $('#reptable').prepend(
-         ` <table class="table table-sm table-dark">
-  
-    <tbody>
-      <tr>
-        <th scope="row">Date of Birth</th>
-        <th><mark>`+data.results[0].date_of_birth+`</mark></th>
-  
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>`
          );
          if (data.results[0].roles[0].votes_against_party_pct > 15.00 && window.localStorage.getItem('Path') ==! window.localStorage.getItem('repParty') ) {
            $('#reptable').delay(5000).prepend(
@@ -1292,7 +4953,10 @@ $(document).ready(function(){
          }
        }) 
      })
+
+
     })
+    $('#load').css('display', 'none')
   })
   
   // INFLUENCE PROFILE
@@ -1301,31 +4965,7 @@ $(document).ready(function(){
     //x is member_id
   console.log("INF STARTED");
   console.log(x);
-      
-  // var divmagic = function (d) {
-  //   var display = ["#inf", "#sen1", "#officials", "#content", "#about", "#lobby", "#contact", "#carousel", "#caroucontent", 
-  // 		"#cards", "#plan", "#sen1", "#sen1data", "#sen2", "#sen2data", "#rep", "#repdata", "#getlobbydata", "#inf", "#repcontent"];
-  //   var empty = ["#sen1", "#sen1committeedatabutton","#sen1subcommitteedatabutton", "#sen2", "#sen2committeedatabutton",
-  //       "#sen2subcommitteedatabutton", "#rep", "#repcommitteedatabutton", "#repsubcommitteedatabutton", "#D", "#R" ]	
-  //   window.sessionStorage.setItem('divs2', window.sessionStorage.getItem('divs1'));
-  //   window.sessionStorage.setItem('divs1', d);
-  
-  //    for (k=0; k<=display.length; k++){
-  //      $(k).css('display', 'none');         //for loop isn't working
-  //    }
-  
-  //    $(d).fadeIn(3000).css('display', 'block');
-  //    console.log("DIVMAGIC SUCCESS")
-  
-  
-  //    if (window.sessionStorage.getItem('divs2') !== "#repcontent"  ) {
-  //      for (b=0; b<=empty.length; b++){
-  //         $(b).empty()
-  
-  //     }
-  //    } 
-  // };
-  
+var loading = "loading.gif"; 
   $('#sen1').css('display', 'none')
   $('#sen1').empty()
   $('#sen1data').css('display', 'none')
@@ -1349,8 +4989,14 @@ $(document).ready(function(){
   $('#sen2table').empty()
   $('#reptable').empty()
   $('#firstcontent').css('display', 'none')
-  $('#inf').fadeIn(3000).css('display', 'block')
-  $('#getlobbydata').fadeIn(20000).css('display', 'block')
+  $('#repcontent').css('display', 'none')
+  $('#inf').css('display', 'block')
+  $('#inf').append(
+    '<div id="load" class="row justify-content-center">'+
+    '<img src="loading.gif" alt="Loading....">'+
+  '</div>'
+  )
+
 
   console.log('polished off the empties ;)');
   
@@ -1360,43 +5006,104 @@ $(document).ready(function(){
   
   $.ajax({
     url: "https://api.propublica.org/congress/v1/members/"+x+".json", 
-        type: "GET",
-        dataType: 'json',
-        headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
-  }).done(function(data){
+    type: "GET",
+    dataType: 'json',
+    headers: {'X-API-Key': 'vNgtOv93Sq3FsN6A9xTzD2Ffca8jtk8v7JSneL71'}
+  }).done(function(data) {
     localStorage.setItem('crp_id', data.results[0].crp_id);
     console.log(data);
-  
+    
+
+  // OPENSECRETS API's
+
    $.getJSON( "https://www.opensecrets.org/api/?method=candSummary&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecretsCand ) {
     $.getJSON( "https://www.opensecrets.org/api/?method=candIndustry&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecretsInd ) {
       $.getJSON( "https://www.opensecrets.org/api/?method=candContrib&cid="+localStorage.getItem("crp_id")+"&cycle=2020&output=json&apikey=dcf447b80edb32e28cb162c2d0548e77").done( function ( opensecretsContrib ) { 
     
     var Nom = opensecretsCand.response.summary['@attributes'].cand_name;
     var name = Nom.substr(Nom.indexOf(',')+1 ) +" "+ Nom.substr(0, Nom.indexOf(',') );
-  
+    var lastpart = Nom.substr(0, Nom.indexOf(',') );
+    if( data.results[0].roles[0].chamber === "Senate")    {
+      var lastpart = "https://www."+Nom.substr(0, Nom.indexOf(',') )+".senate.gov";
+  }
+    else
+        {
+          var lastpart = "https://www."+Nom.substr(0, Nom.indexOf(',') )+".house.gov";
+        };
+
     console.log(opensecretsInd);
     console.log(opensecretsContrib);
     console.log(name);
+     
+      for (b=0; b<opensecretsInd.response.industries.industry.length; b++) {
+          var code = opensecretsInd.response.industries.industry[b]['@attributes'].industry_code;
+          console.log(code);
+         
+                   // THE PART THAT'S BEING A FAG
+
+          // for (q=0; q<industrycodes.length; q++) {
+          //   if (q="Catcode") {
+          //     console.log('Progress')
+          //   } else {
+          //     console.log("YOU BLOW")
+          //   }
+          // };
+
+          function herbert(_code,_Catcode,_json_obj) {
+            for (g=0; g<_json_obj.length; g++){
+              console.log(g);
+              var parent = this.window.parent;
+              var ind_code = parent.industrycodes;
+              if (_json_obj[g]._Catcode == _code ) {
+                  console.log("industry match");
+                } 
+            };
+          };
+
+
+          // function herbert(x, y) {
+          //       for (g=0; g<y.length; g++){
+          //         console.log(g);
+          //         if (y[g].hasOwnProperty(x)) {
+          //             console.log("match");
+          //           } else {
+          //             console.log("no mas");
+          //           }
+          //       };
+          //     };
+          
+          //herbert(code,industrycodes);
+          herbert(code,"Catcode", industrycodes);
+    
+    
+    
+    
+    
+      };
+
+    $('#inf').empty()    
     $('#inf').append(
-    '<div class="row justify-content-center">'+
-        '<div style="position: sticky" class="col-sm-6">'+
+    '<div class="row">'+
+        '<div style="position: sticky" class="col-md-4">'+
           '<h6>'+name+'</h6>'+
-          '<img style="border-radius: 50%; padding-top: 25px;" src="https://theunitedstates.io/images/congress/225x275/'+x+'.jpg">'+
+          '<a href="'+lastpart+'" target="blank">'+'<img style="padding-top: 25px;" src="/congress_pics/'+x+'.jpg" class="img-fluid rounded mx-auto d-block">'+'</a>'+
         '</div>'+
-          '<div style="padding-top: 25px" class="col-sm-6">'+
+          '<div class="col-md-7">'+
             '<h1>'+name+'</h1>'+
               '<p></p>'+
         '<h6>'+name+'</h6>'+
           '</div>'+
       '</div>'+
       '<div class="row">'+
-        '<div class="grid-container">'+
-          '<h6>MORE INFORMATION</h6>'+
+        '<div class="col-md-11">'+
+      '<h6>MORE INFO</h6>'+
+          
         '</div>'+
       '</div>'
   
   )
-          
+ $('#load').css('display', 'none')
+  $('#getlobbydata').fadeIn(20000).css('display', 'block')
           });
         });
     });

@@ -1,9 +1,9 @@
 
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
-  "keywords": ["node", "express", "heroku"],
-  "image": "heroku/nodejs"
+  "name": "The Democratic Sun",
+  "description": "A path toward collective lobbying",
+  "repository": "https://github.com/boulderwhis/The-Democratic-Sun",
+  "logo": "Logo.png",
+  "keywords": ["lobby", "government", "democratic sun"],
+  "image": "Logo.png"
 }
