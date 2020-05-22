@@ -7,7 +7,7 @@
   },
   "main": "Democratic_Sun.html",
   "scripts": {
-    "start": "node Democratic_Sun.html",
+    "start": "node engine.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
