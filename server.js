@@ -1,13 +1,20 @@
-port = process.env.PORT || 80
+var PORT = process.env.PORT || 5000; 
+var express = require('express');
+var app = express();
 
-const http = require('http'),
-      server = http.createServer();
+var http = require('http');
+var server = http.Server(app);
 
-server.on('request',(request,response)=>{
-   response.writeHead(200,{'Content-Type':'text/plain'});
-   response.write('Hello world');
-   response.end();
-});
-server.listen(80,()=>{
-  console.log('Node server created at port 80');
+app.use(express.static('client'));
+
+server.listen(PORT, function(){
+  console.log('Listening bitches');
+})
+
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket) {
+  socket.on('message', function(msg) {
+    io.emit('message', msg);
+  });
 });
