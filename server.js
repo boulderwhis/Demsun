@@ -7,6 +7,6 @@ server.on('request',(request,response)=>{
    response.end();
 });
 
-server.listen(3000,()=>{
+server.listen(80,()=>{
   console.log('Node server created at port 3000');
 });
