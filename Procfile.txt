@@ -1,1 +1,1 @@
-web: node Democratic_Sun.html
+web: node server.js
