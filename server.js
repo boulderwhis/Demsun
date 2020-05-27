@@ -1,3 +1,5 @@
+port = process.env.PORT || 80
+
 const http = require('http'),
       server = http.createServer();
 
@@ -6,7 +8,6 @@ server.on('request',(request,response)=>{
    response.write('Hello world');
    response.end();
 });
-
-server.listen(3000,()=>{
-  console.log('Node server created at port 3000');
+server.listen(80,()=>{
+  console.log('Node server created at port 80');
 });
