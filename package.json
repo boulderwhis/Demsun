@@ -23,6 +23,7 @@
   "license": "ISC",
   "homepage": "https://github.com/boulderwhis/The-Democratic-Sun",
   "dependencies": {
+    "express": "^4.17.1",
     "jquery": "^3.5.1"
   }
 }
