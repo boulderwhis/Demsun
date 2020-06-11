@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const path = require('path');
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -23,7 +24,7 @@ app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
   res.send(ads[0].title);
-  //res.send('/')
+  res.sendFile(path.join('The-Democratic-Sun'+'/Democratic_Sun.html'));
 })
 
 app.listen(PORT, ()=>{
