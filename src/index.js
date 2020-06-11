@@ -22,7 +22,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.send(ads);
+  res.send(ads.title);
+  //res.send('/')
 })
 
 app.listen(PORT, ()=>{
