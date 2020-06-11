@@ -12,7 +12,7 @@ const app = express();
 
 //database entrypoint
 const ads =[
-  {title: 'ETHAN LEAVITT AM THE SMARTEST MAN ALIVE!'}
+  {title: 'ETHAN LEAVITT IS SMARTEST MAN ALIVE!'}
 ]
 
 app.use(helmet());
@@ -32,6 +32,7 @@ app.get('/', (req,res)=> {
   //res.sendFile(path.join('/Democratic_Sun.html'));
 });
 
+console.log(path);
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT)
