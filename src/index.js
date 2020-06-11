@@ -12,7 +12,7 @@ const app = express();
 
 //database entrypoint
 const ads =[
-  {title: 'ETHAN LEAVITT IS SMARTEST MAN ALIVE!'}
+  {title: 'ETHAN LEAVITT IS THE SMARTEST MAN ALIVE!'}
 ]
 
 app.use(helmet());
