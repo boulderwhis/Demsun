@@ -10,7 +10,7 @@ const app = express();
 
 //database entrypoint
 const ads =[
-  {title: 'The sun is rising'}
+  {title: 'I AM THE SMARTEST MAN ALIVE!'}
 ]
 
 app.use(helmet());
