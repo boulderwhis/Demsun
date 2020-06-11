@@ -32,7 +32,7 @@ app.get('/', (req,res)=> {
   //res.sendFile(path.join('/Democratic_Sun.html'));
 });
 
-console.log("dirname: "+dirname);
+//console.log("dirname: "+dirname);
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT)
