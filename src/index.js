@@ -12,7 +12,7 @@ const app = express();
 
 //database entrypoint
 const ads =[
-  {title: 'I AM THE SMARTEST MAN ALIVE!'}
+  {title: 'ETHAN LEAVITT AM THE SMARTEST MAN ALIVE!'}
 ]
 
 app.use(helmet());
@@ -23,14 +23,14 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-router.get('/', function(req,res){
-  res.sendFile(path.join('The-Democratic-Sun', '/Democratic_Sun.html'))
-});
-
-// app.get('/', (req,res)=> {
-//   res.send(ads[0].title);
-//   //res.sendFile(path.join('/Democratic_Sun.html'));
+// router.get('/', function(req,res){
+//   res.sendFile(path.join('The-Democratic-Sun', '/Democratic_Sun.html'))
 // });
+
+app.get('/', (req,res)=> {
+  res.send(ads[0].title);
+  //res.sendFile(path.join('/Democratic_Sun.html'));
+});
 
 
 app.listen(PORT, ()=>{
