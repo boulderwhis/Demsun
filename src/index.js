@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
+const router = express.Router();
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -22,10 +23,15 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-app.get('/', (req,res)=> {
-  //res.send(ads[0].title);
-  res.sendFile(path.join('/Democratic_Sun.html'));
-})
+router.get('/', function(req,res){
+  res.sendFile(path.join('The-Democratic-Sun', '/Democratic_Sun.html'))
+});
+
+// app.get('/', (req,res)=> {
+//   res.send(ads[0].title);
+//   //res.sendFile(path.join('/Democratic_Sun.html'));
+// });
+
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT)
