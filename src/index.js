@@ -23,8 +23,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.send(ads[0].title);
-  res.sendFile(path.join('The-Democratic-Sun'+'/Democratic_Sun.html'));
+  //res.send(ads[0].title);
+  res.sendFile(path.join('/Democratic_Sun.html'));
 })
 
 app.listen(PORT, ()=>{
