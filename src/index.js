@@ -22,7 +22,7 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.send(ads.title);
+  res.send(ads[0].title);
   //res.send('/')
 })
 
