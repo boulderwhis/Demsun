@@ -1,22 +1,22 @@
-const cluster = require('cluster');
-const numCPUs= require('os').cpus().length;
+// const cluster = require('cluster');
+// const numCPUs= require('os').cpus().length;
 
-if(cluster.isMaster) {
-  console.log('Master %s is running', process.pid);
+// if(cluster.isMaster) {
+//   console.log('Master %s is running', process.pid);
 
-  for (i=0; i<numCPUs; i++){
-    cluster.fork();
-  }
+//   for (i=0; i<numCPUs; i++){
+//     cluster.fork();
+//   }
 
-  cluster.on('exit', function(worker) {
+//   cluster.on('exit', function(worker) {
 
-    console.log('Worker %d died :(', worker.id);
-    cluster.fork()
-  });
+//     console.log('Worker %d died :(', worker.id);
+//     cluster.fork()
+//   });
 
 
 
-}else {
+// }else {
 
 
 
@@ -35,8 +35,8 @@ const app = express();
 
 var abs_path_2='The-Democratic-Sun'+'\\app\\';
 
-console.log("\nRoot directory: "+ _dirname+"\n");
-console.log("\nabs_path_2: "+abs_path_2+"\n");
+// console.log("\nRoot directory: "+ _dirname+"\n");
+// console.log("\nabs_path_2: "+abs_path_2+"\n");
 
 //database entrypoint
 const ads =[
@@ -67,4 +67,4 @@ app.listen(PORT, ()=>{
   console.log('listening on port '+PORT)
 });
 
-}
+// }
