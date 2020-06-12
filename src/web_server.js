@@ -53,15 +53,15 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-app.use(express.static(abs_path_2));
+// app.use(express.static(abs_path_2));
 
-app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
+// app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
 
 
-// app.get('/', (req,res)=> {
-//   res.send(ads[0].title);
-//   res.sendFile(path.join('/Democratic_Sun.html'));
-// });
+app.get('/', (req,res)=> {
+  res.send(ads[0].title);
+  res.sendFile(path.join('/Democratic_Sun.html'));
+});
 
 
 app.listen(PORT, ()=>{
