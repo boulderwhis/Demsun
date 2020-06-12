@@ -41,7 +41,15 @@ var abs_path_2='The-Democratic-Sun'+"\\tubular\\";
 
 //database entrypoint
 const ads =[
-  {title: 'ETHAN LEAVITT IS THE SMARTEST MAN ALIVE!'}
+  {title: `<DOCTYPE html>
+              <html>
+                <head>
+                  <div style:"position: center">
+                    ETHAN LEAVITT IS THE SMARTEST MAN ALIVE!
+                  </div>
+      </head>
+  </html>
+  `}
 ]
 
 
