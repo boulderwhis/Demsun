@@ -28,12 +28,12 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
-const router = express.Router();
+// const router = express.Router();
 const PORT = process.env.PORT || 5000
 
 const app = express();
 
-var abs_path_2='The-Democratic-Sun'+'\\app\\';
+var abs_path_2='The-Democratic-Sun'+'/tubular/';
 
 // console.log("\nRoot directory: "+ _dirname+"\n");
 // console.log("\nabs_path_2: "+abs_path_2+"\n");
