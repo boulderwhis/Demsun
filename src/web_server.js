@@ -55,7 +55,7 @@ app.use(morgan('combined'));
 
 app.use(express.static(abs_path_2));
 
-app.get("/",(req,res)=>res.end(fs.readFileSync(abs_path_2)));
+app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
 
 
 // app.get('/', (req,res)=> {
