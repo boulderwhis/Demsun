@@ -38,8 +38,8 @@ console.log(path);
 
 var abs_path_2='The-Democratic-Sun'+"\\tubular\\";
 
-console.log("\nRoot directory: "+ _dirname+"\n");
-console.log("\nabs_path_2: "+abs_path_2+"\n");
+// console.log("\nRoot directory: "+ _dirname+"\n");
+// console.log("\nabs_path_2: "+abs_path_2+"\n");
 
 //database entrypoint
 const ads =[
