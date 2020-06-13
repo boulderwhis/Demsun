@@ -34,22 +34,18 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
+console.log(path);
+
 var abs_path_2='The-Democratic-Sun'+"\\tubular\\";
 
-// console.log("\nRoot directory: "+ _dirname+"\n");
-// console.log("\nabs_path_2: "+abs_path_2+"\n");
+console.log("\nRoot directory: "+ _dirname+"\n");
+console.log("\nabs_path_2: "+abs_path_2+"\n");
 
 //database entrypoint
 const ads =[
-  {title: `<DOCTYPE html>
-              <html>
-                <head>
-                  <div style:"position: center">
-                    ETHAN LEAVITT IS THE SMARTEST MAN ALIVE!
-                  </div>
-      </head>
-  </html>
-  `}
+  {title: 
+                    "ETHAN LEAVITT IS THE SMARTEST MAN ALIVE!"
+}
 ]
 
 
@@ -64,6 +60,7 @@ app.use(morgan('combined'));
 // app.use(express.static(abs_path_2));
 
 // app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
+
 
 
 app.get('/', (req,res)=> {
