@@ -24,8 +24,6 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-app.use(express.static(abs_path_2));
-
 app.get('/', (req,res)=> {
   res.send(ads[0].title);
 });
