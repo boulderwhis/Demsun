@@ -29,7 +29,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
-// const router = express.Router();
+const router = express.Router();
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -57,16 +57,16 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-// app.use(express.static(abs_path_2));
+app.use(express.static(abs_path_2));
 
-// app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
+app.get("/",(req,res)=>res.end(fs.readFileSync("Democratic_Sun.html")));
 
 
 
-app.get('/', (req,res)=> {
-  res.send(ads[0].title);
-  res.sendFile(path.join('/Democratic_Sun.html'));
-});
+// app.get('/', (req,res)=> {
+//   res.send(ads[0].title);
+//   res.sendFile(path.join('Democratic_Sun.html'));
+// });
 
 
 app.listen(PORT, ()=>{
