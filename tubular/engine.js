@@ -4676,9 +4676,7 @@ $(document).ready(function(){
   
   
   //ProPublica API for Rep and Senator DaTaBeGiN
-  $(document).ready(function(
-    
-  ){
+  $(document).ready(function(){
     $('#getdata').click(function() {
       $('#officials').css('display', 'none'),
       $('#about').css('display', 'none')  
