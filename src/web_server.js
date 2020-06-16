@@ -34,7 +34,7 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
-console.log(path.dirname("The-Democratic-Sun"));
+console.log(path.dirname("the-democratic-sun"));
 
 var abs_path_2='The-Democratic-Sun'+"/tubular";
 
