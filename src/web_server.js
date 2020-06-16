@@ -29,7 +29,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
-const demsun = require('./Democratic_Sun')
+// const demsun = require('./Democratic_Sun')
 //const router = express.Router();
 const PORT = process.env.PORT || 5000
 
