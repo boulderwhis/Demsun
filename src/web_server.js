@@ -34,9 +34,9 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
-console.log(path.dirname);
+console.log(path.dirname("The-Democratic-Sun"));
 
-var abs_path_2='The-Democratic-Sun'+"\\tubular\\";
+var abs_path_2='The-Democratic-Sun'+"/tubular";
 
 // console.log("\nRoot directory: "+ _dirname+"\n");
 // console.log("\nabs_path_2: "+abs_path_2+"\n");
