@@ -29,15 +29,14 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
-// const demsun = require('./Democratic_Sun')
+// const demsun = require('./tubular/Democratic_Sun')
 //const router = express.Router();
 const PORT = process.env.PORT || 5000
 
 const app = express();
 
-console.log(path.dirname("the-democratic-sun"));
 
-// var abs_path_2='The-Democratic-Sun'+"/tubular";
+var abs_path_2='The-Democratic-Sun'+"/tubular";
 
 // console.log("\nRoot directory: "+ _dirname+"\n");
 // console.log("\nabs_path_2: "+abs_path_2+"\n");
@@ -60,14 +59,14 @@ app.use(morgan('combined'));
 
 app.use(express.static(abs_path_2));
 
-app.get("/",(req,res)=>res.end(fs.readFileSync("./Democratic_Sun")));
+app.get("/",(req,res)=>res.end(fs.readFileSync("./tubular/Democratic_Sun")));
 
 
 
-app.get('/', (req,res)=> {
-  res.send(ads[0].title);
-  res.sendFile(path.join('./Democratic_Sun.html'));
-});
+// app.get('/', (req,res)=> {
+//   res.send(ads[0].title);
+//   res.sendFile(path.join('./Democratic_Sun.html'));
+// });
 
 
 app.listen(PORT, ()=>{
