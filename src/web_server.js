@@ -37,7 +37,7 @@ app.get('/nick', (req,res)=> {
 
 app.get('/nick:data', (req,res)=> {
   console.log(req,"%o");
-  res.end("Nick is wizard and "+req.url.split("/")[1].toString());
+  res.end("Nick is wizard and "+req.url.split(":")[1].toString());
 });
 
 app.listen(PORT, ()=>{
