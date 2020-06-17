@@ -15,6 +15,9 @@ const ads =[
 }
 ]
 
+console.log("dirname = " +__dirname);
+console.log("path: \n");
+console.log(path,"%o");
 
 app.use(helmet());
 
@@ -29,8 +32,10 @@ app.get('/', (req,res)=> {
 });
 
 
+
 app.listen(PORT, ()=>{
-  console.log('listening on port '+PORT)
+  console.log('listening on port '+PORT);
+  console.log("dirname = " +__dirname);
 });
 
 // }
