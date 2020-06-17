@@ -28,7 +28,7 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.end(ads[0].title);
+  res.send(ads[0].title);
 });
 
 app.get('/nick', (req,res)=> {
