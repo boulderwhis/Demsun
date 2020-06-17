@@ -17,7 +17,7 @@ const ads =[
 
 console.log("dirname = " +__dirname);
 console.log("path: \n");
-console.log(path,"%o");
+//console.log(path,"%o");
 
 app.use(helmet());
 
