@@ -32,11 +32,12 @@ app.get('/', (req,res)=> {
 });
 
 app.get('/nick', (req,res)=> {
-  res.end("Nick is wizard");
-});
+  res.end("Nick is wizard 2");
+});3
 
 app.get('/nick:data', (req,res)=> {
-  res.end("Nick is wizard and "+req.url.split("/")[2].toString());
+  console.log(req,"%o");
+  res.end("Nick is wizard and "+req.url.toString());
 });
 
 app.listen(PORT, ()=>{
