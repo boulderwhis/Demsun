@@ -28,10 +28,12 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.send(ads[0].title);
+  res.end(ads[0].title);
 });
 
-
+app.get('/nick', (req,res)=> {
+  res.end("Nick is wizard");
+});
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT);
