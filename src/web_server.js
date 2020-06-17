@@ -35,7 +35,7 @@ app.get('/nick', (req,res)=> {
   res.end("Nick is wizard 2");
 });3
 
-app.get('/nick/data', (req,res)=> {
+app.get('/nick:data', (req,res)=> {
   console.log(req,"%o");
   res.end("Nick is wizard and "+req.url.split("/")[1].toString());
 });
