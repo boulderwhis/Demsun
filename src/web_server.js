@@ -35,6 +35,10 @@ app.get('/nick', (req,res)=> {
   res.end("Nick is wizard");
 });
 
+app.get('/nick:data', (req,res)=> {
+  res.end("Nick is wizard and "+req.body);
+});
+
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT);
   console.log("dirname = " +__dirname);
