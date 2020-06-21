@@ -28,7 +28,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.send(ads[0].title);
+  res.end(ads[0].title);
+  res.end('./Democratic_Sun')
 });
 
 app.get('/nick', (req,res)=> {
@@ -39,6 +40,7 @@ app.get('/nick:data', (req,res)=> {
   console.log(req,"%o");
   res.end("Nick is wizard and "+req.url.split(":")[1].toString());
 });
+
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT);

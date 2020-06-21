@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta charset="utf-8">
+   <meta name= "viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="Lobby the Federal Government" content="">
+   <meta name="The Democratic Sun" content="">
+   
+   <title>The Democratic Sun</title>
+    <link rel="icon" type="image/png" href="pics/Sun.png">
+   <!-- Bootsrap core Css -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css"  href="style.css">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="engine.js"></script>
+
+
+
+  </head>
+
+
+<body> 
+  <!-- CSS -->
+  <style>
+
+    </style>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
+  <a class="navbar-brand" id="NavbarLogo"><img id="logo" src="pics/Logo.PNG" width="20" height="20">The Democratic Sun</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" id="About">About<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="getdata">Your Reps</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link" id="Contact">Contact</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Data Bitch!" aria-label="Search">
+      <button id="search" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<div class="bg">
+  <!-- Page Content -->
+    <div id="map"></div>
+  <script>
+  </script>
+
+
+<!-- HTML DIVS -->
+
+  <div class="container">
+    <div class="column">
+      <div class="col-lg-12 text-center">
+          <div class="row justify-content-center">
+                <div class="col-md-6" id="D"></div>
+                <div class="col-md-6" id="R"></div>
+          </div>
+          <div id="carousel"></div>
+          <div id="caroucontent"></div>
+          <div id="inf">
+           
+            </div>
+
+          </div>
+                      <!-- Committee & Subcommittee Data Buttons -->
+          
+          <div id="repcontent">
+            <div class="jumbotron text-center">
+              <h7 class="display-">NERD ALERT!</h7>
+          </div>
+          <div id="load">
+              <img src="pics/loading.gif" alt="Loading....">
+          </div>
+                  <div class="row">
+                  <div class="col-md-6" id="sen1"></div>
+                  <div class="col-md-6" id="sen1data">
+                    <div id="sen1table"></div>
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Committees
+                      </button>
+                      <div id="sen1committeedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      </div>
+                  </div>
+      
+                  <div class="dropdown">
+                    <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Subcommittees
+                    </button>
+                    <div id="sen1subcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    </div>
+                  </div>
+      
+                  </div>
+            </div>
+
+          <div class="row">
+            <div class="col-md-6" id="sen2"></div>
+            <div class="col-md-6" id="sen2data">
+              <div id="sen2table"></div>
+              <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Committees
+                </button>
+                <div id="sen2committeedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Subcommittees
+              </button>
+              <div id="sen2subcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              </div>
+            </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" id="rep"></div>
+            <div class="col-md-6" id="repdata">
+              <div id="reptable"></div>
+              <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Committees
+                </button>
+                <div id="repcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                </div>
+            </div>
+
+            <div class="dropdown">
+              <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Subcommittees
+              </button>
+              <div id="repsubcommitteedatabutton" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              </div>
+            </div>
+
+          </div>
+          </div>
+        </div>
+      
+            
+            
+            <div id="home"> <!--HOME BUTTON CONTENT -->
+              <div class="jumbotron text-center">
+                  <h7 class="display-1">Lobby</h7>
+              </div>
+            <img class="d-block w-100" src="pics/Pentago.PNG" alt="First slide">
+            <p class="lead">
+              What's up human person. Looking to lobby the federal government ? Then you've come to the right place.
+              Click the big white button below to get started. Ya fuckin fuck.
+
+            </p>
+		    
+
+            <p class="lead">
+              Furthermore, let's work on developing a true and succinct statement of purpose. Some animations in this div could do wonders as well
+              maybe we make an iframe and set a link to a video or something? CHECK IT OUT
+
+            </p>
+		    <!-- <h1>My First JavaScript</h1>
+			<p id="demo"></p>
+			<button onclick="SendRequest('path1')">Get data path1</button>
+			<button onclick="SendRequest('path2')">Get data path2</button> -->
+          </div>
+          <div id="plan"> <!--PLAN BUTTON CONTENT-->
+          <h1>Plan Starts Here</h1>
+          <p> </p>
+          </div>
+          <div id="about"> <!--PLAN BUTTON CONTENT-->
+            <div class="jumbotron text-center">
+              <h7 class="display-1">ABOUT US YOU BITCH</h7>
+          </div>
+          <p class="lead">Over the past decade the ability of the People to influence public
+            policy has been greatly diminished due to the increased presence and legal abilities
+            of special interest groups. This monetary influence has lead to the over represenation
+            of corporate interests and under represenation of the collective will. This tool aims 
+            to correct that imbalance by providing, for the user, an issue based data-driven solution.
+            When you choose an issue to become an engaged in your small donation will be automatically
+            added to a pool of other donations and diseminated out to influence those individuals in 
+            Congress that have a proven track record of fighting for it; or it may be used in an effort
+            to decrease the volume of those that fight against it by contributing directly to the 
+            campaign chests of those running against them.
+          </p>
+          <p class="lead">
+            Here's where the beginning of this idea began to take shape. As an intern on the Hill, one of our contributors noticed 
+            a real imbalance in the amount of time senators and reps spent with members of the lobbying community. Recognizing this
+            imbalance was only the first step in what would become a half decade of contemplation and self guided learning to design
+            and fund what you see before you today.
+          </p>
+          <p class="lead">
+            So enjoy and thanks for checking us out!
+          </p>
+           </div>
+           <div id="contact"> <!--CONTACT BUTTON CONTENT-->
+             <h1>Looking to Get in Touch?</h1>
+             <p class="lead">
+               Here's the thing. I'M THE BEST THERE IS.
+             </p>
+           </div>
+           <div > <!--LOBBY BUTTON-->
+           <button id = "getlobbydata" type="button" class="btn btn-primary btn-lg btn-block">See Your Plan</button>
+            </div>
+           
+          <div style="padding-top: 2%;" id="lobby">  <!--LOBBY CONTENT-->
+            <div class="jumbotron text-center">
+              <h4 class="display-1">ISSUES</h4>
+            </div>
+            <div class="row justify-content-center">
+                <p2>ISSUES UPDATED WEEKLY</p2>
+            </div>
+      </div>
+
+                                      <!-- CARDS  -->
+        <div id = "content" class="text-center">
+        <div id = "cards">
+        <p class="lead>">
+        </p>
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Campaign Finance Reform</h5>
+                  <p1 class="card-text">The ability of special interests to corrupt our democracy must end.</p1>
+                  <a id="CampaignFinanceReform" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Campaign Finance Reform')">Engage Now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card bg-light mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Build the Wall</h5>
+                  <p1 class="card-text">Our borders are important. Fight the flow of illegal immigration.</p1>
+                  <a id="BuildtheWall" class="align-self-end btn btn-sm btn-block btn-primary" onclick= "zz('Build the Wall')">Engage Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+              <div class="col-sm-6">
+                <div class="card bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Medicare for All</h5>
+                    <p1 class="card-text">Otherwise known as Free Healthcare, a healthy life is a human right that we should guarantee.</p1>
+                    <a id="MedicareforAll" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Medicare for All');" >Engage Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="card bg-light mb-3">
+                  <div class="card-body">
+                    <h5 class="card-title">Gun Rights</h5>
+                    <p1 class="card-text">The only thing stopping a bad guy with a gun is a good guy with one. Arm the children. Arm the animals.</p1>
+                    <a id="GunRights" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Gun Rights');">Engage Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Free Collegiate Education</h5>
+                      <p1 class="card-text">A college degree is crucial for sucess in a modern economy and shouldn't require lifelong debt.</p1>
+                      <a id="FreeCollegiateEducation" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Free Collegiate Education');">Engage Now</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="card bg-light mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Small Business Tax Reduction</h5>
+                      <p1 class="card-text">Our nations small business' are the backbone of our economy and should be taxed accordingly.</p1>
+                      <a id="SmallBusinessTaxReduction" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Small Business Tax Reduction');">Engage Now</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">The Green New Deal</h5>
+                        <p1 class="card-text">Climate Change is the largest threat ever posed to mankind and should be challenged aggressively.</p1>
+                        <a id="TheGreenNewDeal" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('The Green New Deal');">Engage Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                      <div class="card-body">
+                        <h5 class="card-title">Clean Coal Initiatives</h5>
+                        <p1 class="card-text">The only realistic means of powering our economy lie underground. Clean coal tech convinces the libtards.</p1>
+                        <a id="CleanCoalInitiatives" class="align-self-end btn btn-sm btn-block btn-primary"onclick = "zz('Clean Coal Initiatives');">Engage Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                      <div class="card bg-light mb-3">
+                        <div class="card-body">
+                          <h5 class="card-title">Corporate Inversion Penalties</h5>
+                          <p1 class="card-text">The days of Multinational Coporations paying no taxes by parking their profits overseas must come to an end.</p1>
+                          <a id="CorporateInversionPenalties" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Corporate Inversion Penalties');">Engage Now</a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="card bg-light mb-3">
+                        <div class="card-body">
+                          <h5 class="card-title">Corporate Tax Reductions</h5>
+                          <p1 class="card-text">Your a retard if you think that reducing taxes on the wealthiest corporations on Earth will help you.</p1>
+                          <a id="CorporateTaxReductions" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Corporate Tax Reductions');">Engage Now</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-sm-6">
+                        <div class="card bg-light mb-3">
+                          <div class="card-body">
+                            <h5 class="card-title">Abolish the Death Penalty</h5>
+                            <p1 class="card-text">Collective execution is barbaric and shouldn't be a part of a modern society.</p1>
+                            <a id="AbolishtheDeathPenalty" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Abolish the Death Penalty');">Engage Now</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="card bg-light mb-3">
+                          <div class="card-body">
+                            <h5 class="card-title">Pro Death Penalty</h5>
+                            <p1 class="card-text">Executing a murderer is the appropriate punishment for taking an innocent life. Eye for an Eye.</p1>
+                            <a id="ProDeathPenalty" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Pro Death Penalty');">Engage Now</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card bg-light mb-3">
+                            <div class="card-body">
+                              <h5 class="card-title">Seperate Church and State</h5>
+                              <p1 class="card-text">Religious expressionism has no place in our government, schools, or official documentation.</p1>
+                              <a id="SeperateChurchandState" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Seperate Church and State');">Engage Now</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card bg-light mb-3">
+                            <div class="card-body">
+                              <h5 class="card-title">Religious Expression</h5>
+                              <p1 class="card-text">The First Amendment doesn't prevent the acknowledgement of God in schools and government buildings.</p1>
+                              <a id="ReligiousExpression" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Religious Expression');">Engage Now</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="col-sm-6">
+                            <div class="card bg-light mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title">Same-Sex Marriage</h5>
+                                <p1 class="card-text">All individuals, regardless of their sexual or gender orientation, should be able to marry.</p1>
+                                <a id="Same-SexMarriage" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Same-Sex Marriage');">Engage Now</a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card bg-light mb-3">
+                              <div class="card-body">
+                                <h5 class="card-title">The Sanctity of Marriage</h5>
+                                <p1 class="card-text">Marriage is between one man and one woman in accordance with Christian values.</p1>
+                                <a id="TheSanctityofMarriage" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('The Sanctity of Marriage');">Engage Now</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                              <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                  <h5 class="card-title">Universal Basic Income</h5>
+                                  <p1 class="card-text">Increased automation in all sectors of our economy are going to result in a jobless economy.</p1>
+                                  <a id="UniversalBasicIncome" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Universal Basic Income');">Engage Now</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="card bg-light mb-3">
+                                <div class="card-body">
+                                  <h5 class="card-title">The Welfare State</h5>
+                                  <p1 class="card-text">Regardless of economic or physiological factors, each person should make their own cash.</p1>
+                                  <a id="TheWelfareState" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('The Welfare State');">Engage Now</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                              <div class="col-sm-6">
+                                <div class="card bg-light mb-3">
+                                  <div class="card-body">
+                                    <h5 class="card-title">The War on Terror</h5>
+                                    <p1 class="card-text">The threat posed by terrorism has been exaggerated by officials for their own political advantage.</p1>
+                                    <a id="TheWaronTerror" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('The War on Terror');">Engage Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="card bg-light mb-3">
+                                  <div class="card-body">
+                                    <h5 class="card-title">America is Under-Attack</h5>
+                                    <p1 class="card-text">Militant Islamists around the globe pose a growing threat to Western safety and economic prosperity.</p1>
+                                    <a id="AmericaisUnder-Attack" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('America is Under-Attack');">Engage Now</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card bg-light mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">End Voter Suppression</h5>
+                                      <p1 class="card-text">Gerrymandering has turned our electoral districts into undiverse pods designed to subvert democracy and consolidate power.</p1>
+                                      <a id= "EndVoterSuppression" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('End Voter Suppression');">Engage Now</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="card bg-light mb-3">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Stop Illegals from Voting</h5>
+                                      <p1 class="card-text">Voter ID laws ensure that the interests of the American citizen are accurately available for representatino and combat vote tampering.</p1>
+                                      <a id= "StopIllegalsfromVoting" class="align-self-end btn btn-sm btn-block btn-primary" onclick = "zz('Stop Illegals from Voting')">Engage Now</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+</div>
+        </div>
+        <div  id="firstcontent">
+          <button id="officials" type="button" class="btn btn-primary btn-lg btn-block">Start Now</button>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+<!--Bootstrap JS-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<!--Google APIs-->
+<script sync defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk&callback=initMap">
+        </script>
+    <script sync defer
+        src="https://apis.google.com/js/client.js?onload=load">
+        </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark">
+
+  <!-- Footer Elements -->
+
+    <!-- Call to action -->
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+      <h8>Register for Free</h8>
+    </div>
+    <div class="col-sm-4">
+      <li class="list-inline-item">
+        <a id="officials" class="btn btn-primary btn-rounded" href="#!" >Sign up!</a>
+      </li>
+    </div>
+    </div>
+    <!-- Call to action -->
+
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div id="footer2" class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/boulderwhis/The-Democratic-Sun">The Democratic Sun Project</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+  
+    </body>
+  </html>
