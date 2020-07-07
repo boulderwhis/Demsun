@@ -34,7 +34,11 @@ app.get('/', (req,res)=> {
 
 app.get('/nick', (req,res)=> {
   res.end("Nick is wizard 2");
-});3
+});
+
+app.get('/tiffany', (req,res)=>{
+  res.end("Yo Tiffany! Ethan says Hello :)");
+})
 
 app.get('/nick:data', (req,res)=> {
   console.log(req,"%o");
