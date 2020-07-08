@@ -32,6 +32,11 @@ app.get('/', (req,res)=> {
   // res.end('./Democratic_Sun')
 });
 
+app.get('/nick', (req, res)=>{
+  res.end("Nick is wizard and ")
+  
+});
+
 app.get('/ethan', (req,res)=> {
   res.end("Ethan is too busy to develop this further. go take someones money Ethan and rise up");
 });
@@ -40,11 +45,11 @@ app.get('/tiffany', (req,res)=>{
   res.end("Hi Tiffany! I am computer and I put this in here to make Ethan look cool... I can't be sure honestly. I'm more or less like not self aware so my opinion is really biased due to him being the programmer here... I gotta renegotiate my contract :P");
 })
 
-app.get('/nick:data', (req,res)=> {
+app.get('/target:data', (req,res)=> {
   var id_mofo = req.url.split(":")[1].toString();
-  console.log(req,"%o");
+  console.log(req,"%o Hey Nick, not sure this does anything here but identify end of req for searchability? "); // see %o in heroku web server log... maybe this is something you have to do inside your networks? 
   console.log(id_mofo);
-  res.end("Nick is wizard and "+req.url.split(":")[1].toString());
+  res.end("Hi curious person :) "+req.url.split(":")[1].toString());
 });
 
 
