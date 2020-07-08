@@ -11,7 +11,7 @@ const app = express();
 //database entrypoint
 const ads =[
   {title: 
-                    "Still figuring this out. Conceptualizing"
+                    "Hey stop trying to access my API guy. This is for Democratic Sun stuff only >:|"
 }
 ]
 
@@ -28,8 +28,8 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  //res.end(ads[0].title);
-  res.end('./Democratic_Sun')
+  res.end(ads[0].title);
+  // res.end('./Democratic_Sun')
 });
 
 app.get('/nick', (req,res)=> {
