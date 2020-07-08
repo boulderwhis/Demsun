@@ -37,7 +37,7 @@ app.get('/nick', (req,res)=> {
 });
 
 app.get('/tiffany', (req,res)=>{
-  res.end("Yo Tiffany! Ethan says Hello :)");
+  res.end("Hi Tiffany! I am computer and I put this in here to make Ethan look cool...how am I doing? :)");
 })
 
 app.get('/nick:data', (req,res)=> {
