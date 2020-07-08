@@ -32,8 +32,8 @@ app.get('/', (req,res)=> {
   // res.end('./Democratic_Sun')
 });
 
-app.get('/nick', (req,res)=> {
-  res.end("Nick is wizard 2");
+app.get('/ethan', (req,res)=> {
+  res.end("Ethan is too busy to develop this further. go take someones money Ethan and rise up");
 });
 
 app.get('/tiffany', (req,res)=>{
@@ -41,7 +41,7 @@ app.get('/tiffany', (req,res)=>{
 })
 
 app.get('/nick:data', (req,res)=> {
-  var id_mofo = req.url.split(":")[1].toString*("");
+  var id_mofo = req.url.split(":")[1].toString();
   console.log(req,"%o");
   console.log(id_mofo);
   res.end("Nick is wizard and "+req.url.split(":")[1].toString());
