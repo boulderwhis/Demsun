@@ -41,8 +41,8 @@ app.get('/ethan', (req,res)=> {
   res.end("Ethan is too busy to develop this further. go take someones money Ethan and rise up");
 });
 
-app.get('/tiffanie', (req,res)=>{
-  res.end("Hi Tiffany! I am Ethan's Node saying what's up from a web server :)");
+app.get('/Tiffanie', (req,res)=>{
+  res.end("Hi Tiffanie! I am Ethan's Node saying what's up from a web server :)");
 })
 
 app.get('/target:data', (req,res)=> {
