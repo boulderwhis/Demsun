@@ -42,7 +42,7 @@ app.get('/ethan', (req,res)=> {
 });
 
 app.get('/tiffanie', (req,res)=>{
-  res.end("Hi Tiffany! I am a Ethan's Node saying what's up from a web server :)");
+  res.end("Hi Tiffany! I am Ethan's Node saying what's up from a web server :)");
 })
 
 app.get('/target:data', (req,res)=> {
