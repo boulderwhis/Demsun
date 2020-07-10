@@ -34,15 +34,15 @@ app.get('/', (req,res)=> {
 
 app.get('/nick', (req, res)=>{
   res.end("Nick is wizard and ")
-  
+
 });
 
 app.get('/ethan', (req,res)=> {
   res.end("Ethan is too busy to develop this further. go take someones money Ethan and rise up");
 });
 
-app.get('/tiffany', (req,res)=>{
-  res.end("Hi Tiffany! I am computer and I put this in here to make Ethan look cool... I can't be sure honestly. I'm more or less like not self aware so my opinion is really biased due to him being the programmer here... I gotta renegotiate my contract :P");
+app.get('/tiffanie', (req,res)=>{
+  res.end("Hi Tiffany! I am a Ethan's Node saying what's up from a web server :)");
 })
 
 app.get('/target:data', (req,res)=> {
