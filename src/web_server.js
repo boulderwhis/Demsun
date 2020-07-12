@@ -29,9 +29,9 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-//var abs_path_2_all_linked_index_html_files = '\\app\\src\\';
+var abs_path_2_all_linked_index_html_files = '\\app\\src\\';
 //app.use(express.static('\\app\\'));
-//app.use(express.static(abs_path_2_all_linked_index_html_files));
+app.use(express.static(abs_path_2_all_linked_index_html_files));
 
 app.get('/', (req,res)=> {
 
