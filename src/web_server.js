@@ -48,7 +48,7 @@ var abs_path_2_all_linked_index_html_files = '\\app\\src\\';
 
 app.use(express.static('\\app\\'));
 app.use(express.static(abs_path_2_all_linked_index_html_files));
-app.get("/",(req, res) => res.end(fs.readFileSync("Democratic_Sun.html")));
+app.get("/",(req, res) => res.end(fs.readFileSync("/Democratic_Sun.html")));
 
 app.get('/nick', (req, res)=>{
   res.end("Nick is wizard and ")
