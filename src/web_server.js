@@ -42,6 +42,18 @@ app.get('/', (req,res)=> {
      return res.end();
    });
 
+   fs.readFile('/app/src/style.css', function(err, data){
+    res.writeHead(200, {'Content-Type': 'text/css'});
+    res.write(data);
+   return res.end();
+   });
+
+   fs.readFile('/app/src/engine.js', function(err, data){
+    res.writeHead(200, {'Content-Type': 'text/js'});
+    res.write(data);
+   return res.end();
+   });
+
  //})
 
  //res.end(ads[0].title);
