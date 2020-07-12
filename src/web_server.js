@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const path = require('path');
 const PORT = process.env.PORT || 5000
 const app = express();
+var fs = require('fs');
+var http = require('http');
 
 
 //database entrypoint
@@ -28,7 +30,16 @@ app.use(cors());
 app.use(morgan('combined'));
 
 app.get('/', (req,res)=> {
-  res.end(ads[0].title);
+  http.createServer(function(req, res) {
+    fs.readFile('/app/src/Democratic_Sun.html', function(err, data){
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(data);
+      return res.end();
+    });
+
+  })
+
+  //res.end(ads[0].title);
   // res.end('./Democratic_Sun')
 });
 
