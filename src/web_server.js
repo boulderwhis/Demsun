@@ -29,7 +29,7 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-var abs_path_2_all_linked_index_html_files = '\\app\\src\\';
+var abs_path_2_all_linked_index_html_files = '/app/src/';
 //app.use(express.static('\\app\\'));
 app.use(express.static(abs_path_2_all_linked_index_html_files));
 
@@ -42,17 +42,6 @@ app.get('/', (req,res)=> {
      return res.end();
    });
 
-   fs.readFile('/app/src/style.css', function(err, data){
-    res.writeHead(200, {'Content-Type': 'text/css'});
-    res.write(data);
-   return res.end();
-   });
-
-   fs.readFile('/app/src/engine.js', function(err, data){
-    res.writeHead(200, {'Content-Type': 'text/js'});
-    res.write(data);
-   return res.end();
-   });
 
  //})
 
@@ -61,7 +50,10 @@ app.get('/', (req,res)=> {
 });
 
 
-//app.get("/",(req, res) => res.end(fs.readFileSync("/Democratic_Sun.html")));
+
+app.get("/engine.js",(req, res) => res.end(fs.readFileSync(abs_path_2_all_linked_index_html_files+"engine.js")));
+app.get("/style.css",(req, res) => res.end(fs.readFileSync(abs_path_2_all_linked_index_html_files+"style.css")));
+
 
 app.get('/nick', (req, res)=>{
   res.end("Nick is wizard and ")
