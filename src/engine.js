@@ -3921,90 +3921,15 @@ $(document).ready(function(){
                   $('#home').css('display', 'none')
                   $('#about').css('display', 'none')
                   $('#contact').css('display', 'none')
-                   if(typeof globalStringAddress !=='undefined') {
                     $.getJSON("https://www.googleapis.com/civicinfo/v2/representatives?address="+globalStringAddress+"&key=AIzaSyBwA2-va1J2oaO3IhPn2xqItnyUyhkfkqk", function(result){
                       window.localStorage.setItem('Senator1', result.officials[2].name),
                       window.localStorage.setItem('Senator2', result.officials[3].name),
                       window.localStorage.setItem('Rep', result.officials[4].name),
                       Senator1= result.officials[2].name,
                       Senator2= result.officials[3].name,
-                      Rep= result.officials[4].name,
-                      $.each(result.officials , function(k , v){
-                      $("#lobby").append(
-                      //  v.name +' - '+ v.address[0].line1 + " and ",
-                      );
-                  });
+                      Rep= result.officials[4].name
       });
-                    }else {
-                      $("#lobby").css(
-                      'display', 'none'
-                      )
-                      window.localStorage.setItem('Address', ' Failure');
-                      q= "WHAT DID YOU DO";
-                      headerphoto1='Sweet Fancy Moses';
-                      captionphoto1='Local person breaks coolest thing to happen to the internet since people realized you could point cameras at cats. (Also yes good boy dog woof bark yes) ';
-                      linkphoto1='https://media.giphy.com/media/Pk20jMIe44bHa/giphy.gif';
-                      headerphoto2='Shame brought to local persons family';
-                      captionphoto2='Shame today ladies and gents. Pure shame. Bill Murray level shame was brought down upon a local family after someone broke the DS all but ensuring the apocalypse';
-                      linkphoto2='https://media.giphy.com/media/jEkFtJMJuNTgc/giphy.gif';
-                      headerphoto3='Christmas cancelled after reckless actions of local internet consumer';
-                      captionphoto3='Santa just called us and said your actions are reprehensable. With Christmas out the window he will now consult with the Easter bunny about a possible withdrawal';
-                      linkphoto3='https://heavyeditorial.files.wordpress.com/2018/12/GettyImages-1074396864.jpg?quality=65&strip=all';
-                      var cstrap = {
-              code:  '<div class="column">' +
-            '<div class="col-lg-12 text-center">' +
-              '<h1 class="mt-5">'+q+'</h1>'+
-              '<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">' +
-                      '<ol class="carousel-indicators">'+
-                        '<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>' +
-                        '<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>' +
-                        '<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>' +
-                      '</ol>' +
-                      '<div class="carousel-inner">' +
-                        '<div class="carousel-item active">' +
-                              '<div class="carousel-caption d-none d-md-block">' +
-                                      '<h5>'+headerphoto1+'</h5>' +
-                                      '<p1>'+captionphoto1+'</p1>' +
-                              '</div>' +
-                          '<img class="d-block w-100" src="'+linkphoto1+'" alt="First slide">' +
-                        '</div>' +
-                        '<div class="carousel-item">' +
-                              '<div class="carousel-caption d-none d-md-block">'+
-                                      '<h5>'+headerphoto2+'</h5>'+
-                                      '<p1>'+captionphoto2+'</p1>'+
-                              '</div>'+
-                          '<img class="d-block w-100" src="'+linkphoto2+'" alt="Second slide">'+
-                        '</div>'+
-                        '<div class="carousel-item">'+
-                              '<div class="carousel-caption d-none d-md-block">'+
-                                      '<h5>'+headerphoto3+'</h5>'+
-                                      '<p1>'+captionphoto3 +'</p1>'+
-                              '</div>'+
-                          '<img class="d-block w-100" src="'+linkphoto3+'" alt="Third slide">' +
-                        '</div>'+
-                      '</div>'+
-                      '<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">'+
-                        '<span class="carousel-control-prev-icon" aria-hidden="true"></span>'+
-                        '<span class="sr-only">Previous</span>'+
-                      '</a>'+
-                      '<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">'+
-                        '<span class="carousel-control-next-icon" aria-hidden="true"></span>'+
-                        '<span class="sr-only">Next</span>'+
-                      '</a>'+
-              '</div>'
-              };
-                      var u1 = cstrap.code;
-                      document.getElementById("carousel").innerHTML=u1;
-                      $('#carousel').fadeIn(2000);
-                      $('#caroucontent').fadeIn(2000);
-                      var u = {
-                      rhetoric: `Sorry folks. It looks like we've had some trouble on our end. Try heading back to the Home page and selecting your issue again
-                                 or email eleavit1@kent.edu and we'll look into it as soon as possible. Thanks again for visiting`,
-                      sarcasm: "Also, we know what the error was now. It was your fault. Nice job. You've ruined it for everyone"
-                      };
-                      document.getElementById("content").innerHTML=u.rhetoric;
-                      $('#content').fadeIn(2000);
-       }
+                    
     });
   });
   
