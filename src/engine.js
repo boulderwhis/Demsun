@@ -4825,9 +4825,10 @@ $(document).ready(function(){
                 )
               } else{
                 $('#sen1subcommitteedatabutton').append(
-                  '<a class="dropdown-item" onclick="oo('+"null, "+"'"+subcommittee+"'"+')">'+subcommittee+'</a>',  
-              }
-              )
+                  '<a class="dropdown-item" onclick="oo('+"null, "+"'"+subcommittee+"'"+')">'+subcommittee+'</a>', 
+                )
+              };
+              
             }
         };
         jj();
