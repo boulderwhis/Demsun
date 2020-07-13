@@ -4823,9 +4823,10 @@ $(document).ready(function(){
                     '<a class="dropdown-item" onclick="oo('+"null, "+"'"+cleaned+"'"+')">'+subcommittee+'</a>',
 
                 )
+              } else{
+                $('#sen1subcommitteedatabutton').append(
+                  '<a class="dropdown-item" onclick="oo('+"null, "+"'"+subcommittee+"'"+')">'+subcommittee+'</a>',  
               }
-              $('#sen1subcommitteedatabutton').append(
-                '<a class="dropdown-item" onclick="oo('+"null, "+"'"+subcommittee+"'"+')">'+subcommittee+'</a>',
               )
             }
         };
