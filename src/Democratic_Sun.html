@@ -8,7 +8,9 @@
    
    <title>The Democratic Sun</title>
     <link rel="icon" type="image/png" href="pics/Sun.png">
-   <!-- Bootsrap core Css -->
+   <!-- Bootsrap core Css -->`
+   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" type="text/css"  href="/style.css">
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -17,13 +19,11 @@
    <link rel="shortcut icon" href="pics/Sun.png" />
 
   </head>
-
+  <script>
+    AOS.init();
+  </script>
 
 <body> 
-  <!-- CSS -->
-  <style>
-
-    </style>
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
@@ -40,9 +40,11 @@
       <li class="nav-item">
         <a class="nav-link" id="getdata">Your Reps</a>
       </li>
-    
       <li class="nav-item">
         <a class="nav-link" id="Contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="Sources">Sources</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -197,10 +199,8 @@
             campaign chests of those running against them.
           </p>
           <p class="lead">
-            Here's where the beginning of this idea began to take shape. As an intern on the Hill, one of our contributors noticed 
-            a real imbalance in the amount of time senators and reps spent with members of the lobbying community. Recognizing this
-            imbalance was only the first step in what would become a half decade of contemplation and self guided learning to design
-            and fund what you see before you today.
+            This is the proof of concept vehicle for the client facing side of that idea. Bear with us
+            as we build it out and 
           </p>
           <p class="lead">
             So enjoy and thanks for checking us out!
@@ -232,6 +232,7 @@
         <p class="lead>">
         </p>
         <div class="row">
+          <div data-aos="fade-right">
             <div class="col-sm-6">
               <div class="card bg-light mb-3">
                 <div class="card-body">
@@ -241,6 +242,7 @@
                 </div>
               </div>
             </div>
+          </div>
             <div class="col-sm-6">
               <div class="card bg-light mb-3">
                 <div class="card-body">
