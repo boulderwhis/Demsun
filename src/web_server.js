@@ -68,11 +68,5 @@ app.get('/target:data', (req,res)=> {
 
 app.listen(PORT, ()=>{
   console.log('listening on port '+PORT);
-  console.log("dirname = " +__dirname);
+  // console.log("dirname = " +__dirname);
 });
-
-
-
-
-
-// }
