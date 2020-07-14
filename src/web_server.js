@@ -11,16 +11,6 @@ var http = require('http');
 
 
 //database entrypoint
-const ads =[
-  {title: 
-                    "Hey stop trying to access my API guy. This is for Democratic Sun stuff only >:|"
-}
-]
-
-console.log("dirname = " +__dirname);
-console.log("path: \n");
-//console.log(path,"%o");
-
 app.use(helmet());
 
 app.use(bodyParser.json());
@@ -29,9 +19,9 @@ app.use(cors());
 
 app.use(morgan('combined'));
 
-var abs_path_2_all_linked_index_html_files = '/app/src/';
-//app.use(express.static('\\app\\'));
-app.use(express.static(abs_path_2_all_linked_index_html_files));
+var path_2 = '/app/src/';
+
+app.use(express.static(path_2));
 
 app.get('/', (req,res)=> {
 
@@ -51,8 +41,8 @@ app.get('/', (req,res)=> {
 
 
 
-app.get("/engine.js",(req, res) => res.end(fs.readFileSync(abs_path_2_all_linked_index_html_files+"engine.js")));
-app.get("/style.css",(req, res) => res.end(fs.readFileSync(abs_path_2_all_linked_index_html_files+"style.css")));
+app.get("/engine.js",(req, res) => res.end(fs.readFileSync(path_2+"engine.js")));
+app.get("/style.css",(req, res) => res.end(fs.readFileSync(path_2+"style.css")));
 
 
 app.get('/nick', (req, res)=>{
