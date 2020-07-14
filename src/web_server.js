@@ -24,19 +24,11 @@ var path_2 = '/app/src/';
 app.use(express.static(path_2));
 
 app.get('/', (req,res)=> {
-
-  //http.createServer(function(req, res) {
     fs.readFile('/app/src/Democratic_Sun.html', function(err, data){
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(data);
      return res.end();
    });
-
-
- //})
-
- //res.end(ads[0].title);
- // res.end('./Democratic_Sun')
 });
 
 
@@ -46,17 +38,13 @@ app.get("/style.css",(req, res) => res.end(fs.readFileSync(path_2+"style.css")))
 
 
 app.get('/nick', (req, res)=>{
-  res.end("Nick is wizard and ")
+  res.end("Nick is wizard and also a huge bitch ")
 
 });
 
 app.get('/ethan', (req,res)=> {
-  res.end("Ethan is too busy to develop this further. go take someones money Ethan and rise up");
+  res.end("Ethan is the smartest man alive");
 });
-
-app.get('/Tiffanie', (req,res)=>{
-  res.end("Hi Tiffanie! I am Ethan's Node saying what's up from a web server :)");
-})
 
 app.get('/target:data', (req,res)=> {
   var id_mofo = req.url.split(":")[1].toString();
