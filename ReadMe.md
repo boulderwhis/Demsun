@@ -1,2 +1,2 @@
 # The Democratic Sun
-an app that uses microdonations to from individual citizens to lobby the federal govt
+an app that uses microdonations from individual citizens to lobby the federal govt
